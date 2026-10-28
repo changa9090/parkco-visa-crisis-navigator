@@ -380,21 +380,26 @@
       `• Notice Date: ${noticeDate} | Current Visa Status: ${subStatus}`,
       `• Target Visa (Section 48 Check): ${s48Target}`,
       `• Primary Waiver / Legal Issue: ${wvIssue}`,
-      `• Urgent Legal Representation: Park & Co Lawyers (enquiry@parkcolawyers.com)`
+      `• Urgent Legal Representation: Park & Co Lawyers (https://parklawyers.com.au/links/)`
     ].join("\n") : [
       "=== [PNC Legal Pty Ltd t/a Park & Co Lawyers | 호주 비자 거절·취소·Section 48·ART 긴급 진단서] ===",
       `• 처분/통지 유형: ${decType}`,
       `• 통지서 수신일: ${noticeDate} | 현재 비자 상태: ${subStatus}`,
       `• Section 48 희망 전환 비자: ${s48Target}`,
       `• 주요 법적 쟁점(Waiver): ${wvIssue}`,
-      `• 긴급 법률 대리 문의: Park & Co Lawyers (enquiry@parkcolawyers.com)`
+      `• 긴급 법률 대리 문의: Park & Co Lawyers (https://parklawyers.com.au/links/?lang=ko)`
     ].join("\n");
 
     previewEl.textContent = text;
     if (emailBtn) {
-      const subject = encodeURIComponent(`[Urgent Refusal/Cancellation/ART] Notice ${noticeDate} — ${decType.slice(0, 28)}`);
-      const body = encodeURIComponent(text + "\n\n[IMPORTANT: Please attach the Department Decision Record / NOICC PDF to this email.]\n");
-      emailBtn.href = `mailto:enquiry@parkcolawyers.com?subject=${subject}&body=${body}`;
+      emailBtn.href = en ? "https://parklawyers.com.au/links/" : "https://parklawyers.com.au/links/?lang=ko";
+      emailBtn.target = "_blank";
+      emailBtn.rel = "noopener";
+      emailBtn.onclick = function () {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).catch(function () {});
+        }
+      };
     }
   }
 
@@ -648,7 +653,11 @@
     "가족법·재산분할": "Family Law & Property",
     "위기·ART": "Visa Crisis & ART",
     "← 전체 네비게이터 허브": "← All Navigators Hub",
-    "박창민 대표변호사 (Chang Min Park)": "Chang Min Park (Principal Solicitor)",
+    "박창민 대표변호사 (Chang Min Park)": "Chang Min Park (Legal Practitioner Director)",
+    "🔗 공식 법률 상담 신청": "🔗 Official Legal Inquiry",
+    "🔗 진단 결과 복사 & 박앤코 긴급 자문 요청 →": "🔗 Copy Brief & Request Urgent Advice →",
+    "긴급 비자 거절·취소·ART 기한 진단서 복사 · 인쇄(PDF) & 박앤코 긴급 상담 신청": "Copy / Print Urgent Refusal·Cancellation·ART Brief & Official Inquiry",
+    "위 모듈에서 선택하신 처분 유형, 통지일, Section 48 및 웨이버 쟁점을 요약하여 즉시 복사하거나 박앤코 공식 상담 창구로 접수할 수 있어요.": "Copy your selected decision type, notice date, Section 48 check, and waiver summary to submit via the official Park & Co inquiry portal.",
     "\"삶에 집중하세요, 법률은 저희가 맡겠습니다.\"": "\"You focus on life, we'll handle the law.\"",
     "법무법인 박앤코 (PNC Legal Pty Ltd t/a Park & Co Lawyers)": "PNC Legal Pty Ltd t/a Park & Co Lawyers",
     "법령 및 주정부 심사 근거": "Statutory & State Nomination Authority",
@@ -817,6 +826,9 @@
     document.querySelectorAll(".parkco-svc-link").forEach(function (lnk) {
       var h = isEn ? lnk.getAttribute("data-en-href") : lnk.getAttribute("data-ko-href");
       if (h) lnk.setAttribute("href", h);
+    });
+    document.querySelectorAll("a.cta-enquiry").forEach(function (a) {
+      a.setAttribute("href", isEn ? "https://parklawyers.com.au/links/" : "https://parklawyers.com.au/links/?lang=ko");
     });
     var walk = function (el) {
       if (!el || el.tagName === "SCRIPT" || el.tagName === "STYLE" || el.tagName === "PRE") return;
