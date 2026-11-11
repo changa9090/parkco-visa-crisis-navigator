@@ -1,100 +1,296 @@
 /**
- * Park & Co Lawyers — Canonical Australian Statutory Date & Public Holiday Utility (2026–2027)
- * Eliminates UTC `.toISOString()` midnight shift bugs across AEST/AEDT/KST timezones and
- * applies state-specific public holidays for working-day counts and s 36(2) rollovers.
+ * Park & Co Lawyers — Canonical Australian Statutory Date & Public Holiday Utility (2026–2030+)
+ * Eliminates UTC `.toISOString()` midnight shift bugs across AEST/AEDT/KST timezones,
+ * computes movable Easter dates via Anonymous Gregorian Computus for any year, and
+ * applies all 8 state/territory public holidays for working-day counts and s 36(2) rollovers.
  */
 (function (root) {
   "use strict";
 
   var NATIONAL_HOLIDAYS = {
+    // 2026
     "2026-01-01": "New Year's Day",
     "2026-01-26": "Australia Day",
     "2026-04-03": "Good Friday",
     "2026-04-06": "Easter Monday",
     "2026-12-25": "Christmas Day",
     "2026-12-28": "Boxing Day (Additional Day)",
+    // 2027
     "2027-01-01": "New Year's Day",
     "2027-01-26": "Australia Day",
     "2027-03-26": "Good Friday",
     "2027-03-29": "Easter Monday",
-    "2027-04-26": "Anzac Day (Observed)",
+    "2027-12-25": "Christmas Day",
     "2027-12-27": "Christmas Day (Additional Day)",
-    "2027-12-28": "Boxing Day (Additional Day)"
+    "2027-12-28": "Boxing Day (Additional Day)",
+    // 2028
+    "2028-01-01": "New Year's Day",
+    "2028-01-03": "New Year's Day (Additional Day)",
+    "2028-01-26": "Australia Day",
+    "2028-04-14": "Good Friday",
+    "2028-04-17": "Easter Monday",
+    "2028-04-25": "Anzac Day",
+    "2028-12-25": "Christmas Day",
+    "2028-12-26": "Boxing Day",
+    // 2029
+    "2029-01-01": "New Year's Day",
+    "2029-01-26": "Australia Day",
+    "2029-03-30": "Good Friday",
+    "2029-04-02": "Easter Monday",
+    "2029-04-25": "Anzac Day",
+    "2029-12-25": "Christmas Day",
+    "2029-12-26": "Boxing Day",
+    // 2030
+    "2030-01-01": "New Year's Day",
+    "2030-01-26": "Australia Day",
+    "2030-01-28": "Australia Day (Additional Day)",
+    "2030-04-19": "Good Friday",
+    "2030-04-22": "Easter Monday",
+    "2030-04-25": "Anzac Day",
+    "2030-12-25": "Christmas Day",
+    "2030-12-26": "Boxing Day"
   };
 
   var STATE_HOLIDAYS = {
     QLD: {
       "2026-04-04": "Easter Saturday",
+      "2026-04-05": "Easter Sunday",
       "2026-04-25": "Anzac Day",
       "2026-05-04": "Labour Day (QLD)",
+      "2026-08-12": "Royal Queensland Show (Brisbane)",
       "2026-10-05": "King's Birthday (QLD)",
+      "2027-03-27": "Easter Saturday",
+      "2027-03-28": "Easter Sunday",
+      "2027-04-25": "Anzac Day",
+      "2027-04-26": "Anzac Day (Observed QLD)",
       "2027-05-03": "Labour Day (QLD)",
-      "2027-10-04": "King's Birthday (QLD)"
+      "2027-08-11": "Royal Queensland Show (Brisbane)",
+      "2027-10-04": "King's Birthday (QLD)",
+      "2028-04-15": "Easter Saturday",
+      "2028-04-16": "Easter Sunday",
+      "2028-05-01": "Labour Day (QLD)",
+      "2028-08-16": "Royal Queensland Show (Brisbane)",
+      "2028-10-02": "King's Birthday (QLD)",
+      "2029-03-31": "Easter Saturday",
+      "2029-04-01": "Easter Sunday",
+      "2029-05-07": "Labour Day (QLD)",
+      "2029-08-15": "Royal Queensland Show (Brisbane)",
+      "2029-10-01": "King's Birthday (QLD)",
+      "2030-04-20": "Easter Saturday",
+      "2030-04-21": "Easter Sunday",
+      "2030-05-06": "Labour Day (QLD)",
+      "2030-08-14": "Royal Queensland Show (Brisbane)",
+      "2030-10-07": "King's Birthday (QLD)"
     },
     NSW: {
+      "2026-04-04": "Easter Saturday",
+      "2026-04-05": "Easter Sunday",
       "2026-04-25": "Anzac Day",
       "2026-06-08": "King's Birthday (NSW)",
       "2026-10-05": "Labour Day (NSW)",
+      "2027-03-27": "Easter Saturday",
+      "2027-03-28": "Easter Sunday",
+      "2027-04-25": "Anzac Day",
       "2027-06-14": "King's Birthday (NSW)",
-      "2027-10-04": "Labour Day (NSW)"
+      "2027-10-04": "Labour Day (NSW)",
+      "2028-04-15": "Easter Saturday",
+      "2028-04-16": "Easter Sunday",
+      "2028-06-12": "King's Birthday (NSW)",
+      "2028-10-02": "Labour Day (NSW)",
+      "2029-03-31": "Easter Saturday",
+      "2029-04-01": "Easter Sunday",
+      "2029-06-11": "King's Birthday (NSW)",
+      "2029-10-01": "Labour Day (NSW)",
+      "2030-04-20": "Easter Saturday",
+      "2030-04-21": "Easter Sunday",
+      "2030-06-10": "King's Birthday (NSW)",
+      "2030-10-07": "Labour Day (NSW)"
     },
     VIC: {
       "2026-03-09": "Labour Day (VIC)",
+      "2026-04-04": "Easter Saturday",
+      "2026-04-05": "Easter Sunday",
       "2026-04-25": "Anzac Day",
       "2026-06-08": "King's Birthday (VIC)",
+      "2026-09-25": "Friday before AFL Grand Final (VIC)",
       "2026-11-03": "Melbourne Cup Day (VIC)",
       "2027-03-08": "Labour Day (VIC)",
+      "2027-03-27": "Easter Saturday",
+      "2027-03-28": "Easter Sunday",
+      "2027-04-25": "Anzac Day",
       "2027-06-14": "King's Birthday (VIC)",
-      "2027-11-02": "Melbourne Cup Day (VIC)"
+      "2027-09-24": "Friday before AFL Grand Final (VIC)",
+      "2027-11-02": "Melbourne Cup Day (VIC)",
+      "2028-03-13": "Labour Day (VIC)",
+      "2028-04-15": "Easter Saturday",
+      "2028-04-16": "Easter Sunday",
+      "2028-06-12": "King's Birthday (VIC)",
+      "2028-09-29": "Friday before AFL Grand Final (VIC)",
+      "2028-11-07": "Melbourne Cup Day (VIC)",
+      "2029-03-12": "Labour Day (VIC)",
+      "2029-03-31": "Easter Saturday",
+      "2029-04-01": "Easter Sunday",
+      "2029-06-11": "King's Birthday (VIC)",
+      "2029-09-28": "Friday before AFL Grand Final (VIC)",
+      "2029-11-06": "Melbourne Cup Day (VIC)",
+      "2030-03-11": "Labour Day (VIC)",
+      "2030-04-20": "Easter Saturday",
+      "2030-04-21": "Easter Sunday",
+      "2030-06-10": "King's Birthday (VIC)",
+      "2030-09-27": "Friday before AFL Grand Final (VIC)",
+      "2030-11-05": "Melbourne Cup Day (VIC)"
     },
     WA: {
       "2026-03-02": "Labour Day (WA)",
+      "2026-04-05": "Easter Sunday",
+      "2026-04-25": "Anzac Day",
       "2026-04-27": "Anzac Day (Observed WA)",
       "2026-06-01": "Western Australia Day",
       "2026-09-28": "King's Birthday (WA)",
       "2027-03-01": "Labour Day (WA)",
+      "2027-03-28": "Easter Sunday",
+      "2027-04-25": "Anzac Day",
+      "2027-04-26": "Anzac Day (Observed WA)",
       "2027-06-07": "Western Australia Day",
-      "2027-09-27": "King's Birthday (WA)"
+      "2027-09-27": "King's Birthday (WA)",
+      "2028-03-06": "Labour Day (WA)",
+      "2028-04-16": "Easter Sunday",
+      "2028-06-05": "Western Australia Day",
+      "2028-09-25": "King's Birthday (WA)",
+      "2029-03-05": "Labour Day (WA)",
+      "2029-04-01": "Easter Sunday",
+      "2029-06-04": "Western Australia Day",
+      "2029-09-24": "King's Birthday (WA)",
+      "2030-03-04": "Labour Day (WA)",
+      "2030-04-21": "Easter Sunday",
+      "2030-06-03": "Western Australia Day",
+      "2030-09-30": "King's Birthday (WA)"
     },
     SA: {
       "2026-03-09": "Adelaide Cup Day (SA)",
+      "2026-04-04": "Easter Saturday",
       "2026-04-25": "Anzac Day",
       "2026-06-08": "King's Birthday (SA)",
       "2026-10-05": "Labour Day (SA)",
       "2027-03-08": "Adelaide Cup Day (SA)",
+      "2027-03-27": "Easter Saturday",
+      "2027-04-26": "Anzac Day (Observed SA)",
       "2027-06-14": "King's Birthday (SA)",
-      "2027-10-04": "Labour Day (SA)"
+      "2027-10-04": "Labour Day (SA)",
+      "2028-03-13": "Adelaide Cup Day (SA)",
+      "2028-04-15": "Easter Saturday",
+      "2028-06-12": "King's Birthday (SA)",
+      "2028-10-02": "Labour Day (SA)",
+      "2029-03-12": "Adelaide Cup Day (SA)",
+      "2029-03-31": "Easter Saturday",
+      "2029-06-11": "King's Birthday (SA)",
+      "2029-10-01": "Labour Day (SA)",
+      "2030-03-11": "Adelaide Cup Day (SA)",
+      "2030-04-20": "Easter Saturday",
+      "2030-06-10": "King's Birthday (SA)",
+      "2030-10-07": "Labour Day (SA)"
     },
     TAS: {
       "2026-03-09": "Eight Hours Day (TAS)",
+      "2026-04-07": "Easter Tuesday (TAS Public Service)",
       "2026-04-25": "Anzac Day",
       "2026-06-08": "King's Birthday (TAS)",
       "2027-03-08": "Eight Hours Day (TAS)",
-      "2027-06-14": "King's Birthday (TAS)"
+      "2027-03-30": "Easter Tuesday (TAS Public Service)",
+      "2027-04-25": "Anzac Day",
+      "2027-06-14": "King's Birthday (TAS)",
+      "2028-03-13": "Eight Hours Day (TAS)",
+      "2028-04-18": "Easter Tuesday (TAS Public Service)",
+      "2028-06-12": "King's Birthday (TAS)",
+      "2029-03-12": "Eight Hours Day (TAS)",
+      "2029-04-03": "Easter Tuesday (TAS Public Service)",
+      "2029-06-11": "King's Birthday (TAS)",
+      "2030-03-11": "Eight Hours Day (TAS)",
+      "2030-04-23": "Easter Tuesday (TAS Public Service)",
+      "2030-06-10": "King's Birthday (TAS)"
     },
     ACT: {
       "2026-03-09": "Canberra Day (ACT)",
+      "2026-04-04": "Easter Saturday",
+      "2026-04-05": "Easter Sunday",
+      "2026-04-25": "Anzac Day",
       "2026-04-27": "Anzac Day (Observed ACT)",
       "2026-06-01": "Reconciliation Day (ACT)",
       "2026-06-08": "King's Birthday (ACT)",
       "2026-10-05": "Labour Day (ACT)",
       "2027-03-08": "Canberra Day (ACT)",
+      "2027-03-27": "Easter Saturday",
+      "2027-03-28": "Easter Sunday",
+      "2027-04-25": "Anzac Day",
+      "2027-04-26": "Anzac Day (Observed ACT)",
       "2027-05-31": "Reconciliation Day (ACT)",
       "2027-06-14": "King's Birthday (ACT)",
-      "2027-10-04": "Labour Day (ACT)"
+      "2027-10-04": "Labour Day (ACT)",
+      "2028-03-13": "Canberra Day (ACT)",
+      "2028-04-15": "Easter Saturday",
+      "2028-04-16": "Easter Sunday",
+      "2028-05-29": "Reconciliation Day (ACT)",
+      "2028-06-12": "King's Birthday (ACT)",
+      "2028-10-02": "Labour Day (ACT)",
+      "2029-03-12": "Canberra Day (ACT)",
+      "2029-03-31": "Easter Saturday",
+      "2029-04-01": "Easter Sunday",
+      "2029-05-28": "Reconciliation Day (ACT)",
+      "2029-06-11": "King's Birthday (ACT)",
+      "2029-10-01": "Labour Day (ACT)",
+      "2030-03-11": "Canberra Day (ACT)",
+      "2030-04-20": "Easter Saturday",
+      "2030-04-21": "Easter Sunday",
+      "2030-05-27": "Reconciliation Day (ACT)",
+      "2030-06-10": "King's Birthday (ACT)",
+      "2030-10-07": "Labour Day (ACT)"
     },
     NT: {
+      "2026-04-04": "Easter Saturday",
+      "2026-04-25": "Anzac Day",
       "2026-05-04": "May Day (NT)",
       "2026-06-08": "King's Birthday (NT)",
       "2026-08-03": "Picnic Day (NT)",
+      "2027-03-27": "Easter Saturday",
+      "2027-04-26": "Anzac Day (Observed NT)",
       "2027-05-03": "May Day (NT)",
       "2027-06-14": "King's Birthday (NT)",
-      "2027-08-02": "Picnic Day (NT)"
+      "2027-08-02": "Picnic Day (NT)",
+      "2028-04-15": "Easter Saturday",
+      "2028-05-01": "May Day (NT)",
+      "2028-06-12": "King's Birthday (NT)",
+      "2028-08-07": "Picnic Day (NT)",
+      "2029-03-31": "Easter Saturday",
+      "2029-05-07": "May Day (NT)",
+      "2029-06-11": "King's Birthday (NT)",
+      "2029-08-06": "Picnic Day (NT)",
+      "2030-04-20": "Easter Saturday",
+      "2030-05-06": "May Day (NT)",
+      "2030-06-10": "King's Birthday (NT)",
+      "2030-08-05": "Picnic Day (NT)"
     }
   };
 
   function pad2(n) {
     return n < 10 ? "0" + n : String(n);
+  }
+
+  function easterSundayIso(year) {
+    var a = year % 19;
+    var b = Math.floor(year / 100);
+    var c = year % 100;
+    var d = Math.floor(b / 4);
+    var e = b % 4;
+    var f = Math.floor((b + 8) / 25);
+    var g = Math.floor((b - f + 1) / 3);
+    var h = (19 * a + b - d - g + 15) % 30;
+    var i = Math.floor(c / 4);
+    var k = c % 4;
+    var l = (32 + 2 * e + 2 * i - h - k) % 7;
+    var m = Math.floor((a + 11 * h + 22 * l) / 451);
+    var month = Math.floor((h + l - 7 * m + 114) / 31);
+    var day = ((h + l - 7 * m + 114) % 31) + 1;
+    return year + "-" + pad2(month) + "-" + pad2(day);
   }
 
   function parseIsoLocal(isoStr) {
@@ -114,6 +310,10 @@
     return d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-" + pad2(d.getDate());
   }
 
+  function addCalendarDays(d, days) {
+    return new Date(d.getFullYear(), d.getMonth(), d.getDate() + days, 12, 0, 0, 0);
+  }
+
   function todayBrisbaneIso() {
     try {
       var parts = new Intl.DateTimeFormat("en-CA", {
@@ -129,11 +329,30 @@
     return formatIsoLocal(new Date());
   }
 
+  function getDynamicFallbackHoliday(isoStr) {
+    var d = parseIsoLocal(isoStr);
+    if (!d) return null;
+    var y = d.getFullYear();
+    if (y <= 2030) return null;
+    var md = isoStr.slice(5);
+    if (md === "01-01") return "New Year's Day";
+    if (md === "01-26") return "Australia Day";
+    if (md === "04-25") return "Anzac Day";
+    if (md === "12-25") return "Christmas Day";
+    if (md === "12-26") return "Boxing Day";
+    var es = parseIsoLocal(easterSundayIso(y));
+    if (es) {
+      if (formatIsoLocal(addCalendarDays(es, -2)) === isoStr) return "Good Friday";
+      if (formatIsoLocal(addCalendarDays(es, 1)) === isoStr) return "Easter Monday";
+    }
+    return null;
+  }
+
   function getHolidayName(isoStr, stateCode) {
     var st = (stateCode || "QLD").toUpperCase();
     if (NATIONAL_HOLIDAYS[isoStr]) return NATIONAL_HOLIDAYS[isoStr];
     if (STATE_HOLIDAYS[st] && STATE_HOLIDAYS[st][isoStr]) return STATE_HOLIDAYS[st][isoStr];
-    return null;
+    return getDynamicFallbackHoliday(isoStr);
   }
 
   function isBusinessDay(d, stateCode) {
@@ -141,11 +360,6 @@
     if (dow === 0 || dow === 6) return false;
     var iso = formatIsoLocal(d);
     return !getHolidayName(iso, stateCode);
-  }
-
-  function addCalendarDays(d, days) {
-    var next = new Date(d.getFullYear(), d.getMonth(), d.getDate() + days, 12, 0, 0, 0);
-    return next;
   }
 
   function calcWorkingDaysDeadline(startIso, workingDays, stateCode) {
@@ -169,7 +383,7 @@
       }
     }
     var safe = addCalendarDays(cur, -1);
-    while (safe > start && !isBusinessDay(safe, st)) {
+    while (!isBusinessDay(safe, st)) {
       safe = addCalendarDays(safe, -1);
     }
     return {
@@ -187,6 +401,7 @@
     var raw = addCalendarDays(start, calendarDays);
     var finalDate = new Date(raw.getTime());
     var rolledReason = null;
+    var weekendWarning = null;
     if (rolloverToNextBusinessDay) {
       var reasons = [];
       while (!isBusinessDay(finalDate, st)) {
@@ -199,14 +414,21 @@
         finalDate = addCalendarDays(finalDate, 1);
       }
       if (reasons.length > 0) rolledReason = reasons.join(" / ");
+    } else if (!isBusinessDay(finalDate, st)) {
+      var rawIso = formatIsoLocal(finalDate);
+      weekendWarning = getHolidayName(rawIso, st) || (finalDate.getDay() === 6 ? "Saturday" : "Sunday");
     }
     var safe = addCalendarDays(finalDate, -1);
+    while (!isBusinessDay(safe, st)) {
+      safe = addCalendarDays(safe, -1);
+    }
     return {
       rawDate: formatIsoLocal(raw),
       statutoryDate: formatIsoLocal(finalDate),
       safeDate: formatIsoLocal(safe),
       state: st,
-      rolledReason: rolledReason
+      rolledReason: rolledReason,
+      weekendWarning: weekendWarning
     };
   }
 
@@ -218,8 +440,12 @@
   }
 
   var api = {
+    NATIONAL_HOLIDAYS: NATIONAL_HOLIDAYS,
+    STATE_HOLIDAYS: STATE_HOLIDAYS,
+    easterSundayIso: easterSundayIso,
     parseIsoLocal: parseIsoLocal,
     formatIsoLocal: formatIsoLocal,
+    addCalendarDays: addCalendarDays,
     todayBrisbaneIso: todayBrisbaneIso,
     getHolidayName: getHolidayName,
     isBusinessDay: isBusinessDay,
@@ -251,6 +477,8 @@
 
   const I18N = {
     ko: {
+      docTitle: "호주 비자 거절 · 취소(s 116 / s 501) · Section 48 · PIC 4020 · 행정재심기구(ART) 기한 진단기 | 법무법인 박앤코",
+      balloonTitle: "법령 및 재판소 근거",
       brandTag: "박앤코 · 비자 위기·ART 기한 진단기",
       nav_btn_art: "기한 계산기",
       nav_btn_s48: "Section 48",
@@ -263,16 +491,22 @@
       urgentText: "s 116 NOICC 소명 통상 5 영업일(reg 2.44) · s 116 취소 확정 후 행정재심기구(ART) 재심 7 영업일 불변(reg 4.10(1)(b)) · 일반 거절 28 역일 · s 500 인성 재심 9 역일",
       heroOverline: "법무법인 박앤코 · QLS 이민법 전문변호사 감수",
       hero_title: "호주 비자 거절 · 취소(s 116 / s 501) · Section 48 · 행정재심기구(ART) 기한 진단기",
-      hero_lead: "통지서 수신일과 관할 주(State)를 선택하면 2026–2027 주별 공휴일을 반영한 보수적 안전 접수 권고일과 법정 최종 마감일을 나란히 산출합니다.",
+      hero_lead: "통지서 송달 방식과 관할 주(State)를 선택하면 2026–2030 주별 공휴일과 송달 간주일(s 494C)을 반영한 보수적 안전 접수 권고일과 법정 최종 마감일을 나란히 산출합니다.",
       sec1_title: "1. 행정재심기구(ART) 재심 · s 116 NOICC 소명 · s 501 철회 마감일 계산기",
-      sec1_desc: "이민성 통지서 이메일 발송일은 당일 송달로 간주됩니다(Migration Act s 494C(5)). 취소 예고(NOICC) 단계와 취소 확정 후 재심 단계를 정확히 구분하여 선택하십시오.",
-      artInputCardTitle: "통지서 유형 · 수신일 · 관할 주(State) 입력",
+      sec1_desc: "이민성 통지서의 송달 방식(전자통지 당일 · 국내 등기우편 +7영업일 · 직접 교부 당일 · Migration Act s 494C)에 따라 송달 간주일을 먼저 산정한 뒤 법정 마감일을 계산합니다.",
+      artInputCardTitle: "통지서 유형 · 송달 방식 · 발송일 · 관할 주(State) 입력",
       lblArtDecision: "1. 수신한 이민성 통지서 / 처분 단계",
-      lblArtDate: "2. 통지서 이메일 수신일",
-      hintArtDate: "이메일 발송일 당일 수령 간주 (s 494C)",
-      lblArtState: "3. 거주 주/준주 (공휴일 기준)",
-      hintArtState: "2026–2027 주별 법정 공휴일 자동 반영",
-      lblArtSub: "4. 현재 실체 비자(Substantive Visa) 보유 여부",
+      lblArtDelivery: "2. 통지서 송달 방식 (Migration Act s 494C 송달 간주일 산정)",
+      lblArtDate: "3. 통지서 발송·교부일",
+      hintArtDate: "통지서 상단 기재일자 또는 발송일 입력 (s 494C)",
+      lblArtState: "4. 거주 주/준주 (공휴일 기준)",
+      hintArtState: "2026–2030 주별 법정 공휴일 자동 반영",
+      lblArtSub: "5. 현재 실체 비자(Substantive Visa) 보유 여부",
+      dfq17Title: "통지서 법정 요건 흠결 자가점검 (DFQ17 v Minister 판례 · s 66(2) / s 494B)",
+      dfq17Desc: "수령한 거절·취소 통지서에서 아래 3대 법정 요건 중 누락·오기·오발송 의심 항목이 있으면 체크하십시오.",
+      dfq17Item1: "1. 정확한 재심 기한 명시 여부: 기한 산정 방식이 누락되거나 여러 페이지에 분산되어 마감일 오인을 유발함",
+      dfq17Item2: "2. 관할 재심기관 ART 명시 여부: 행정재심기구(ART) 명칭·재심 청구 적격 또는 접수 안내가 누락·오기됨",
+      dfq17Item3: "3. 유효한 통지 주소·이메일 발송 여부: 최종 신고한 주소·이메일(수임 대리인 s 494D 포함)이 아닌 곳으로 발송됨",
       artResultCardTitle: "법정 마감일 및 보수적 안전 접수일 병기 결과",
       sec2_title: "2. Section 48 Bar 발동 여부 및 호주 내 예외 신청 비자(reg 2.12) 진단기",
       sec2_desc: "호주 입국 후 비자가 거절·취소되었고 현재 유효한 실체 비자가 없다면 Migration Act s 48에 따라 호주 내에서는 reg 2.12 예외 비자만 접수할 수 있습니다. 브리징 비자 B(BVB)로 출국 후 재입국하더라도 s 48 제한은 해제되지 않습니다.",
@@ -280,18 +514,29 @@
       lblS48History: "1. 마지막 호주 입국 이후 비자 거절/취소 이력",
       lblS48Target: "2. 새로 신청하고자 하는 목표 비자 (Target Subclass)",
       s48ResultTitle: "Section 48 적용 여부 및 합법적 대응 경로",
-      sec3_title: "3. PIC 4020 · Condition 8503 · Schedule 3 웨이버 진단 및 긴급 상담 브리프",
-      sec3_desc: "소명 요구서(Natural Justice Letter)를 수령했거나 비자에 Condition 8503이 부과된 경우에만 아래 웨이버 항목을 선택하십시오. 선택하지 않은 웨이버 쟁점은 하단 상담 브리프에 포함되지 않습니다.",
+      sec3_title: "3. PIC 4020 · Condition 8503 · Schedule 3 · BVE(050) 웨이버 진단 및 긴급 상담 브리프",
+      sec3_desc: "소명 요구서(Natural Justice Letter)를 수령했거나 비자에 Condition 8503 또는 BVE·Schedule 3 쟁점이 있는 경우 아래 항목을 선택하십시오. 선택하지 않은 웨이버 쟁점은 하단 상담 브리프에 포함되지 않습니다.",
       wvInputTitle: "웨이버·소명 쟁점 및 참작 사유 선택 (해당자 선택)",
-      lblWvInclude: "PIC 4020 · Condition 8503 · Schedule 3 웨이버 쟁점이 있어 상담 브리프에 포함합니다",
+      lblWvInclude: "PIC 4020 · Condition 8503 · Schedule 3 · BVE 쟁점이 있어 상담 브리프에 포함합니다",
       lblWvIssue: "1. 당면한 법적 장벽 / 통지서 종류",
       lblWvTies: "2. 호주 시민권자·영주권자 가족·고용주 등 핵심 참작 사정",
       wvResultTitle: "법정 웨이버(Waiver) 요건 및 방어 논리",
       briefTitle: "긴급 비자 거절·취소·ART 기한 진단 브리프 복사 및 공식 상담 접수",
       briefDesc: "입력하신 통지 유형과 마감일 산출 내역을 복사하여 법무법인 박앤코 공식 문의 허브 또는 이메일(enquiry@parkcolawyers.com)로 전달하실 수 있습니다.",
+      btnCrisisCopy: "📋 진단 브리프 복사",
+      btnCrisisPrint: "🖨️ PDF / 인쇄",
+      btnCrisisEmail: "🔗 공식 문의 허브 접수 →",
       discBgSummary: "배경 통계 및 법적 근거 펼쳐보기 (처분별 법정 기한 비교 차트 · 행정재심기구(ART) 인용률 통계 · 전문변호사 안내)",
+      dir123Title: "⚖️ 2026.10.31 시행 · Ministerial Direction No. 123",
+      dir123Desc: "2026년 10월 31일 이후 내려지는 s 501 / s 501CA 인성 처분에는 구 Direction 110이 폐지되고 Direction No. 123이 적용됩니다(호주 사회통합에 미치는 영향 제6차 주요 고려사항 신설 · 가정폭력 정의 확대).",
+      dir123Link: "📄 Ministerial Direction No. 123 원문 PDF ↗",
+      f2026Title: "💰 2026.11.01 시행 · 보호비자 ART 선납 수수료 (F2026L01448 · reg 4.31B)",
+      f2026Desc: "2026년 11월 1일 이후 접수하는 보호비자(866) 행정재심기구(ART) 재심은 법정 28일 청구 기한 내 $1,863.50 선납(Upfront)이 의무화되었습니다(이민 구금 또는 심각한 경제적 곤궁 시에만 면제).",
+      f2026Link: "📜 F2026L01448 (reg 4.31B) 법령 원문 ↗",
       sec0_title: "비자 위기 대응 핵심 법정 기한(NOICC 5영업일 vs 취소 후 ART 7영업일) 및 Section 48 시각화 차트",
       sec0_desc: "행정재심기구(ART)는 법정 기한이 단 하루만 지나도 관할권 없음(No Jurisdiction)으로 각하합니다.",
+      chart1Title: "그래프 1 · 처분 단계별 NOICC 소명(5영업일) · ART 재심(7영업일/9일/28일) · 연방법원 기한 비교",
+      chart2Title: "그래프 2 · Section 48 Bar 적용 시 호주 내 신청 허용(Exempt) vs 금지(Barred) 비자",
       artIntelTitle: "행정재심기구(ART) 비자·처분별 실제 재심 결과(이중 분모 비교) 및 13개 카테고리 심리 소요기간",
       artIntelDesc: "행정재심기구(ART) 공식 통계 보고서(Migration-Detailed-Caseload-Statistics-2026-27.pdf) 원문을 검증하여 전체 종결 대비 인용률(S/F)과 실질 본안 결정 대비 인용률(S/[S+A-D])을 함께 제시합니다.",
       artOutcomeTableTitle: "1. 주요 비자 서브클래스·처분별 ART 재심 결과 이중 분모 비교표 (2026.07.01–2026.08.31 공식 PDF)",
@@ -308,9 +553,32 @@
       thDurP50: "50% 사건 완료 소요기간 (p50 중앙값)",
       thDurP95: "95% 사건 완료 소요기간 (p95 장기)",
       thDurStrategy: "재심 대기 기간 보완 포인트",
-      sec4_title: "1차 법령 데이터 출처 확인 (14개 연방 법령 · 행정재심기구(ART) · 연방법원 SHA-256 검증)"
+      specName: "박창민 대표변호사 (Chang Min Park · Legal Practitioner Director)",
+      specRole: "퀸즐랜드주 공인 이민법 전문변호사 (QLS Accredited Specialist in Immigration Law) · 법무법인 박앤코",
+      specBtnGuide: "비자 솔루션 가이드",
+      specBtnEmg: "비자응급실 안내",
+      specBtnArt: "ART 재심 검토 안내",
+      sec4_title: "1차 법령 데이터 출처 확인 (14개 연방 법령 · 행정재심기구(ART) · 연방법원 SHA-256 검증)",
+      thSrcCat: "구분",
+      thSrcName: "공식 법령 · 재판소 안내 및 링크",
+      thSrcAuth: "관할 기관",
+      thSrcTracks: "추적 지표",
+      thSrcCadence: "검증 주기",
+      thSrcStatus: "상태",
+      discTitle: "법률 면책공고 (Legal Disclaimer) · 송달 간주 규정(s 494B / s 494C) 안내",
+      discP1: "본 호주 비자 거절·취소(s 116 / s 501)·Section 48·PIC 4020 및 행정재심기구(ART) 기한 진단기는 법무법인 박앤코(PNC Legal Pty Ltd t/a Park & Co Lawyers)가 일반 정보 제공 목적으로 제작한 참고 도구입니다. 개별 사안에 대한 법률 자문을 대체하지 않습니다.",
+      discP2Lead: "법정 기한은 통지서 송달 방식(Migration Act s 494B/494C)과 관할 주 공휴일에 따라 달라질 수 있으므로 원본 통지서(Decision Record / NOICC)를 법무법인 박앤코 공식 문의 허브(",
+      discP2Mid: ") 또는 공식 이메일(",
+      discP2Tail: ")로 접수해 정확한 법정 마감일을 확인하시기 바랍니다.",
+      footerFirmName: "법무법인 박앤코 (PNC Legal Pty Ltd t/a Park & Co Lawyers)",
+      footerPractitioner: "박창민 대표변호사 (QLS Accredited Specialist in Immigration Law)",
+      footerHubLbl: "공식 문의 허브:",
+      footerEmailLbl: "이메일:",
+      modalTitle: "공식 1차 법령·행정재심기구(ART) 출처 모니터 (14/14 Verified)"
     },
     en: {
+      docTitle: "Australia Visa Refusal · Cancellation (s 116 / s 501) · Section 48 · PIC 4020 · ART Deadline Navigator | Park & Co Lawyers",
+      balloonTitle: "Statutory & Tribunal Authority",
       brandTag: "Park & Co · Visa Crisis & ART Navigator",
       nav_btn_art: "Deadlines",
       nav_btn_s48: "Section 48",
@@ -323,16 +591,22 @@
       urgentText: "s 116 NOICC response: 5 working days (reg 2.44) · Post-cancellation s 116 ART review: 7 working days non-extendable (reg 4.10(1)(b)) · Standard refusal: 28 calendar days · s 500 Character ART: 9 calendar days",
       heroOverline: "Park & Co Lawyers · QLS Accredited Specialist in Immigration Law",
       hero_title: "Australia Visa Refusal · Cancellation (s 116 / s 501) · Section 48 · ART Deadline Navigator",
-      hero_lead: "Select your notification date and State/Territory to calculate both your Conservative Safe Lodgement Date and Statutory Final Deadline across 2026–2027 public holidays.",
+      hero_lead: "Select your delivery method, dispatch date, and State/Territory to calculate Deemed Receipt (s 494C), Conservative Safe Lodgement Date, and Statutory Final Deadline across 2026–2030 public holidays.",
       sec1_title: "1. ART Merits Review · s 116 NOICC Response · s 501 Revocation Deadline Calculator",
-      sec1_desc: "Home Affairs email notices are deemed received on the date of transmission (Migration Act s 494C(5)). Distinguish carefully between pre-cancellation NOICC (5 working days) and post-cancellation ART review (7 working days).",
-      artInputCardTitle: "Notice Stage, Date Received & State/Territory",
+      sec1_desc: "Computes your statutory Deemed Receipt Date first (same day for email/hand delivery; +7 working days for Australian registered post under Migration Act s 494C) before calculating the final deadline.",
+      artInputCardTitle: "Notice Stage, Delivery Method, Date & State/Territory",
       lblArtDecision: "1. Home Affairs Notice / Procedural Stage",
-      lblArtDate: "2. Email Notification Date",
-      hintArtDate: "Deemed received same day via email (s 494C)",
-      lblArtState: "3. State/Territory (Public Holidays)",
-      hintArtState: "Applies 2026–2027 National & State public holidays",
-      lblArtSub: "4. Current Substantive Visa Status",
+      lblArtDelivery: "2. Notification Delivery Method (Migration Act s 494C Deemed Receipt)",
+      lblArtDate: "3. Notice Dispatch / Hand-Delivery Date",
+      hintArtDate: "Date printed on or dispatched with the notice (s 494C)",
+      lblArtState: "4. State/Territory (Public Holidays)",
+      hintArtState: "Applies 2026–2030 National & State public holidays",
+      lblArtSub: "5. Current Substantive Visa Status",
+      dfq17Title: "Defective Notification Self-Check (DFQ17 v Minister [2019] FCAFC 64 · s 66(2) / s 494B)",
+      dfq17Desc: "Tick any statutory notification requirement below that appears missing, ambiguous, or misdirected on your notice.",
+      dfq17Item1: "1. Clear statutory review deadline: Timeframe omitted, misstated, or fragmented across pages (DFQ17 defect)",
+      dfq17Item2: "2. Correct review tribunal (ART) specified: ART name, review entitlement, or registry details omitted/misstated",
+      dfq17Item3: "3. Sent to valid notified address/email: Dispatched to a superseded address or unnotified recipient (s 494B / s 494D)",
       artResultCardTitle: "Side-by-Side Safe & Statutory Deadlines",
       sec2_title: "2. Section 48 Bar & Onshore Exempt Visas (reg 2.12) Checker",
       sec2_desc: "If refused or cancelled onshore without holding a substantive visa, Migration Act s 48 restricts onshore lodgements to reg 2.12 exempt subclasses. Departing and returning on a BVB does not lift Section 48.",
@@ -340,18 +614,29 @@
       lblS48History: "1. Visa Refusal / Cancellation History Since Last Entry",
       lblS48Target: "2. Target Visa Subclass",
       s48ResultTitle: "Section 48 Assessment & Lawful Options",
-      sec3_title: "3. PIC 4020 · Condition 8503 · Schedule 3 Waiver & Consultation Brief",
-      sec3_desc: "Select a waiver issue below only if you received a Natural Justice letter or hold Condition 8503. Untouched waiver modules are excluded from your consultation brief.",
+      sec3_title: "3. PIC 4020 · Condition 8503 · Schedule 3 · BVE (050) Waiver & Consultation Brief",
+      sec3_desc: "Select a waiver or BVE/Schedule 3 issue below if you received a Natural Justice letter or hold Condition 8503. Untouched waiver modules are excluded from your consultation brief.",
       wvInputTitle: "Waiver / Natural Justice Issue & Ties (Optional)",
-      lblWvInclude: "Include PIC 4020 / Condition 8503 / Schedule 3 waiver issue in my consultation brief",
+      lblWvInclude: "Include PIC 4020 / Condition 8503 / Schedule 3 / BVE issue in my consultation brief",
       lblWvIssue: "1. Statutory Barrier / Notice Type",
       lblWvTies: "2. Key Australian Citizen/PR Family or Employer Ties",
       wvResultTitle: "Statutory Waiver Criteria & Defence Strategy",
       briefTitle: "Copy Urgent Diagnostic Brief & Request Official Consultation",
       briefDesc: "Copy your calculated deadlines and submit via the Park & Co Inquiry Hub or official email (enquiry@parkcolawyers.com).",
+      btnCrisisCopy: "📋 Copy Diagnostic Brief",
+      btnCrisisPrint: "🖨️ Print / Save PDF",
+      btnCrisisEmail: "🔗 Submit via Inquiry Hub →",
       discBgSummary: "Expand Background Statistics & Legal Authorities (Statutory Deadline Charts · Official ART Outcomes · Specialist Profile)",
+      dir123Title: "⚖️ Commenced 31 Oct 2026 · Ministerial Direction No. 123",
+      dir123Desc: "Decisions under s 501 / s 501CA on or after 31 October 2026 apply Ministerial Direction No. 123 (revoking Direction 110), adding a 6th primary consideration on social cohesion and broadening family violence.",
+      dir123Link: "📄 Ministerial Direction No. 123 Official PDF ↗",
+      f2026Title: "💰 Commenced 1 Nov 2026 · Protection Visa ART Upfront Fee (F2026L01448 · reg 4.31B)",
+      f2026Desc: "Protection Visa (Subclass 866) ART review applications lodged on or after 1 November 2026 require a mandatory $1,863.50 upfront fee within the strict 28-day window unless exempt due to detention or severe financial hardship.",
+      f2026Link: "📜 F2026L01448 (reg 4.31B) Legislation Text ↗",
       sec0_title: "Statutory Deadlines (NOICC 5 Working Days vs ART 7 Working Days) & Section 48 Matrix",
       sec0_desc: "The Administrative Review Tribunal (ART) has zero jurisdiction if an application is lodged even one day late.",
+      chart1Title: "Chart 1 · Pre-Cancellation NOICC (5 Working Days) vs Post-Cancellation ART (7 Working Days / 9d / 28d) & FCFCOA",
+      chart2Title: "Chart 2 · Section 48 Onshore Exempt (reg 2.12) vs Barred Visa Subclasses",
       artIntelTitle: "Official ART Subclass Outcomes (Dual-Denominator) & 13-Category Actual Processing Times",
       artIntelDesc: "Verified against the official ART Migration Detailed Caseload Statistics PDF (2026–27), comparing All-Finalisations Set Aside (S/F) and Restricted Substantive Set Aside (S/[S+A-D]).",
       artOutcomeTableTitle: "1. Subclass & Decision-Type ART Outcomes: Dual-Denominator Table (1 Jul – 31 Aug 2026 Official PDF)",
@@ -368,15 +653,58 @@
       thDurP50: "50% Finalised Within (p50 Median)",
       thDurP95: "95% Finalised Within (p95)",
       thDurStrategy: "Review Queue Preparation Notes",
-      sec4_title: "Verify Primary Legal Sources (14 Federal Statutes · ART · FCFCOA SHA-256 Monitor)"
+      specName: "Chang Min Park · Legal Practitioner Director",
+      specRole: "QLS Accredited Specialist in Immigration Law · PNC Legal Pty Ltd t/a Park & Co Lawyers",
+      specBtnGuide: "Visa Solution Guide",
+      specBtnEmg: "Visa Emergency™",
+      specBtnArt: "ART Case Review™",
+      sec4_title: "Verify Primary Legal Sources (14 Federal Statutes · ART · FCFCOA SHA-256 Monitor)",
+      thSrcCat: "Category",
+      thSrcName: "Official Legislation / Tribunal Guidance",
+      thSrcAuth: "Authority",
+      thSrcTracks: "Tracked Rules & Metrics",
+      thSrcCadence: "Cadence",
+      thSrcStatus: "Status",
+      discTitle: "Legal Disclaimer & Statutory Deemed Service Rules (s 494B / s 494C)",
+      discP1: "This Visa Refusal, Cancellation (s 116 / s 501), Section 48, PIC 4020, and ART Deadline Navigator is provided by PNC Legal Pty Ltd t/a Park & Co Lawyers for general informational purposes only and does not constitute legal advice.",
+      discP2Lead: "Statutory deadlines depend on the exact method of service (Migration Act s 494B/494C) and State public holidays. Please submit your original Decision Record or NOICC via the Park & Co Official Inquiry Hub (",
+      discP2Mid: ") or official email (",
+      discP2Tail: ") to confirm your binding statutory deadline.",
+      footerFirmName: "PNC Legal Pty Ltd t/a Park & Co Lawyers",
+      footerPractitioner: "Chang Min Park (QLS Accredited Specialist in Immigration Law)",
+      footerHubLbl: "Official Inquiry Hub:",
+      footerEmailLbl: "Email:",
+      modalTitle: "Primary Statutory & ART Source Verification Monitor (14/14 Verified)"
     }
   };
 
-  function computeArtDeadline(type, dateStr, stateCode, lang) {
+  function computeArtDeadline(type, dateStr, stateCode, lang, deliveryMethod) {
     const en = lang === "en";
     const st = (stateCode || "QLD").toUpperCase();
+    const dm = deliveryMethod || "email";
     const D = (typeof window !== "undefined" && window.ParkCoDates) || globalThis.ParkCoDates;
     if (!D || !D.parseIsoLocal(dateStr)) return null;
+
+    let deemedReceiptDate = dateStr;
+    let deemedSkippedHolidays = [];
+    let deliveryRuleLabel = "";
+    if (dm === "post_au") {
+      const postRes = D.calcWorkingDaysDeadline(dateStr, 7, st);
+      if (!postRes) return null;
+      deemedReceiptDate = postRes.statutoryDate;
+      deemedSkippedHolidays = postRes.skippedHolidays || [];
+      deliveryRuleLabel = en
+        ? "Australian Registered Post (+7 Working Days Deemed Receipt · s 494C(4)(a))"
+        : "호주 국내 등기우편 (+7 영업일 송달 간주 · s 494C(4)(a))";
+    } else if (dm === "hand") {
+      deliveryRuleLabel = en
+        ? "Hand Delivery in Person (Same-Day Receipt · s 494C(1))"
+        : "직접 교부 (교부 당일 수령 간주 · s 494C(1))";
+    } else {
+      deliveryRuleLabel = en
+        ? "Email / ImmiAccount Electronic Notice (Same-Day Deemed Receipt · s 494C(5))"
+        : "이메일·ImmiAccount 전자통지 (발송 당일 수령 간주 · s 494C(5))";
+    }
 
     let res = null;
     let ruleLabel = "";
@@ -384,7 +712,7 @@
     let extendable = false;
 
     if (type === "s116_noicc") {
-      res = D.calcWorkingDaysDeadline(dateStr, 5, st);
+      res = D.calcWorkingDaysDeadline(deemedReceiptDate, 5, st);
       extendable = true;
       ruleLabel = en
         ? "5 Working Days (Pre-Cancellation NOICC · reg 2.44)"
@@ -393,7 +721,7 @@
         ? "Pre-cancellation Notice of Intention to Consider Cancellation (NOICC) under s 116 / s 119 typically prescribes 5 working days (reg 2.44(2)(b)). Unlike post-cancellation ART review, a discretionary extension of up to 5 additional working days may be requested from the delegate BEFORE the initial period expires (s 121(4) / reg 2.44(3)). Always verify the exact timeframe printed on your notice."
         : "취소 결정이 내려지기 전 단계인 취소예고통지(NOICC · s 116 / s 119) 소명 기한은 통상 5 영업일입니다(reg 2.44(2)(b)). 취소 확정 후 ART 재심과 달리 원 기한이 만료되기 전에 이민성 담당관에게 사유를 소명하여 최대 5 영업일 연장을 신청할 재량 규정이 존재합니다(s 121(4) / reg 2.44(3)). 반드시 통지서 본문에 기재된 정확한 기한을 함께 확인하십시오.";
     } else if (type === "s116_cancel") {
-      res = D.calcWorkingDaysDeadline(dateStr, 7, st);
+      res = D.calcWorkingDaysDeadline(deemedReceiptDate, 7, st);
       ruleLabel = en
         ? "7 Working Days Non-Extendable (Post-Cancellation ART · reg 4.10(1)(b))"
         : "7 영업일 불변 (취소 확정 후 ART 재심 · reg 4.10(1)(b))";
@@ -401,7 +729,7 @@
         ? "Post-cancellation ART review of an onshore s 116 general cancellation decision is strictly 7 working days excluding weekends and public holidays in the relevant State/Territory (reg 4.10(1)(b)). The ART has ZERO statutory discretion to extend this deadline."
         : "이미 s 116 비자 취소 결정이 내려진 뒤 행정재심기구(ART)에 재심을 청구하는 법정 기한은 주말 및 해당 주 공휴일을 제외한 7 영업일입니다(reg 4.10(1)(b)). 이 기한은 단 하루도 연장이 불가능합니다.";
     } else if (type === "detention_ref_canc") {
-      res = D.calcWorkingDaysDeadline(dateStr, 7, st);
+      res = D.calcWorkingDaysDeadline(deemedReceiptDate, 7, st);
       ruleLabel = en
         ? "7 Working Days Non-Extendable (Detention ART · reg 4.10(2))"
         : "7 영업일 불변 (이민 구금 상태 ART 재심 · reg 4.10(2))";
@@ -409,15 +737,15 @@
         ? "Applicants in immigration detention have strictly 7 working days to lodge an ART review application (reg 4.10(2)) with zero extension discretion."
         : "이민 구금(Immigration Detention) 상태에서 받은 비자 거절 또는 s 116 취소 처분에 대한 행정재심기구(ART) 재심 청구 기한은 7 영업일 불변입니다(reg 4.10(2)).";
     } else if (type === "onshore_refusal") {
-      res = D.calcCalendarDaysDeadline(dateStr, 28, st, false);
+      res = D.calcCalendarDaysDeadline(deemedReceiptDate, 28, st, false);
       ruleLabel = en
         ? "28 Calendar Days (Onshore Refusal ART · reg 4.10(1)(a))"
         : "28 역일 (호주 내 일반 거절 ART 재심 · reg 4.10(1)(a))";
       note = en
-        ? "Standard ART review period for onshore visa or sponsorship/nomination refusals is 28 calendar days after notification. Lodge on or before the Conservative Safe Date to prevent midnight or timezone disputes."
-        : "호주 내 일반 비자 거절 또는 고용주 스폰서십·노미네이션 거절에 대한 행정재심기구(ART) 재심 청구 기한은 통지일 다음 날부터 기산하여 28 역일입니다(reg 4.10(1)(a)). 자정 시간대 착오를 예방하기 위해 보수적 안전 접수 권고일까지 접수를 완료하십시오.";
+        ? "Standard ART review period for onshore visa or sponsorship/nomination refusals is 28 calendar days after deemed receipt. Lodge on or before the Conservative Safe Date to prevent midnight or timezone disputes."
+        : "호주 내 일반 비자 거절 또는 고용주 스폰서십·노미네이션 거절에 대한 행정재심기구(ART) 재심 청구 기한은 송달 간주일 다음 날부터 기산하여 28 역일입니다(reg 4.10(1)(a)). 자정 시간대 착오를 예방하기 위해 보수적 안전 접수 권고일까지 접수를 완료하십시오.";
     } else if (type === "protection_refusal") {
-      res = D.calcCalendarDaysDeadline(dateStr, 28, st, false);
+      res = D.calcCalendarDaysDeadline(deemedReceiptDate, 28, st, false);
       ruleLabel = en
         ? "28 Calendar Days + $1,863.50 Upfront Fee (reg 4.31B · F2026L01448)"
         : "28 역일 + $1,863.50 선납 필수 (reg 4.31B · F2026L01448)";
@@ -425,15 +753,15 @@
         ? "From 1 November 2026 (F2026L01448, reg 4.31B), Protection Visa ART review applications require a mandatory $1,863.50 upfront fee paid within the strict 28-day lodgement period unless exempt due to detention or severe financial hardship."
         : "2026년 11월 1일 시행령(F2026L01448 · reg 4.31B)에 따라 보호비자 행정재심기구(ART) 재심 청구는 28 역일 법정 기한 내에 신청 수수료 $1,863.50를 선납해야 적법하게 성립합니다(이민 구금 또는 심각한 경제적 곤궁 면제 제외).";
     } else if (type === "s501_mandatory_rev") {
-      res = D.calcCalendarDaysDeadline(dateStr, 28, st, false);
+      res = D.calcCalendarDaysDeadline(deemedReceiptDate, 28, st, false);
       ruleLabel = en
         ? "28 Calendar Days (s 501CA Revocation · Direction No. 123)"
         : "28 역일 불변 (s 501CA 강제취소 철회 요청 · Direction No. 123)";
       note = en
         ? "Written representations seeking revocation of a mandatory s 501(3A) cancellation must be lodged within 28 calendar days addressing Ministerial Direction No. 123 (commenced 31 Oct 2026)."
-        : "s 501(3A) 인성 사유 강제 비자 취소에 대한 철회 요청(Revocation Request)은 통지 후 28 역일 이내에 Ministerial Direction No. 123(2026.10.31 시행) 기준 소명서와 함께 제출해야 합니다.";
+        : "s 501(3A) 인성 사유 강제 비자 취소에 대한 철회 요청(Revocation Request)은 송달 간주일 후 28 역일 이내에 Ministerial Direction No. 123(2026.10.31 시행) 기준 소명서와 함께 제출해야 합니다.";
     } else if (type === "s500_char_art") {
-      res = D.calcCalendarDaysDeadline(dateStr, 9, st, false);
+      res = D.calcCalendarDaysDeadline(deemedReceiptDate, 9, st, false);
       ruleLabel = en
         ? "9 Calendar Days Non-Extendable (s 500(6B) Character ART)"
         : "9 역일 불변 (s 500(6B) 호주 내 인성 처분 ART 재심)";
@@ -441,7 +769,7 @@
         ? "Onshore character refusal or s 501CA(4) non-revocation review to the ART must be lodged within 9 calendar days (s 500(6B)), and the ART must decide within 84 days."
         : "호주 내 s 501 인성 거절 또는 강제취소 철회거부(s 501CA(4))에 대한 행정재심기구(ART) 재심 기한은 9 역일 불변이며 재판소는 84일 이내에 심결해야 합니다.";
     } else if (type === "offshore_sponsor") {
-      res = D.calcCalendarDaysDeadline(dateStr, 70, st, false);
+      res = D.calcCalendarDaysDeadline(deemedReceiptDate, 70, st, false);
       ruleLabel = en
         ? "70 Calendar Days (Offshore Sponsor ART · reg 4.10(1)(c))"
         : "70 역일 (해외 비자 거절 호주 스폰서 ART 재심 · reg 4.10(1)(c))";
@@ -449,7 +777,7 @@
         ? "Where an offshore visa application with an eligible Australian sponsor is refused, the sponsor has 70 calendar days to lodge an ART review."
         : "적격 호주 스폰서가 있는 해외 신청 비자가 거절된 경우 호주 내 스폰서는 70 역일 이내에 행정재심기구(ART) 재심을 청구할 수 있습니다.";
     } else {
-      res = D.calcCalendarDaysDeadline(dateStr, 35, st, false);
+      res = D.calcCalendarDaysDeadline(deemedReceiptDate, 35, st, false);
       ruleLabel = en
         ? "35 Calendar Days (FCFCOA Judicial Review · s 477)"
         : "35 역일 (연방순회·가족법원(FCFCOA) 사법심사 · s 477)";
@@ -461,14 +789,60 @@
     return {
       type: type,
       state: st,
+      deliveryMethod: dm,
+      noticeDate: dateStr,
+      deemedReceiptDate: deemedReceiptDate,
+      deemedSkippedHolidays: deemedSkippedHolidays,
+      deliveryRuleLabel: deliveryRuleLabel,
+      rawDate: res.rawDate || res.statutoryDate,
       safeDate: res.safeDate,
       statutoryDate: res.statutoryDate,
+      weekendWarning: res.weekendWarning || null,
       skippedHolidays: res.skippedHolidays || [],
       rolledReason: res.rolledReason || null,
       ruleLabel: ruleLabel,
       note: note,
       extendable: extendable
     };
+  }
+
+  function getSelectedDfq17Defects(en) {
+    const items = [];
+    if (document.getElementById("dfq17-defect-1")?.checked) {
+      items.push(en ? "Unclear/fragmented review deadline (DFQ17)" : "재심 청구 기한 불명확·분산 기재(DFQ17)");
+    }
+    if (document.getElementById("dfq17-defect-2")?.checked) {
+      items.push(en ? "Omitted/incorrect ART review details (s 66(2)(d))" : "관할 재심기관 ART 안내 누락·오기(s 66(2)(d))");
+    }
+    if (document.getElementById("dfq17-defect-3")?.checked) {
+      items.push(en ? "Sent to wrong/unnotified address or email (s 494B/494D)" : "유효한 신고 주소·이메일 외 오발송(s 494B/494D)");
+    }
+    return items;
+  }
+
+  function updateDfq17SelfCheck() {
+    const en = STATE.lang === "en";
+    const box = document.getElementById("dfq17-status-note");
+    if (!box) return;
+    const defects = getSelectedDfq17Defects(en);
+    if (defects.length > 0) {
+      box.innerHTML = `
+        <div class="alert-box alert-box--warn" style="font-size:12.8px;padding:10px 12px;">
+          ${en
+            ? `<strong>Potential Defective Notification Flagged (<em>DFQ17 v Minister</em> [2019] FCAFC 64)</strong>: You selected <strong>${defects.length}</strong> statutory defect indicator(s) (${defects.join("; ")}). Under <em>Migration Act</em> s 66(2) and s 494B, a statutorily defective notice may fail to start the time-bar clock (potential time-bar invalidity). Do NOT miss the conservative deadline if still open; request urgent specialist verification with your full Decision Record.`
+            : `<strong>통지서 법정 요건 흠결 가능성 감지 (<em>DFQ17 v Minister</em> [2019] FCAFC 64)</strong>: 선택한 흠결 의심 항목(<strong>${defects.join(" · ")}</strong>)이 인정될 경우 <em>Migration Act</em> s 66(2) 및 s 494B 위반으로 적법한 통지가 성립하지 않아 제소기한 도과 효력이 부정(Time-bar 무효 다툼 가능)될 여지가 있습니다. 단 기한이 아직 남아 있다면 보수적 안전 접수일을 우선 준수하시고 즉시 원본 통지서 전문을 전문변호사에게 검토받으십시오.`}
+        </div>
+      `;
+    } else {
+      box.innerHTML = `
+        <p style="margin:0;font-size:12px;color:var(--pk-muted);line-height:1.5;">
+          ${en
+            ? "Legal Note (DFQ17 v Minister [2019] FCAFC 64): Even where a deadline appears expired, a notice that failed to clearly state the review timeframe, ART jurisdiction, or s 494B service address may be legally defective so that time never validly ran."
+            : "판례 참고(DFQ17 v Minister [2019] FCAFC 64): 외관상 기한이 도과한 것처럼 보이더라도 통지서에 재심 기한·관할 ART·적법 송달 주소 요건 흠결이 있다면 법정 기한 진행 자체가 무효일 수 있습니다."}
+        </p>
+      `;
+    }
+    updateCrisisPreview();
   }
 
   function renderCharts() {
@@ -543,8 +917,8 @@
       out.innerHTML = `
         <div class="pk-empty-prompt">
           <span>${en
-            ? "Select your notice stage, notification date, and State/Territory on the left to calculate your Conservative Safe Lodgement Date and Statutory Final Deadline."
-            : "좌측에서 통지서 단계와 이메일 수신일 및 거주 주(State)를 선택하시면 2026–2027 주별 공휴일을 반영한 보수적 안전 접수 권고일과 법정 최종 마감일을 나란히 계산합니다."}</span>
+            ? "Select your notice stage, delivery method, dispatch date, and State/Territory on the left to calculate your Deemed Receipt Date, Conservative Safe Lodgement Date, and Statutory Final Deadline."
+            : "좌측에서 통지서 단계와 송달 방식(s 494C) 및 거주 주(State)를 선택하시면 2026–2030 주별 공휴일을 반영한 보수적 안전 접수 권고일과 법정 최종 마감일을 나란히 계산합니다."}</span>
           <button type="button" class="pk-btn-cta" id="btn-art-example">${en ? "Load Example Data" : "예시 데이터 넣어보기"}</button>
         </div>
       `;
@@ -563,24 +937,44 @@
     }
 
     const type = document.getElementById("art-decision-type")?.value || "onshore_refusal";
+    const deliveryMethod = document.getElementById("art-delivery-method")?.value || "email";
     const dateStr = document.getElementById("art-notice-date")?.value || window.ParkCoDates.todayBrisbaneIso();
     const stateCode = document.getElementById("art-state")?.value || "QLD";
     const subStatus = document.getElementById("art-substantive-status")?.value || "bridging";
 
-    const calc = computeArtDeadline(type, dateStr, stateCode, STATE.lang);
+    const calc = computeArtDeadline(type, dateStr, stateCode, STATE.lang, deliveryMethod);
     if (!calc) {
-      out.innerHTML = `<div class="pk-empty-prompt"><span>${en ? "Please enter a valid notification date (YYYY-MM-DD)." : "유효한 통지서 수신일(YYYY-MM-DD)을 입력해 주십시오."}</span></div>`;
+      out.innerHTML = `<div class="pk-empty-prompt"><span>${en ? "Please enter a valid notification date (YYYY-MM-DD)." : "유효한 통지서 발송·수신일(YYYY-MM-DD)을 입력해 주십시오."}</span></div>`;
       return;
     }
 
+    const deemedHtml = `
+      <div style="margin-bottom:10px;padding:9px 12px;background:var(--pk-bg);border:1px solid var(--pk-line);border-radius:8px;font-size:12.8px;color:var(--pk-ink);">
+        <strong>${en ? "Deemed Receipt Date (s 494C)" : "법정 송달 간주일 (s 494C)"}</strong>:
+        <code style="font-weight:800;color:var(--pk-brand);">${calc.deemedReceiptDate}</code>
+        <span style="color:var(--pk-muted);"> · ${calc.deliveryRuleLabel}</span>
+      </div>
+    `;
+
+    const weekendBannerHtml = calc.weekendWarning
+      ? `
+        <div class="alert-box alert-box--danger" id="art-weekend-warning-banner" style="margin-bottom:10px;">
+          ${en
+            ? `<strong>⚠️ Weekend / Public Holiday Statutory Expiry Warning (<code>${calc.statutoryDate}</code> · ${calc.weekendWarning})</strong>: The raw calendar deadline falls on <strong>${calc.weekendWarning}</strong>. While <em>Acts Interpretation Act 1901</em> s 36(2) may extend certain deadlines where a registry is closed, online 24/7 portals (ART / ImmiAccount) and strict provisions under <em>Migration Regulations 1994</em> reg 4.10 / s 500(6B) / s 501CA create acute jurisdictional risk if you wait until the next business day. <strong>Lodge on or before the Conservative Safe Business Day (<code>${calc.safeDate}</code>).</strong>`
+            : `<strong>⚠️ 주말·공휴일 만료 주의 경보 (<code>${calc.statutoryDate}</code> · ${calc.weekendWarning})</strong>: 역일 기준 법정 만료일이 주말 또는 공휴일(<strong>${calc.weekendWarning}</strong>)에 해당합니다. <em>Acts Interpretation Act 1901</em> s 36(2) 익영업일 연장 법리는 24시간 온라인 접수 시스템(ART·ImmiAccount) 및 <em>Migration Regulations 1994</em> reg 4.10 · s 500(6B) · s 501CA 엄격 불변 기한에서 적용이 배제될 위험이 매우 높으므로 반드시 <strong>직전 평일인 보수적 안전 접수 권고일(<code>${calc.safeDate}</code>)까지 접수를 완료</strong>하십시오.`}
+        </div>
+      `
+      : "";
+
     const holidayHtml = calc.skippedHolidays.length > 0
       ? `<p style="margin:6px 0 0;font-size:12.5px;color:var(--pk-brand);"><strong>${en ? "Excluded Public Holidays" : "제외된 주별 법정 공휴일"} (${calc.state})</strong>: ${calc.skippedHolidays.map((h) => `${h.date} (${h.name})`).join(", ")}</p>`
-      : `<p style="margin:6px 0 0;font-size:12.5px;color:var(--pk-muted);">${en ? `State holiday calendar applied: ${calc.state} (2026–2027)` : `적용된 공휴일 기준: ${calc.state} 주/준주 (2026–2027 법정 공휴일 반영)`}</p>`;
+      : `<p style="margin:6px 0 0;font-size:12.5px;color:var(--pk-muted);">${en ? `State holiday calendar applied: ${calc.state} (2026–2030)` : `적용된 공휴일 기준: ${calc.state} 주/준주 (2026–2030 법정 공휴일 반영)`}</p>`;
 
     out.innerHTML = `
+      ${deemedHtml}
       <div class="pk-deadline-pair">
         <div class="pk-deadline-card pk-deadline-card--safe">
-          <div class="pk-deadline-card__label">${en ? "Conservative Safe Lodgement Date (1 Business/Calendar Day Prior)" : "보수적 안전 접수 권고일 (1일 전)"}</div>
+          <div class="pk-deadline-card__label">${en ? "Conservative Safe Lodgement Date (Preceding Business Day)" : "보수적 안전 접수 권고일 (주말·공휴일 제외 직전 영업일)"}</div>
           <div class="pk-deadline-card__date">${calc.safeDate}</div>
         </div>
         <div class="pk-deadline-card pk-deadline-card--statutory">
@@ -588,6 +982,7 @@
           <div class="pk-deadline-card__date">${calc.statutoryDate}</div>
         </div>
       </div>
+      ${weekendBannerHtml}
       <div style="margin-bottom:8px;font-size:13px;font-weight:700;color:var(--pk-ink);">
         ${en ? "Applicable Provision:" : "적용 규정 및 기한:"} <span style="color:var(--pk-brand);">${calc.ruleLabel}</span>
         ${holidayHtml}
@@ -684,8 +1079,8 @@
       out.innerHTML = `
         <div class="pk-empty-prompt">
           <span>${en
-            ? "If you received a PIC 4020 Natural Justice notice or hold Condition 8503, select the barrier on the left to review statutory waiver requirements."
-            : "PIC 4020 소명 요구서(Natural Justice) 또는 Condition 8503 대상자인 경우 좌측 항목을 선택하거나 체크박스를 켜시면 법정 웨이버 요건을 안내합니다."}</span>
+            ? "If you received a PIC 4020 Natural Justice notice or hold Condition 8503 / BVE / Schedule 3 issues, select the barrier on the left to review statutory waiver requirements."
+            : "PIC 4020 소명 요구서(Natural Justice) 또는 Condition 8503 · BVE · Schedule 3 대상자인 경우 좌측 항목을 선택하거나 체크박스를 켜시면 법정 웨이버 요건을 안내합니다."}</span>
           <button type="button" class="pk-btn-ghost" id="btn-wv-example">${en ? "Load Example Data" : "예시 데이터 넣어보기"}</button>
         </div>
       `;
@@ -723,16 +1118,16 @@
       html = `
         <div class="alert-box alert-box--warn">
           ${en
-            ? "<strong>Condition 8503 (\"No Further Stay\") Waiver (s 41(2A) &amp; reg 2.05(4))</strong>: Requires compelling and compassionate circumstances that developed after visa grant, beyond your control, resulting in a major change."
-            : "<strong>Condition 8503 (\"No Further Stay\") 웨이버 (s 41(2A) &amp; reg 2.05(4))</strong>: 비자 발급 이후 신청자가 통제할 수 없는 불가피하고 동정할 만한 사정이 발생하여 중대한 상황 변화가 초래되었음을 입증해야 합니다."}
+            ? '<strong>Condition 8503 ("No Further Stay") Waiver (s 41(2A) &amp; reg 2.05(4))</strong>: Requires compelling and compassionate circumstances that developed after visa grant, beyond your control, resulting in a major change.'
+            : '<strong>Condition 8503 ("No Further Stay") 웨이버 (s 41(2A) &amp; reg 2.05(4))</strong>: 비자 발급 이후 신청자가 통제할 수 없는 불가피하고 동정할 만한 사정이 발생하여 중대한 상황 변화가 초래되었음을 입증해야 합니다.'}
         </div>
       `;
     } else {
       html = `
         <div class="alert-box alert-box--success">
           ${en
-            ? `<strong>PIC 4013/4014 &amp; Schedule 3 Waiver</strong>: Compelling and compassionate circumstances affecting Australian citizen/PR family members or sponsors (${ties}) may support a formal legal waiver submission.`
-            : `<strong>PIC 4013/4014 및 Schedule 3 웨이버 검토 가능</strong>: 선택하신 참작 사정(${ties})에 관한 객관적 의료·재정·가족 증빙과 법률 의견서를 통해 면제 승인을 검토할 수 있습니다.`}
+            ? `<strong>PIC 4013/4014 · BVE (Subclass 050) &amp; Schedule 3 Waiver</strong>: Lawful status restoration via BVE (050) and compelling/compassionate circumstances affecting Australian citizen/PR family members or sponsors (${ties}) may support a formal Schedule 3 or PIC 4013/4014 waiver submission.`
+            : `<strong>PIC 4013/4014 · BVE(050) 체류 합법화 및 Schedule 3 웨이버 검토 가능</strong>: BVE(Subclass 050)를 통한 적법 체류 회복과 선택하신 참작 사정(${ties})에 관한 객관적 의료·재정·가족 증빙 법률 의견서로 면제 승인을 검토할 수 있습니다.`}
         </div>
       `;
     }
@@ -749,25 +1144,35 @@
 
     const typeVal = document.getElementById("art-decision-type")?.value || "onshore_refusal";
     const decType = document.getElementById("art-decision-type")?.selectedOptions?.[0]?.text || "";
+    const deliveryVal = document.getElementById("art-delivery-method")?.value || "email";
+    const deliveryText = document.getElementById("art-delivery-method")?.selectedOptions?.[0]?.text || "";
     const noticeDate = document.getElementById("art-notice-date")?.value || window.ParkCoDates.todayBrisbaneIso();
     const stateCode = document.getElementById("art-state")?.value || "QLD";
     const subStatus = document.getElementById("art-substantive-status")?.selectedOptions?.[0]?.text || "";
-    const calc = STATE.artInteracted ? computeArtDeadline(typeVal, noticeDate, stateCode, STATE.lang) : null;
+    const calc = STATE.artInteracted ? computeArtDeadline(typeVal, noticeDate, stateCode, STATE.lang, deliveryVal) : null;
+    const dfqDefects = getSelectedDfq17Defects(en);
 
     const lines = en ? [
       "=== [PNC Legal Pty Ltd t/a Park & Co Lawyers | Urgent Visa & ART Consultation Brief] ===",
       `• Notice / Stage: ${STATE.artInteracted ? decType : "(Not yet selected)"}`,
-      `• Notification Date: ${noticeDate} (${stateCode}) | Visa Status: ${subStatus}`
+      `• Delivery & Dispatch Date: ${deliveryText} | ${noticeDate} (${stateCode}) | Visa Status: ${subStatus}`
     ] : [
       "=== [법무법인 박앤코 (PNC Legal Pty Ltd t/a Park & Co Lawyers) | 긴급 비자·ART 기한 진단 브리프] ===",
       `• 통지서 / 처분 단계: ${STATE.artInteracted ? decType : "(미선택 · 기한 계산기 입력 전)"}`,
-      `• 통지서 수신일: ${noticeDate} (${stateCode} 기준) | 현재 비자 상태: ${subStatus}`
+      `• 송달 방식 및 발송일: ${deliveryText} | ${noticeDate} (${stateCode} 기준) | 현재 비자 상태: ${subStatus}`
     ];
 
     if (calc) {
       lines.push(en
-        ? `• Calculated Deadlines: Safe Date ${calc.safeDate} | Statutory Final Deadline ${calc.statutoryDate} (${calc.ruleLabel})`
-        : `• 산출 마감일: 보수적 안전 접수 권고일 ${calc.safeDate} | 법정 최종 마감일 ${calc.statutoryDate} (${calc.ruleLabel})`
+        ? `• Deemed Receipt & Deadlines: Deemed Receipt ${calc.deemedReceiptDate} | Safe Business Date ${calc.safeDate} | Statutory Final Deadline ${calc.statutoryDate} (${calc.ruleLabel})`
+        : `• 송달 간주일 및 산출 마감일: 송달 간주일 ${calc.deemedReceiptDate} | 보수적 안전 접수 권고일 ${calc.safeDate} | 법정 최종 마감일 ${calc.statutoryDate} (${calc.ruleLabel})`
+      );
+    }
+
+    if (dfqDefects.length > 0) {
+      lines.push(en
+        ? `• DFQ17 Defective Notice Flags: ${dfqDefects.join("; ")}`
+        : `• DFQ17 통지서 흠결 점검: ${dfqDefects.join(" · ")}`
       );
     }
 
@@ -799,6 +1204,14 @@
     }
   }
 
+  function renderSourceStatusBadge(s, en) {
+    if (s.status === "fallback_cached") {
+      const codeInfo = s.http_status ? `HTTP ${s.http_status}` : (en ? "Cached" : "캐시보존");
+      return `<span class="badge-warn">● ${en ? "Cached Fallback" : "캐시 폴백"} (${codeInfo})</span>`;
+    }
+    return `<span class="badge-ok">● ${en ? "Verified" : "검증완료"} (${s.http_status || 200})</span>`;
+  }
+
   function renderPollerTable(sources) {
     const en = STATE.lang === "en";
     const tbody = document.getElementById("crisis-poller-tbody");
@@ -813,7 +1226,7 @@
         <td>${s.authority}</td>
         <td>${s.tracks}</td>
         <td>${s.cadence}</td>
-        <td><span class="badge-ok">● Verified (${s.http_status || 200})</span></td>
+        <td>${renderSourceStatusBadge(s, en)}</td>
       </tr>
     `).join("");
     if (tbody) tbody.innerHTML = rowsHtml;
@@ -838,7 +1251,7 @@
                   <td><span class="badge badge-burgundy">${s.category}</span></td>
                   <td><a href="${s.url}" target="_blank" rel="noopener"><strong>${en ? s.name_en : s.name_ko}</strong></a></td>
                   <td>${s.authority}</td>
-                  <td><span class="badge-ok">Verified (${s.http_status || 200})</span></td>
+                  <td>${renderSourceStatusBadge(s, en)}</td>
                 </tr>
               `).join("")}
             </tbody>
@@ -980,12 +1393,248 @@
         ko: "행정재심기구(ART) 기각 후 연방순회·가족법원(FCFCOA) 사법심사 청구 (35 역일 · s 477)",
         en: "FCFCOA Judicial Review After ART Dismissal (35 Calendar Days · s 477)"
       }
+    },
+    "art-delivery-method": {
+      email: {
+        ko: "이메일·ImmiAccount 전자통지 (s 494C(5): 발송 당일 수령 간주)",
+        en: "Email / ImmiAccount Electronic Notice (s 494C(5): Deemed received same day)"
+      },
+      post_au: {
+        ko: "호주 국내 등기우편 (s 494C(4)(a): 발송일 + 7영업일 수령 간주)",
+        en: "Registered Post within Australia (s 494C(4)(a): Deemed received +7 working days)"
+      },
+      hand: {
+        ko: "직접 교부 (s 494C(1): 교부 당일)",
+        en: "Hand Delivery in Person (s 494C(1): Deemed received on day given)"
+      }
+    },
+    "art-state": {
+      QLD: { ko: "QLD (퀸즐랜드)", en: "QLD (Queensland)" },
+      NSW: { ko: "NSW (뉴사우스웨일스)", en: "NSW (New South Wales)" },
+      VIC: { ko: "VIC (빅토리아)", en: "VIC (Victoria)" },
+      WA: { ko: "WA (서호주)", en: "WA (Western Australia)" },
+      SA: { ko: "SA (남호주)", en: "SA (South Australia)" },
+      TAS: { ko: "TAS (태즈메이니아)", en: "TAS (Tasmania)" },
+      ACT: { ko: "ACT (캔버라)", en: "ACT (Australian Capital Territory)" },
+      NT: { ko: "NT (노던준주)", en: "NT (Northern Territory)" }
+    },
+    "art-substantive-status": {
+      bridging: {
+        ko: "만료됨 · 현재 브리징 비자(BVA/BVC/BVE) 또는 무비자 상태",
+        en: "Expired · Currently holding a Bridging Visa (BVA/BVC/BVE) or unlawful"
+      },
+      substantive: {
+        ko: "유효함 · 아직 기존 실체 비자(학생·482·관광 등) 유효기간 남아 있음",
+        en: "Active · Currently holding an unexpired Substantive Visa (500/482/600, etc.)"
+      }
+    },
+    "s48-history": {
+      refused_no_sub: {
+        ko: "비자 거절(또는 취소) 이력 있음 + 현재 브리징 비자(BVA/BVC/BVE) 소지 중 (s 48 적용)",
+        en: "Refused or cancelled onshore + currently on a Bridging Visa (BVA/BVC/BVE · s 48 applies)"
+      },
+      nom_only_refused: {
+        ko: "고용주 노미네이션(Nomination)만 거절되었고 본인 비자 신청은 결정 전 자진 취하(Withdrawn)함",
+        en: "Employer Nomination refused only; Visa Application withdrawn prior to refusal"
+      },
+      has_substantive: {
+        ko: "비자 거절 이력이 있으나 현재 다른 유효한 실체 비자(Substantive Visa)를 소지 중임",
+        en: "Prior visa refusal, but currently holding another valid Substantive Visa"
+      }
+    },
+    "s48-target-visa": {
+      "190_491_494": {
+        ko: "주정부/지방 기술이민 또는 지방 스폰서 비자 (Subclass 190 / 491 / 494 · reg 2.12 예외 허용)",
+        en: "State/Regional Skilled or Employer Regional (Subclass 190 / 491 / 494 · reg 2.12 Exempt)"
+      },
+      "820_801": {
+        ko: "호주 내 파트너 비자 (Subclass 820/801 · reg 2.12 예외 허용 · Schedule 3 검토 필수)",
+        en: "Onshore Partner Visa (Subclass 820/801 · reg 2.12 Exempt · Check Schedule 3)"
+      },
+      "482_186": {
+        ko: "고용주 스폰서 비자 (SID Subclass 482 또는 ENS Subclass 186 · s 48 호주 내 금지)",
+        en: "Employer Sponsored Visa (SID Subclass 482 or ENS Subclass 186 · Barred Onshore by s 48)"
+      },
+      "500_485_189": {
+        ko: "학생비자(500) · 졸업생비자(485) · 독립기술이민(189) (s 48 호주 내 금지)",
+        en: "Student (500) · Graduate (485) · Skilled Independent (189) (Barred Onshore by s 48)"
+      },
+      "602_866": {
+        ko: "의료치료비자(Subclass 602) 또는 보호비자(866) (reg 2.12 예외 허용)",
+        en: "Medical Treatment (Subclass 602) or Protection Visa (866) (reg 2.12 Exempt)"
+      }
+    },
+    "wv-issue-type": {
+      pic4020_false: {
+        ko: "PIC 4020(1)/(2) · 위조서류(Bogus Document) 또는 허위·오도 정보 제출 (3년 입국금지 · Waiver 가능)",
+        en: "PIC 4020(1)/(2) · Bogus Document or False/Misleading Information (3-Yr Bar · Waivable)"
+      },
+      pic4020_identity: {
+        ko: "PIC 4020(2A)/(2B) · 신원(Identity) 불확실 또는 허위 신원 (10년 입국금지 · Waiver 불가)",
+        en: "PIC 4020(2A)/(2B) · Non-authentic Identity (10-Yr Bar · Non-Waivable)"
+      },
+      cond_8503: {
+        ko: 'Condition 8503 / 8534 ("No Further Stay") 호주 내 추가 비자 신청 금지 웨이버 (reg 2.05(4))',
+        en: 'Condition 8503 / 8534 ("No Further Stay") Waiver Request (s 41(2A) & reg 2.05(4))'
+      },
+      pic_4013_4014: {
+        ko: "PIC 4013 / 4014 · 비자 취소 또는 BVC/BVE/무비자 출국에 따른 3년 임시비자 입국금지",
+        en: "PIC 4013 / 4014 · 3-Year Exclusion After Cancellation or BVC/BVE/Unlawful Departure"
+      },
+      sch3_820: {
+        ko: "Schedule 3 (3001/3004) · 브리징(BVC/BVE)·무비자 상태에서 호주 내 파트너 비자(820) Compelling Reasons 웨이버",
+        en: "Schedule 3 (3001/3004) · Onshore Partner 820 Compelling Reasons Waiver (BVC/BVE/Unlawful)"
+      }
+    },
+    "wv-au-ties": {
+      au_child_spouse: {
+        ko: "호주 시민권/영주권 배우자 또는 미성년 자녀가 있으며 분리 시 중대한 피해 발생",
+        en: "Australian citizen/PR spouse or minor child facing severe hardship if separated"
+      },
+      au_employer_interest: {
+        ko: "호주 고용주(Sponsor)의 핵심 사업 운영 또는 호주 지역사회 이익에 중대한 손실 발생",
+        en: "Critical harm to an Australian employer/sponsor or broader Australian community interests"
+      },
+      medical_unforeseen: {
+        ko: "비자 발급 이후 통제 불가능한 중대한 건강 악화·사고·천재지변 발생",
+        en: "Major unforeseen medical deterioration, accident, or circumstances beyond control after grant"
+      },
+      innocent_mistake: {
+        ko: "제3자(에이전트/이전 고용주)의 과실 또는 고의 없는 단순 착오 소명 (비고의성 입증)",
+        en: "Third-party error (former agent/employer) or innocent mistake lacking purposeful falsity"
+      }
     }
   };
+
+  function applyToolDeepLink(rawTool, queryParams) {
+    if (!rawTool || typeof document === "undefined") return null;
+    const t = String(rawTool).toLowerCase().trim();
+    if (!t) return null;
+
+    if (queryParams) {
+      const qDate = queryParams.get("date");
+      const qState = queryParams.get("state");
+      const qDelivery = queryParams.get("delivery");
+      if (qDate && window.ParkCoDates?.parseIsoLocal(qDate)) {
+        const dEl = document.getElementById("art-notice-date");
+        if (dEl) dEl.value = qDate;
+      }
+      if (qState) {
+        const sEl = document.getElementById("art-state");
+        if (sEl && OPTION_I18N["art-state"][qState.toUpperCase()]) sEl.value = qState.toUpperCase();
+      }
+      if (qDelivery) {
+        const dmEl = document.getElementById("art-delivery-method");
+        if (dmEl && OPTION_I18N["art-delivery-method"][qDelivery]) dmEl.value = qDelivery;
+      }
+    }
+
+    let targetId = "art-deadline-calc";
+    let focusId = "art-decision-type";
+
+    const artDecisionMap = {
+      deadline: "onshore_refusal",
+      art: "onshore_refusal",
+      refusal: "onshore_refusal",
+      noicc: "s116_noicc",
+      s116_noicc: "s116_noicc",
+      cancel: "s116_cancel",
+      s116: "s116_cancel",
+      s116_cancel: "s116_cancel",
+      protection: "protection_refusal",
+      "866": "protection_refusal",
+      s501: "s501_mandatory_rev",
+      character: "s501_mandatory_rev",
+      direction123: "s501_mandatory_rev",
+      s500: "s500_char_art",
+      detention: "detention_ref_canc",
+      offshore: "offshore_sponsor",
+      fcfcoa: "fcfcoa_jr",
+      jr: "fcfcoa_jr"
+    };
+
+    if (artDecisionMap[t]) {
+      const sel = document.getElementById("art-decision-type");
+      if (sel) sel.value = artDecisionMap[t];
+      STATE.artInteracted = true;
+      updateArtDeadline();
+      targetId = "art-deadline-calc";
+      focusId = "art-decision-type";
+    } else if (t === "dfq17" || t === "defective") {
+      targetId = "dfq17-self-check";
+      focusId = "dfq17-defect-1";
+    } else if (t === "s48" || t === "section48" || t === "reg212") {
+      STATE.s48Interacted = true;
+      updateSection48Checker();
+      targetId = "section-48-checker";
+      focusId = "s48-history";
+    } else if (t === "bve" || t === "050" || t === "unlawful" || t === "sch3" || t === "schedule3") {
+      const chk = document.getElementById("wv-include-check");
+      const sel = document.getElementById("wv-issue-type");
+      if (chk) chk.checked = true;
+      if (sel) sel.value = (t === "bve" || t === "050" || t === "unlawful") ? "pic_4013_4014" : "sch3_820";
+      STATE.waiverInteracted = true;
+      updateWaiverChecker();
+      targetId = "pic4020-8503-waiver";
+      focusId = "wv-issue-type";
+    } else if (t === "pic4020" || t === "4020" || t === "waiver") {
+      const chk = document.getElementById("wv-include-check");
+      const sel = document.getElementById("wv-issue-type");
+      if (chk) chk.checked = true;
+      if (sel) sel.value = "pic4020_false";
+      STATE.waiverInteracted = true;
+      updateWaiverChecker();
+      targetId = "pic4020-8503-waiver";
+      focusId = "wv-issue-type";
+    } else if (t === "8503" || t === "cond8503" || t === "nofurtherstay") {
+      const chk = document.getElementById("wv-include-check");
+      const sel = document.getElementById("wv-issue-type");
+      if (chk) chk.checked = true;
+      if (sel) sel.value = "cond_8503";
+      STATE.waiverInteracted = true;
+      updateWaiverChecker();
+      targetId = "pic4020-8503-waiver";
+      focusId = "wv-issue-type";
+    } else if (t === "4013" || t === "4014" || t === "exclusion") {
+      const chk = document.getElementById("wv-include-check");
+      const sel = document.getElementById("wv-issue-type");
+      if (chk) chk.checked = true;
+      if (sel) sel.value = "pic_4013_4014";
+      STATE.waiverInteracted = true;
+      updateWaiverChecker();
+      targetId = "pic4020-8503-waiver";
+      focusId = "wv-issue-type";
+    } else if (t === "stats" || t === "art-stats" || t === "outcomes") {
+      const det = document.getElementById("disclosure-background");
+      if (det) det.open = true;
+      targetId = "art-outcomes-intelligence";
+      focusId = null;
+    } else if (t === "sources") {
+      const det = document.getElementById("disclosure-sources");
+      if (det) det.open = true;
+      targetId = "disclosure-sources";
+      focusId = null;
+    }
+
+    const sectionEl = document.getElementById(targetId);
+    if (sectionEl && typeof sectionEl.scrollIntoView === "function") {
+      setTimeout(() => {
+        sectionEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (focusId) {
+          document.getElementById(focusId)?.focus({ preventScroll: true });
+        }
+      }, 40);
+    }
+    return targetId;
+  }
 
   function setLanguage(lang, syncUrl) {
     STATE.lang = lang === "en" ? "en" : "ko";
     document.documentElement.lang = STATE.lang;
+    if (document.body) document.body.setAttribute("data-ui-lang", STATE.lang);
+    const dict = I18N[STATE.lang] || I18N.ko;
+    if (dict.docTitle) document.title = dict.docTitle;
+
     Object.keys(OPTION_I18N).forEach((selId) => {
       const sel = document.getElementById(selId);
       if (!sel) return;
@@ -997,7 +1646,6 @@
     document.querySelectorAll(".lang-btn").forEach((b) => {
       b.classList.toggle("active", b.dataset.lang === STATE.lang);
     });
-    const dict = I18N[STATE.lang] || I18N.ko;
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const k = el.getAttribute("data-i18n");
       if (dict[k]) el.textContent = dict[k];
@@ -1007,7 +1655,11 @@
       if (h) lnk.setAttribute("href", h);
     });
     document.querySelectorAll("a.cta-enquiry").forEach((a) => {
-      a.setAttribute("href", STATE.lang === "en" ? "https://parklawyers.com.au/links/?lang=en" : "https://parklawyers.com.au/links/?lang=ko");
+      const url = STATE.lang === "en" ? "https://parklawyers.com.au/links/?lang=en" : "https://parklawyers.com.au/links/?lang=ko";
+      a.setAttribute("href", url);
+      if ((a.textContent || "").trim().startsWith("https://parklawyers.com.au/links/")) {
+        a.textContent = url;
+      }
     });
     if (syncUrl && typeof history !== "undefined" && history.replaceState) {
       try {
@@ -1017,6 +1669,7 @@
       } catch (_) {}
     }
     renderCharts();
+    updateDfq17SelfCheck();
     updateArtDeadline();
     updateSection48Checker();
     updateWaiverChecker();
@@ -1031,7 +1684,7 @@
       dateInput.value = window.ParkCoDates.todayBrisbaneIso();
     }
 
-    ["art-decision-type", "art-notice-date", "art-state", "art-substantive-status"].forEach((id) => {
+    ["art-decision-type", "art-delivery-method", "art-notice-date", "art-state", "art-substantive-status"].forEach((id) => {
       const el = document.getElementById(id);
       if (!el) return;
       const handler = function () {
@@ -1040,6 +1693,12 @@
       };
       el.addEventListener("input", handler);
       el.addEventListener("change", handler);
+    });
+
+    ["dfq17-defect-1", "dfq17-defect-2", "dfq17-defect-3"].forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener("change", updateDfq17SelfCheck);
     });
 
     ["s48-history", "s48-target-visa"].forEach((id) => {
@@ -1120,16 +1779,22 @@
     });
 
     let initLang = "ko";
+    let qp = null;
     try {
-      const q = new URLSearchParams(window.location.search).get("lang");
-      if (q === "en") initLang = "en";
+      qp = new URLSearchParams(window.location.search);
+      if (qp.get("lang") === "en") initLang = "en";
     } catch (_) {}
     setLanguage(initLang, false);
+    if (qp && qp.get("tool")) {
+      applyToolDeepLink(qp.get("tool"), qp);
+    }
   }
 
   if (typeof globalThis !== "undefined") {
     globalThis.VISA_CRISIS_NAVIGATOR = {
       computeArtDeadline: computeArtDeadline,
+      applyToolDeepLink: applyToolDeepLink,
+      setLanguage: setLanguage,
       STATE: STATE
     };
   }
