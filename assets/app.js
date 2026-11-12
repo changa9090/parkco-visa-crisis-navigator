@@ -1,5 +1,5 @@
 /**
- * Park & Co Lawyers — Canonical Australian Statutory Date & Public Holiday Utility (2026–2030+)
+ * Park & Co Lawyers · Canonical Australian Statutory Date & Public Holiday Utility (2026–2030+)
  * Eliminates UTC `.toISOString()` midnight shift bugs across AEST/AEDT/KST timezones,
  * computes movable Easter dates via Anonymous Gregorian Computus for any year, and
  * applies all 8 state/territory public holidays for working-day counts and s 36(2) rollovers.
