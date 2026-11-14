@@ -463,7 +463,7 @@
 /* PNC Legal Pty Ltd t/a Park & Co Lawyers · Visa Refusal · Cancellation · Section 48 Bar · PIC 4020 · ART Deadline Navigator */
 (function () {
   "use strict";
-  const DEFAULT_SOURCES = [{"id": "migration_act_s48", "category": "Primary Legislation", "name_ko": "Migration Act 1958 · Section 48 (호주 내 비자 거절·취소 후 재신청 금지 조항)", "name_en": "Migration Act 1958 · Section 48 (Non-citizen refused or cancelled visa barred onshore)", "authority": "Federal Register of Legislation", "url": "https://www.legislation.gov.au/C1958A00062/latest/text", "method": "Statutory Provision Verification", "cadence": "Weekly", "tracks": "s 48(1) onshore bar triggered when holding no substantive visa after onshore refusal or cancellation", "status": "verified_ok", "http_status": 200, "bytes": 1747244, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "22cc03a0b0a72db0"}, {"id": "migration_regs_2_12", "category": "Primary Legislation", "name_ko": "Migration Regulations 1994 · reg 2.12 (Section 48 예외 허용 비자 목록)", "name_en": "Migration Regulations 1994 · reg 2.12 (Prescribed Visa Classes Exempt from Section 48)", "authority": "Federal Register of Legislation", "url": "https://www.legislation.gov.au/F1996B03551/latest/text", "method": "Statutory Provision Verification", "cadence": "Weekly", "tracks": "Partner (820/801), Skilled Nominated/Regional (190, 491, 494), Medical (602), Protection (866), Child (802), Bridging (A-R)", "status": "verified_ok", "http_status": 200, "bytes": 3580174, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "a964fbdacae4f71a"}, {"id": "migration_regs_4_10_art", "category": "Tribunal Deadlines", "name_ko": "Migration Act s 347 & Migration Regulations reg 4.10 · 행정재심기구(ART) 재심 청구 법정 기한", "name_en": "Migration Act s 347 & reg 4.10 · Strict Statutory Time Limits for ART Review", "authority": "Federal Register of Legislation / ART", "url": "https://www.art.gov.au/applying-review/immigration-and-citizenship", "method": "HTML + Statutory Deadline Parser", "cadence": "Weekly", "tracks": "28 calendar days (onshore refusal), 7 working days (s 116 onshore cancellation), 7 working days (immigration detention), 70 days (offshore sponsor review)", "status": "verified_ok", "http_status": 200, "bytes": 311586, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "44d7633f972b3fab"}, {"id": "migration_act_s501_500", "category": "Character & s 501", "name_ko": "Migration Act s 501 / s 501CA / s 500(6B) · 인성(Character) 비자 거절·강제취소 기한", "name_en": "Migration Act s 501 / s 501CA / s 500(6B) · Character Refusal & Mandatory Cancellation Deadlines", "authority": "Federal Register of Legislation", "url": "https://www.legislation.gov.au/C1958A00062/latest/text", "method": "Statutory Provision Verification", "cadence": "Weekly", "tracks": "s 501(3A) Mandatory Cancellation revocation request: 28 days (no extension); s 500(6B) ART onshore character review: 9 calendar days (84-day decision rule)", "status": "verified_ok", "http_status": 200, "bytes": 1747244, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "22cc03a0b0a72db0"}, {"id": "ministerial_direction_123", "category": "Ministerial Direction", "name_ko": "Ministerial Direction No. 123 (2026.10.31 시행, 구 Direction 110 폐지) · s 501 / s 501CA 인성 심사 지침", "name_en": "Ministerial Direction No. 123 (eff. 31 Oct 2026, revoking Direction 110) · Visa Refusal & Cancellation under s 501 / s 501CA", "authority": "Department of Home Affairs", "url": "https://immi.homeaffairs.gov.au/support-subsite/files/ministerial-direction-123.pdf", "method": "PDF Policy Verification", "cadence": "Weekly", "tracks": "Commenced 31 Oct 2026 (replacing Direction 110): 6 primary considerations · Protection of Australian community (highest priority), Family violence (broadened definition), Impact on Australia's social cohesion (new 6th primary consideration), Ties to Australia, Best interests of minor children, Expectations of community", "status": "verified_ok", "http_status": 200, "bytes": 480670, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "10e6cb6f6f0ad4eb"}, {"id": "migration_act_s116_noicc", "category": "Cancellation (s 116)", "name_ko": "Migration Act s 116 / s 119 · 일반 비자 취소 및 NOICC 소명 절차", "name_en": "Migration Act s 116 / s 119 · General Visa Cancellation Powers & NOICC Response", "authority": "Federal Register of Legislation", "url": "https://www.legislation.gov.au/C1958A00062/latest/text", "method": "Statutory Provision Verification", "cadence": "Weekly", "tracks": "Condition breach (8107/8607/8202), change of circumstances, risk to health/safety/good order; strict NOICC response timeframes (typically 5 working days)", "status": "verified_ok", "http_status": 200, "bytes": 1747244, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "22cc03a0b0a72db0"}, {"id": "sch4_pic_4020", "category": "Public Interest Criteria", "name_ko": "Migration Regulations Schedule 4 · PIC 4020 (허위서류·거짓정보 3년 / 신원위조 10년 입국금지)", "name_en": "Migration Regulations Schedule 4 · PIC 4020 (Bogus Documents & False/Misleading Info 3-Yr / Identity 10-Yr Bar)", "authority": "Federal Register of Legislation", "url": "https://www.legislation.gov.au/F1996B03551/latest/text", "method": "Statutory Provision Verification", "cadence": "Weekly", "tracks": "PIC 4020(1)/(2) 3-yr bar (Waiver available under 4020(4) for compassionate/compelling interests of AU citizen/PR) vs PIC 4020(2A)/(2B) 10-yr identity bar (NO waiver)", "status": "verified_ok", "http_status": 200, "bytes": 3580174, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "a964fbdacae4f71a"}, {"id": "sch4_pic_4013_4014", "category": "Exclusion Periods", "name_ko": "Migration Regulations Schedule 4 · PIC 4013 / PIC 4014 (비자 취소·불법체류 출국 후 3년 입국금지)", "name_en": "Migration Regulations Schedule 4 · PIC 4013 / PIC 4014 (3-Year Exclusion Period After Cancellation or Unlawful Departure)", "authority": "Federal Register of Legislation", "url": "https://www.legislation.gov.au/F1996B03551/latest/text", "method": "Statutory Provision Verification", "cadence": "Weekly", "tracks": "3-year exclusion from temporary visas if departing unlawful (>28 days after expiry) or on BVC/BVD/BVE; affects temporary visas (not permanent PR visas unless specified)", "status": "verified_ok", "http_status": 200, "bytes": 3580174, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "a964fbdacae4f71a"}, {"id": "condition_8503_waiver", "category": "No Further Stay Waiver", "name_ko": "Migration Act s 41(2A) & reg 2.05(4) · Condition 8503 / 8534 / 8535 (No Further Stay) 웨이버", "name_en": "Migration Act s 41(2A) & reg 2.05(4) · Condition 8503 / 8534 / 8535 Waiver Criteria", "authority": "Department of Home Affairs", "url": "https://immi.homeaffairs.gov.au/visas/already-have-a-visa/check-visa-details-and-conditions/waivers-and-permissions/no-further-stay-waiver", "method": "HTML ContentBox Parser", "cadence": "Weekly", "tracks": "Compelling and compassionate circumstances developed since visa grant, beyond applicant's control, resulting in major change (note: marriage/pregnancy alone usually insufficient unless complicated)", "status": "verified_ok", "http_status": 200, "bytes": 1308828, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "8dc8529bd7f67689"}, {"id": "art_fees_and_refund", "category": "Tribunal Fees (reg 4.13A / 4.31B)", "name_ko": "행정재심기구(ART) 이민 재심 수수료($3,727 / 50% $1,863.50) 및 보호비자 28일 내 선납 수수료($1,863.50 · F2026L01448, reg 4.31B)", "name_en": "Administrative Review Tribunal (ART) Migration Review Fee ($3,727 / 50% $1,863.50) & Protection Upfront Fee ($1,863.50 · F2026L01448, reg 4.31B)", "authority": "Administrative Review Tribunal (ART)", "url": "https://www.art.gov.au/help-and-resources/fees", "method": "HTML Fee Parser + F2026L01448 Verification", "cadence": "Weekly", "tracks": "FY2026–27 Migration Review Fee $3,727 (50% reduction/refund $1,863.50) · Protection Visa review mandatory $1,863.50 upfront fee within 28-day lodgement period from 1 Nov 2026 (F2026L01448, reg 4.31B; waiver only for immigration detention or severe financial hardship, replacing former $2,293 post-decision fee) · Character s 501 $1,195", "status": "verified_ok", "http_status": 200, "bytes": 128205, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "f6a45b094376504f"}, {"id": "dha_bve_unlawful_status", "category": "Bridging Visa E (050)", "name_ko": "Bridging Visa E (Subclass 050) 및 비자 만료 후 28일 Grace Period 규정", "name_en": "Bridging Visa E (Subclass 050) & Schedule 3 Criteria (3001/3003/3004)", "authority": "Department of Home Affairs", "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/bridging-visa-e-050-051", "method": "SharePoint PageSchemaHiddenField JSON", "cadence": "Weekly", "tracks": "Lawful status restoration, Schedule 3 waiver requirements for onshore Partner 820 applicants without a substantive visa", "status": "verified_ok", "http_status": 200, "bytes": 1297137, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "bd2c9a82452f84d0"}, {"id": "fccfcoa_judicial_review", "category": "Judicial Review", "name_ko": "Migration Act s 476 / s 477 · 연방순회·가족법원(FCFCOA) 관할권 오류 사법심사 (35일 기한)", "name_en": "Migration Act s 476 / s 477 · FCFCOA Judicial Review for Jurisdictional Error (35 Days)", "authority": "Federal Circuit and Family Court of Australia", "url": "https://www.fcfcoa.gov.au/migration", "method": "Court Practice Direction Verification", "cadence": "Weekly", "tracks": "35-day statutory deadline from date of ART decision to file judicial review application for jurisdictional error", "status": "verified_ok", "http_status": 200, "bytes": 83708, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "996be09be8257db7"}, {"id": "art_processing_times_12cat", "category": "ART Processing Times (p50/p95)", "name_ko": "행정재심기구 (ART) 12개 이민 사건 카테고리 및 보호비자 실제 완료 소요기간 (50% 중위 / 95% 장기)", "name_en": "Administrative Review Tribunal (ART) Actual Processing Times by Case Category (50% Median / 95%)", "authority": "Administrative Review Tribunal (ART)", "url": "https://www.art.gov.au/about-us/accountability-and-reporting/processing-times", "method": "Live HTML Table Parser (13 Categories)", "cadence": "Monthly (6-Month Rolling Window)", "tracks": "Partner 3y2m/3y11m · Nomination 1y6m/2y4m · Temp Work 1y6m/2y10m · Student Refusal 1y5m/2y2m · Bridging 11d/1y1m · Protection 2y1m/4y11m", "status": "verified_ok", "http_status": 200, "bytes": 108109, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "634b7f420fdf30b2"}, {"id": "art_caseload_subclass_outcomes", "category": "ART Subclass Outcomes & Backlog", "name_ko": "행정재심기구 (ART) 비자·처분별 재심 결과 (이중 분모 Set Aside 비율) 및 노미네이션 적체 통계 (FY2026–27)", "name_en": "ART Migration & Protection Detailed Caseload Statistics (Subclass Dual-Denominator Outcomes & Backlog)", "authority": "Administrative Review Tribunal (ART)", "url": "https://www.art.gov.au/sites/default/files/2026-08/Migration-Detailed-Caseload-Statistics-2026-27.pdf", "method": "Official Caseload PDF + Dual-Denominator Validator", "cadence": "Monthly", "tracks": "On-hand 83,847 (Study 64.38%) · Working/Skilled 86.70% Employer Nomination refusals (3,078) · Restricted Set Aside: 485 93.30%, 820 85.16%, 482 83.33%, 500 81.30%, Citizenship 58.82%", "status": "verified_ok", "http_status": 200, "bytes": 974695, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "fe57c01188167f6b"}];
+  const DEFAULT_SOURCES = [{"id": "migration_act_s48", "category": "Primary Legislation", "name_ko": "Migration Act 1958 · Section 48 (호주 내 비자 거절·취소 후 재신청 금지 조항)", "name_en": "Migration Act 1958 · Section 48 (Non-citizen refused or cancelled visa barred onshore)", "authority": "Federal Register of Legislation", "url": "https://www.legislation.gov.au/C1958A00062/latest/text", "method": "Statutory Provision Verification", "cadence": "Weekly", "tracks": "s 48(1) onshore bar triggered when holding no substantive visa after onshore refusal or cancellation", "status": "verified_ok", "http_status": 200, "bytes": 1747244, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "22cc03a0b0a72db0"}, {"id": "migration_regs_2_12", "category": "Primary Legislation", "name_ko": "Migration Regulations 1994 · reg 2.12 (Section 48 예외 허용 비자 목록)", "name_en": "Migration Regulations 1994 · reg 2.12 (Prescribed Visa Classes Exempt from Section 48)", "authority": "Federal Register of Legislation", "url": "https://www.legislation.gov.au/F1996B03551/latest/text", "method": "Statutory Provision Verification", "cadence": "Weekly", "tracks": "Partner (820/801), Skilled Nominated/Regional (190, 491, 494), Medical (602), Protection (866), Child (802), Bridging (A-R)", "status": "verified_ok", "http_status": 200, "bytes": 3580174, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "a964fbdacae4f71a"}, {"id": "migration_regs_4_10_art", "category": "Tribunal Deadlines", "name_ko": "Migration Act s 347(3) & s 347(5) · 행정재심기구(ART) 이민·보호비자 재심 청구 법정 기한", "name_en": "Migration Act s 347(3) & s 347(5) · Statutory Time Limits for ART Migration & Protection Review", "authority": "Federal Register of Legislation / ART", "url": "https://www.art.gov.au/applying-review/immigration-and-citizenship", "method": "HTML + Statutory Deadline Parser", "cadence": "Weekly", "tracks": "s 347(3)(b) 28 calendar days (non-detained onshore refusal, s 116 cancellation, offshore sponsor review, protection refusal); s 347(3)(a) 14 calendar days (in immigration detention on day notified); s 347(5) excludes ART Act s 19 extension", "status": "verified_ok", "http_status": 200, "bytes": 311586, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "44d7633f972b3fab"}, {"id": "migration_act_s501_500", "category": "Character & s 501", "name_ko": "Migration Act s 501 / s 501CA / s 500(6B) · 인성(Character) 비자 거절·강제취소 기한", "name_en": "Migration Act s 501 / s 501CA / s 500(6B) · Character Refusal & Mandatory Cancellation Deadlines", "authority": "Federal Register of Legislation", "url": "https://www.legislation.gov.au/C1958A00062/latest/text", "method": "Statutory Provision Verification", "cadence": "Weekly", "tracks": "s 501(3A) Mandatory Cancellation revocation request: 28 days (no extension); s 500(6B) ART onshore character review: 9 calendar days (84-day decision rule)", "status": "verified_ok", "http_status": 200, "bytes": 1747244, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "22cc03a0b0a72db0"}, {"id": "ministerial_direction_123", "category": "Ministerial Direction", "name_ko": "Ministerial Direction No. 123 (2026.10.31 시행, 구 Direction 110 폐지) · s 501 / s 501CA 인성 심사 지침", "name_en": "Ministerial Direction No. 123 (eff. 31 Oct 2026, revoking Direction 110) · Visa Refusal & Cancellation under s 501 / s 501CA", "authority": "Department of Home Affairs", "url": "https://immi.homeaffairs.gov.au/support-subsite/files/ministerial-direction-123.pdf", "method": "PDF Policy Verification", "cadence": "Weekly", "tracks": "Commenced 31 Oct 2026 (replacing Direction 110): 6 primary considerations · Protection of Australian community (highest priority), Family violence (broadened definition), Impact on Australia's social cohesion (new 6th primary consideration), Ties to Australia, Best interests of minor children, Expectations of community", "status": "verified_ok", "http_status": 200, "bytes": 480670, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "10e6cb6f6f0ad4eb"}, {"id": "migration_act_s116_noicc", "category": "Cancellation (s 116)", "name_ko": "Migration Act s 116 / s 119 / s 121 & reg 2.44 · 일반 비자 취소 및 NOICC 소명 절차", "name_en": "Migration Act s 116 / s 119 / s 121 & reg 2.44 · General Visa Cancellation Powers & NOICC Response", "authority": "Federal Register of Legislation", "url": "https://www.legislation.gov.au/C1958A00062/latest/text", "method": "Statutory Provision Verification", "cadence": "Weekly", "tracks": "Condition breach (8107/8607/8202), change of circumstances, risk to health/safety/good order; onshore NOICC 5 working days (reg 2.44(2)(a)), offshore reg 2.44(2)(b), discretionary +5 working days before expiry (s 121(4) / reg 2.44(3))", "status": "verified_ok", "http_status": 200, "bytes": 1747244, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "22cc03a0b0a72db0"}, {"id": "sch4_pic_4020", "category": "Public Interest Criteria", "name_ko": "Migration Regulations Schedule 4 · PIC 4020 (허위서류·거짓정보 3년 / 신원위조 10년 입국금지)", "name_en": "Migration Regulations Schedule 4 · PIC 4020 (Bogus Documents & False/Misleading Info 3-Yr / Identity 10-Yr Bar)", "authority": "Federal Register of Legislation", "url": "https://www.legislation.gov.au/F1996B03551/latest/text", "method": "Statutory Provision Verification", "cadence": "Weekly", "tracks": "PIC 4020(1)/(2) 3-yr bar (Waiver available under 4020(4) for compassionate/compelling interests of AU citizen/PR) vs PIC 4020(2A)/(2B) 10-yr identity bar (NO waiver)", "status": "verified_ok", "http_status": 200, "bytes": 3580174, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "a964fbdacae4f71a"}, {"id": "sch4_pic_4013_4014", "category": "Exclusion Periods", "name_ko": "Migration Regulations Schedule 4 · PIC 4013 / PIC 4014 (비자 취소·불법체류 출국 후 3년 입국금지)", "name_en": "Migration Regulations Schedule 4 · PIC 4013 / PIC 4014 (3-Year Exclusion Period After Cancellation or Unlawful Departure)", "authority": "Federal Register of Legislation", "url": "https://www.legislation.gov.au/F1996B03551/latest/text", "method": "Statutory Provision Verification", "cadence": "Weekly", "tracks": "3-year exclusion from temporary visas if departing unlawful (>28 days after expiry) or on BVC/BVD/BVE; affects temporary visas (not permanent PR visas unless specified)", "status": "verified_ok", "http_status": 200, "bytes": 3580174, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "a964fbdacae4f71a"}, {"id": "condition_8503_waiver", "category": "No Further Stay Waiver", "name_ko": "Migration Act s 41(2A) & reg 2.05(4) · Condition 8503 / 8534 / 8535 (No Further Stay) 웨이버", "name_en": "Migration Act s 41(2A) & reg 2.05(4) · Condition 8503 / 8534 / 8535 Waiver Criteria", "authority": "Department of Home Affairs", "url": "https://immi.homeaffairs.gov.au/visas/already-have-a-visa/check-visa-details-and-conditions/waivers-and-permissions/no-further-stay-waiver", "method": "HTML ContentBox Parser", "cadence": "Weekly", "tracks": "Compelling and compassionate circumstances developed since visa grant, beyond applicant's control, resulting in major change (note: marriage/pregnancy alone usually insufficient unless complicated)", "status": "verified_ok", "http_status": 200, "bytes": 1308828, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "8dc8529bd7f67689"}, {"id": "art_fees_and_refund", "category": "Tribunal Fees (reg 4.13A / 4.31B)", "name_ko": "행정재심기구(ART) 이민 재심 수수료($3,727 · FY2026–27) 및 보호비자 선납 수수료($1,863.50 · F2026L01448, reg 4.31B)", "name_en": "Administrative Review Tribunal (ART) Migration Review Fee ($3,727 · FY2026–27) & Protection Upfront Fee ($1,863.50 · F2026L01448, reg 4.31B)", "authority": "Administrative Review Tribunal (ART)", "url": "https://www.art.gov.au/help-and-resources/fees", "method": "HTML Fee Parser + F2026L01448 Verification", "cadence": "Weekly", "tracks": "FY2026–27 Migration Review Fee $3,727 indexed 1 Jul under reg 4.13A (discretionary 50% hardship reduction reg 4.13(4) & 50% refund $1,863.50) · Protection Visa review lodged on/after 1 Nov 2026: mandatory $1,863.50 upfront fee (F2026L01448, reg 4.31B(1), Sch 13 cl 16501; exempt ONLY if in immigration detention reg 4.31B(2)(a) or combined paid application reg 4.31B(2)(b); NO financial hardship waiver; 100% refund on favourable outcome reg 4.31B(3)) · Character s 501 $1,195", "status": "verified_ok", "http_status": 200, "bytes": 128205, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "f6a45b094376504f"}, {"id": "dha_bve_unlawful_status", "category": "Bridging Visa E (050)", "name_ko": "Bridging Visa E (Subclass 050) 및 비자 만료 후 28일 Grace Period 규정", "name_en": "Bridging Visa E (Subclass 050) & Schedule 3 Criteria (3001/3003/3004)", "authority": "Department of Home Affairs", "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/bridging-visa-e-050-051", "method": "SharePoint PageSchemaHiddenField JSON", "cadence": "Weekly", "tracks": "Lawful status restoration, Schedule 3 waiver requirements for onshore Partner 820 applicants without a substantive visa", "status": "verified_ok", "http_status": 200, "bytes": 1297137, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "bd2c9a82452f84d0"}, {"id": "fccfcoa_judicial_review", "category": "Judicial Review", "name_ko": "Migration Act s 476 / s 477 · 연방순회·가족법원(FCFCOA) 관할권 오류 사법심사 (35일 기한)", "name_en": "Migration Act s 476 / s 477 · FCFCOA Judicial Review for Jurisdictional Error (35 Days)", "authority": "Federal Circuit and Family Court of Australia", "url": "https://www.fcfcoa.gov.au/migration", "method": "Court Practice Direction Verification", "cadence": "Weekly", "tracks": "35-day statutory deadline from date of ART decision to file judicial review application for jurisdictional error", "status": "verified_ok", "http_status": 200, "bytes": 83708, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "996be09be8257db7"}, {"id": "art_processing_times_12cat", "category": "ART Processing Times (p50/p95)", "name_ko": "행정재심기구 (ART) 12개 이민 사건 카테고리 및 보호비자 실제 완료 소요기간 (50% 중위 / 95% 장기)", "name_en": "Administrative Review Tribunal (ART) Actual Processing Times by Case Category (50% Median / 95%)", "authority": "Administrative Review Tribunal (ART)", "url": "https://www.art.gov.au/about-us/accountability-and-reporting/processing-times", "method": "Live HTML Table Parser (13 Categories)", "cadence": "Monthly (6-Month Rolling Window)", "tracks": "Partner 3y2m/3y11m · Nomination 1y6m/2y4m · Temp Work 1y6m/2y10m · Student Refusal 1y5m/2y2m · Bridging 11d/1y1m · Protection 2y1m/4y11m", "status": "verified_ok", "http_status": 200, "bytes": 108109, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "634b7f420fdf30b2"}, {"id": "art_caseload_subclass_outcomes", "category": "ART Subclass Outcomes & Backlog", "name_ko": "행정재심기구 (ART) 비자·처분별 재심 결과 (이중 분모 Set Aside 비율) 및 노미네이션 적체 통계 (FY2026–27)", "name_en": "ART Migration & Protection Detailed Caseload Statistics (Subclass Dual-Denominator Outcomes & Backlog)", "authority": "Administrative Review Tribunal (ART)", "url": "https://www.art.gov.au/sites/default/files/2026-08/Migration-Detailed-Caseload-Statistics-2026-27.pdf", "method": "Official Caseload PDF + Dual-Denominator Validator", "cadence": "Monthly", "tracks": "On-hand 83,847 (Study 64.38%) · Working/Skilled 86.70% Employer Nomination refusals (3,078) · Restricted Set Aside: 485 93.30%, 820 85.16%, 482 83.33%, 500 81.30%, Citizenship 58.82%", "status": "verified_ok", "http_status": 200, "bytes": 974695, "last_checked": "2026-11-09T07:55:11+10:00", "sha256_prefix": "fe57c01188167f6b"}];
   const DEFAULT_ART_INTEL = {"generated_at": "2026-11-09T07:55:11+10:00", "processing_times": {"status": "verified_ok", "http_status": 200, "bytes": 108109, "sha256": "634b7f420fdf30b24c07c22dd334cf1235f477c0f5f6824ec49d88ab196c7441", "sha256_prefix": "634b7f420fdf30b2", "method": "art-processing-html-live", "url": "https://www.art.gov.au/about-us/accountability-and-reporting/processing-times", "period_start_label": "1 April 2026", "period_end_label": "30 September 2026", "period_iso": "2026-03-01 to 2026-08-31", "exclusion_note_ko": "인성(s 501 · 84일 법정심결) 및 시민권 재심 사건과 관할권 없음(No jurisdiction) 각하 건은 위 표에서 제외됨", "exclusion_note_en": "Excludes character & citizenship decisions and applications finalised as no jurisdiction", "category_count": 13, "categories": [{"category_en": "Bridging", "category_ko": "브리징 비자 (Bridging · 구금 등 우선심리 포함)", "p50_en": "11 days", "p50_ko": "11일", "p95_en": "1 year and 2 months", "p95_ko": "1년 2개월"}, {"category_en": "Family", "category_ko": "가족초청 비자 (Family · 부모·기타가족 등)", "p50_en": "1 year and 8 months", "p50_ko": "1년 8개월", "p95_en": "3 years", "p95_ko": "3년"}, {"category_en": "Nomination/Sponsor approval", "category_ko": "고용주 스폰서십 · 노미네이션 거절 (Nomination/Sponsor Approval)", "p50_en": "1 year and 6 months", "p50_ko": "1년 6개월", "p95_en": "2 years and 4 months", "p95_ko": "2년 4개월"}, {"category_en": "Partner", "category_ko": "파트너·배우자 비자 거절 (Partner · 820/801 · 309/100 · 300)", "p50_en": "3 years and 1 month", "p50_ko": "3년 1개월", "p95_en": "3 years and 11 months", "p95_ko": "3년 11개월"}, {"category_en": "Permanent business", "category_ko": "영주 사업·투자비자 (Permanent Business)", "p50_en": "2 years and 4 months", "p50_ko": "2년 4개월", "p95_en": "3 years", "p95_ko": "3년"}, {"category_en": "Skill linked", "category_ko": "기술이민 연계 비자 (Skill Linked · 189 · 190 · 491 · 485 등)", "p50_en": "9 months", "p50_ko": "9개월", "p95_en": "3 years", "p95_ko": "3년"}, {"category_en": "Student cancellation", "category_ko": "학생비자 취소 (Student Cancellation · s 116 등)", "p50_en": "1 year and 1 month", "p50_ko": "1년 1개월", "p95_en": "1 year and 7 months", "p95_ko": "1년 7개월"}, {"category_en": "Student refusal", "category_ko": "학생비자 거절 (Student Refusal · Subclass 500)", "p50_en": "1 year and 5 months", "p50_ko": "1년 5개월", "p95_en": "2 years and 2 months", "p95_ko": "2년 2개월"}, {"category_en": "Temporary work", "category_ko": "임시 취업비자 거절 (Temporary Work · SID 482 등)", "p50_en": "1 year and 6 months", "p50_ko": "1년 6개월", "p95_en": "2 years and 10 months", "p95_ko": "2년 10개월"}, {"category_en": "Visitor", "category_ko": "방문·관광비자 거절 (Visitor · Subclass 600 스폰서 재심)", "p50_en": "1 year and 1 month", "p50_ko": "1년 1개월", "p95_en": "2 years and 4 months", "p95_ko": "2년 4개월"}, {"category_en": "Other", "category_ko": "기타 이민 사건 (Other Migration)", "p50_en": "1 year and 1 month", "p50_ko": "1년 1개월", "p95_en": "1 year and 8 months", "p95_ko": "1년 8개월"}, {"category_en": "All migration case categories", "category_ko": "전체 이민 사건 통합 (All Migration Case Categories)", "p50_en": "1 year and 5 months", "p50_ko": "1년 5개월", "p95_en": "2 years and 10 months", "p95_ko": "2년 10개월"}, {"category_en": "Protection (Refugee)", "category_ko": "보호·난민비자 (Protection Subclass 866 등)", "p50_en": "2 years", "p50_ko": "2년", "p95_en": "4 years and 9 months", "p95_ko": "4년 9개월"}]}, "caseload_outcomes": {"status": "verified_ok", "http_status": 200, "bytes": 974695, "sha256": "fe57c01188167f6b483a406502dcf1744bf676391240347d1fdc45c8a30ddecb", "sha256_prefix": "fe57c01188167f6b", "whole_sha256_prefix": "8eaf6efadc22797e", "method": "art-caseload-pdf-live", "landing_url": "https://www.art.gov.au/help-and-resources/statistics", "migration_pdf_url": "https://www.art.gov.au/sites/default/files/2026-08/Migration-Detailed-Caseload-Statistics-2026-27.pdf", "whole_pdf_url": "https://www.art.gov.au/sites/default/files/2026-08/ART-Caseload-2026-27.pdf", "period_iso": "2026-07-01 to 2026-08-31 (FY2026–27 YTD)", "stock_as_at": "2026-08-31", "migration_totals": {"lodgements": 8518, "finalisations": 5450, "on_hand": 83847, "set_aside": 2473, "affirmed_total": 837, "dismissed_subset": 178, "withdrawn": 1566, "other_no_jurisdiction": 574, "change_all_pct": 45.38, "restricted_change_pct": 78.96, "median_weeks_whole_report": 62}, "nomination_refusal_highlight": {"working_skilled_lodgements": 3550, "working_skilled_finalisations": 677, "working_skilled_clearance_pct": 19.07, "employer_nomination_lodgements": 3078, "employer_nomination_share_pct": 86.7, "employer_nomination_on_hand": 8598}, "subclass_outcomes": [{"id": "485_temporary_graduate_refusal", "subclass": "485", "decision_type": "Visa Refusal", "label_ko": "졸업생 비자 거절 (Subclass 485 Refusal)", "label_en": "Subclass 485 (Temporary Graduate) · Visa Refusal", "pdf_page": 4, "L": 223, "F": 431, "H": 2882, "S": 362, "A": 28, "D": 2, "W": 39, "O": 2, "insight_ko": "기술심사·영어성적·AFP 영수증 시점 보완 및 s 103 합의 결정 포함 시 실질 결정 대비 93.30%가 취소·환송(Set Aside)", "insight_en": "93.30% of substantive decisions (excl. withdrawals/dismissals) resulted in Set Aside/Remittal/s 103 consent", "A_minus_D": 26, "restricted_denominator": 388, "excluded_procedural_count": 43, "change_all_pct": 83.99, "restricted_change_pct": 93.3, "nonrestricted_pct": 9.98}, {"id": "820_refusal", "subclass": "820", "decision_type": "Visa Refusal", "label_ko": "온쇼어 파트너 비자 거절 (Subclass 820 Refusal)", "label_en": "Subclass 820 (Partner Temporary) · Visa Refusal", "pdf_page": 3, "L": 305, "F": 146, "H": 2550, "S": 109, "A": 24, "D": 5, "W": 9, "O": 4, "insight_ko": "약 3년 2개월(중위 134주) 심리 대기 동안 4대 요건(재정·주거·사회·상호 헌신) 누적 증거 및 Schedule 3 법리 보완 시 85.16%(실질) 인용", "insight_en": "3 yr 2 m median wait allows accumulating reg 1.15A 4-pillar & Schedule 3 evidence (85.16% restricted Set Aside)", "A_minus_D": 19, "restricted_denominator": 128, "excluded_procedural_count": 18, "change_all_pct": 74.66, "restricted_change_pct": 85.16, "nonrestricted_pct": 12.33}, {"id": "500_refusal", "subclass": "500", "decision_type": "Visa Refusal", "label_ko": "학생비자 거절 (Subclass 500 Refusal)", "label_en": "Subclass 500 (Student) · Visa Refusal", "pdf_page": 5, "L": 2846, "F": 2912, "H": 53357, "S": 1361, "A": 397, "D": 84, "W": 1068, "O": 86, "insight_ko": "학업 완료·출국에 따른 자진 취하(Withdrawn 1,068건 = 36.68%) 착시를 걷어내면 끝까지 심리받은 사건의 81.30%가 취소·환송(Set Aside)", "insight_en": "36.68% (1,068) withdraw before hearing; among cases reaching a non-dismissal decision, 81.30% are Set Aside", "A_minus_D": 313, "restricted_denominator": 1674, "excluded_procedural_count": 1238, "change_all_pct": 46.74, "restricted_change_pct": 81.3, "nonrestricted_pct": 42.51}, {"id": "482_refusal", "subclass": "482", "decision_type": "Visa Refusal", "label_ko": "고용주 스폰서 비자 거절 (SID/TSS 482 Refusal)", "label_en": "Subclass 482 (SID/TSS) · Visa Refusal", "pdf_page": 9, "L": 250, "F": 220, "H": 3530, "S": 100, "A": 46, "D": 26, "W": 61, "O": 13, "insight_ko": "취하(61건)·절차종결(39건)을 제외한 본안 결정(120건) 중 83.33%(100건)가 노미네이션·경력 보완으로 취소·환송(Set Aside)", "insight_en": "83.33% (100/120) restricted Set Aside rate once withdrawals (61) and dismissals/other (39) are separated", "A_minus_D": 20, "restricted_denominator": 120, "excluded_procedural_count": 100, "change_all_pct": 45.45, "restricted_change_pct": 83.33, "nonrestricted_pct": 45.45}, {"id": "500_cancellation", "subclass": "500", "decision_type": "Visa Cancellation", "label_ko": "학생비자 취소 (Subclass 500 Cancellation · s 116)", "label_en": "Subclass 500 (Student) · Visa Cancellation", "pdf_page": 5, "L": 84, "F": 172, "H": 566, "S": 78, "A": 76, "D": 22, "W": 8, "O": 10, "insight_ko": "단순 거절(81.30%)보다 취소(59.09%)의 방어 난도가 훨씬 높으므로 NOICC 5영업일 소명 단계에서 취소를 막는 것이 핵심", "insight_en": "Cancellation review is tougher (59.09% vs 81.30% for refusal): early NOICC defence before cancellation is critical", "A_minus_D": 54, "restricted_denominator": 132, "excluded_procedural_count": 40, "change_all_pct": 45.35, "restricted_change_pct": 59.09, "nonrestricted_pct": 23.26}, {"id": "600_refusal", "subclass": "600", "decision_type": "Visa Refusal", "label_ko": "방문비자 거절 (Subclass 600 Refusal · 호주 가족 스폰서 건)", "label_en": "Subclass 600 (Visitor) · Visa Refusal", "pdf_page": 7, "L": 335, "F": 465, "H": 3269, "S": 52, "A": 22, "D": 1, "W": 85, "O": 306, "insight_ko": "전체 종결의 65.81%(306건)가 재심 청구 적격(Part 5 reviewable 요건) 미비로 관할권 없음(Other) 각하되며 본안 심리 통과 시 71.23% 인용", "insight_en": "65.81% (306/465) dismissed as Other/No Jurisdiction due to ineligible offshore applications; 71.23% (52/73) when valid", "A_minus_D": 21, "restricted_denominator": 73, "excluded_procedural_count": 392, "change_all_pct": 11.18, "restricted_change_pct": 71.23, "nonrestricted_pct": 84.3}, {"id": "citizenship", "subclass": "Citizenship", "decision_type": "Citizenship Refusal", "label_ko": "호주 시민권 거절 재심 (Australian Citizenship Refusal)", "label_en": "Australian Citizenship Refusal Review", "pdf_page": 11, "L": 82, "F": 94, "H": 301, "S": 30, "A": 26, "D": 5, "W": 21, "O": 17, "insight_ko": "인성(Good Character)·거주기간·신원 사유 시민권 거절 건으로 취하·각하 제외 실질 결정(51건) 중 58.82%(30건)가 취소·환송(Set Aside)", "insight_en": "Good character, residence & identity refusals: 31.91% (30/94) of all finalisations and 58.82% (30/51) of substantive decisions Set Aside", "A_minus_D": 21, "restricted_denominator": 51, "excluded_procedural_count": 43, "change_all_pct": 31.91, "restricted_change_pct": 58.82, "nonrestricted_pct": 45.74}, {"id": "character", "subclass": "s 501 Character", "decision_type": "Character s 501 / s 501CA", "label_ko": "인성 사유 비자 거절 · 강제취소 철회거부 (s 501 / s 501CA)", "label_en": "Character Review (s 501 Refusal & s 501CA Non-Revocation)", "pdf_page": 11, "L": 72, "F": 89, "H": 154, "S": 33, "A": 42, "D": 1, "W": 6, "O": 8, "insight_ko": "9일 청구 기한 · 84일 법정 심결 데드라인(s 500(6B)) 적용 구간 · 2026.10.31 이후 결정은 Ministerial Direction No. 123(사회통합 제6차 주요 고려사항 추가 · 가정폭력 정의 확대, 구 Direction 110 폐지) 적용 (실질 결정 대비 44.59% [33/74] Set Aside)", "insight_en": "Subject to strict 9-day filing & 84-day decision rules (s 500(6B)); decisions on/after 31 Oct 2026 apply Ministerial Direction No. 123 (6th primary consideration social cohesion & broadened family violence, revoking Direction 110) · 44.59% (33/74) restricted Set Aside", "A_minus_D": 41, "restricted_denominator": 74, "excluded_procedural_count": 15, "change_all_pct": 37.08, "restricted_change_pct": 44.59, "nonrestricted_pct": 16.85}], "macro_insights": [{"id": "employer_nomination_surge", "badge_ko": "고용주 스폰서 · 노미네이션 핵심 병목 (PDF p.9–10)", "badge_en": "Working & Skilled Backlog Driver (PDF p.9–10)", "metric_highlight": "86.70% (3,078 / 3,550건)", "title_ko": "취업·기술비자 행정재심기구(ART) 신규 접수의 86.70%(3,078건)가 고용주 노미네이션 거절입니다", "title_en": "86.70% (3,078 of 3,550) of Working/Skilled ART Lodgements Are Employer Nomination Refusals", "desc_ko": "2026년 7~8월 두 달간 취업·기술비자(Working/Skilled) 재심 청구 3,550건 중 종결은 677건(해소율 19.07%, 미결 순증 +2,863건)에 그쳤으며 신규 접수의 86.70%(3,078건)가 비자 본안이 아닌 고용주 노미네이션(Nomination) 거절입니다. 약 1년 6개월~2년 10개월의 행정재심기구(ART) 대기 시간 동안 재무제표·시장급여(AMSR)·직무 진정성(Genuine Position) 서류를 보강하면 본안 결정 대비 83.33%(482 기준)의 높은 역전 인용률을 기대할 수 있습니다.", "desc_en": "Working/Skilled visas recorded a 19.07% clearance rate (677 finalised vs 3,550 lodged), driven by 3,078 Employer Nomination refusals (86.70%). The 1.5–2.8 year ART queue provides a critical window to rebuild financial, AMSR, and genuine position evidence.", "cta_service": "art_case_review"}, {"id": "study_backlog_concentration", "badge_ko": "학생비자 적체 집중 & 자진취하 착시 (PDF p.5)", "badge_en": "Study Visa Backlog & Withdrawal Effect (PDF p.5)", "metric_highlight": "64.38% (53,984 / 83,847건)", "title_ko": "전체 이민 재심 적체의 64.38%(53,984건)가 학생비자이며 실질 본안 결정 시 81.30%가 뒤집힙니다", "title_en": "Study Visas Hold 64.38% (53,984) of Migration On-Hand Backlog; 81.30% Restricted Set Aside", "desc_ko": "학생비자(500) 거절의 전체 종결 대비 취소·환송(Set Aside) 비율은 46.74%(1,361/2,912)로 보이지만 이는 재심 대기 중 학업을 마치고 출국하며 자진 취하한 1,068건(36.68%)이 분모에 포함되었기 때문입니다. 취하·각하를 제외하고 실제 본안 결정까지 간 사건(1,674건) 중에서는 81.30%(1,361건)가 취소·환송되었습니다.", "desc_en": "While 500 Refusal shows a 46.74% raw Set Aside rate across all 2,912 finalisations, 36.68% (1,068) were applicant withdrawals. Among the 1,674 non-dismissal substantive decisions, 81.30% (1,361) were Set Aside.", "cta_service": "art_case_review"}, {"id": "visitor_jurisdiction_trap", "badge_ko": "관할권 각하(No Jurisdiction) 함정 경보 (PDF p.7)", "badge_en": "No-Jurisdiction Dismissal Trap (PDF p.7)", "metric_highlight": "65.81% (306 / 465건 각하)", "title_ko": "방문비자(600) 재심 신청의 65.81%(306건)가 본안 심리도 못 받고 관할권 없음으로 각하됩니다", "title_en": "65.81% (306 of 465) of Subclass 600 ART Finalisations Exit as No-Jurisdiction / Other", "desc_ko": "해외 신청 방문비자(600)는 호주 시민권·영주권 가족 스폰서 요건(Part 5 reviewable decision)을 충족하지 못하면 행정재심기구(ART) 관할권이 전혀 없습니다. 무작정 재심을 넣었다가 65.81%가 각하되는 반면 적격 여부를 사전 검증해 본안 심리(73건)까지 간 사건은 71.23%(52건)가 인용되었습니다.", "desc_en": "Offshore Visitor 600 refusals without an eligible Australian family sponsor/visit condition lack Part 5 jurisdiction (65.81% exited as Other). When jurisdictionally valid and decided on the merits, 71.23% (52/73) were Set Aside.", "cta_service": "visa_emergency"}, {"id": "partner_long_queue_window", "badge_ko": "파트너·가족비자 장기 대기 & 증거 보강 (PDF p.1, 3)", "badge_en": "Partner/Family 134-Week Median Wait & Evidence Window", "metric_highlight": "3년 2개월 (중위 134주) · 85.16%", "title_ko": "파트너 비자(820) 재심은 중위 3년 2개월(134주)이 소요되나 실질 본안 결정의 85.16%가 인용됩니다", "title_en": "Partner 820 Reviews Take 3 Yrs 2 Mos (134 Wks Median), Yielding 85.16% Restricted Set Aside", "desc_ko": "파트너 비자는 이민성 1차 심사 시점의 증거 부족이나 Schedule 3 사유로 거절되더라도 행정재심기구(ART)가 재심 결정 시점(Time of Decision)의 누적된 동거·재정·자녀 출산 증거를 모두 반영합니다(전체 종결 대비 74.66%, 실질 결정 대비 85.16% 인용).", "desc_en": "Because the ART re-evaluates partner relationships at the time of the Tribunal's decision, the ~3-year wait allows couples to build decisive cohabitation, financial, and family evidence (74.66% raw / 85.16% restricted Set Aside).", "cta_service": "art_case_review"}]}};
 
   const STATE = {
@@ -485,18 +485,18 @@
       nav_btn_waiver: "PIC 4020·8503",
       nav_btn_art_intel: "ART 통계",
       navFaq: "이민 FAQ",
-      pollBtnLabel: "14/14 출처 검증",
+      pollBtnLabel: "14/14 출처 스냅샷",
       topCta: "공식 문의 허브",
-      urgentBadge: "연장 불가 법정 기한:",
-      urgentText: "s 116 NOICC 소명 통상 5 영업일(reg 2.44) · s 116 취소 확정 후 행정재심기구(ART) 재심 7 영업일 불변(reg 4.10(1)(b)) · 일반 거절 28 역일 · s 500 인성 재심 9 역일",
+      urgentBadge: "핵심 법정 기한 구분:",
+      urgentText: "호주 내 NOICC 소명 5 영업일(reg 2.44(2)(a) · 만료 전 재량 연장 +5 영업일 신청 가능 s 121(4)/reg 2.44(3)) · 일반 거절·취소 ART 재심 28 역일(통지일 구금 시 14 역일 · s 347(3)/(5) 연장 불가) · 호주 내 s 500(6B) 인성 재심 9 역일(연장 불가)",
       heroOverline: "법무법인 박앤코 · QLS 이민법 전문변호사 감수",
       hero_title: "호주 비자 거절 · 취소(s 116 / s 501) · Section 48 · 행정재심기구(ART) 기한 진단기",
       hero_lead: "통지서 송달 방식과 관할 주(State)를 선택하면 2026–2030 주별 공휴일과 송달 간주일(s 494C)을 반영한 보수적 안전 접수 권고일과 법정 최종 마감일을 나란히 산출합니다.",
       sec1_title: "1. 행정재심기구(ART) 재심 · s 116 NOICC 소명 · s 501 철회 마감일 계산기",
-      sec1_desc: "이민성 통지서의 송달 방식(전자통지 당일 · 국내 등기우편 +7영업일 · 직접 교부 당일 · Migration Act s 494C)에 따라 송달 간주일을 먼저 산정한 뒤 법정 마감일을 계산합니다.",
+      sec1_desc: "이민성 통지서의 송달 방식(전자통지 당일 · 국내 등기우편 +7영업일 · 국제우편 +21역일 · 직접 교부 당일 · Migration Act s 494C / reg 2.55)에 따라 송달 간주일을 먼저 산정한 뒤 법정 마감일을 계산합니다(연방법원 사법심사 s 477은 결정일 기준 35역일).",
       artInputCardTitle: "통지서 유형 · 송달 방식 · 발송일 · 관할 주(State) 입력",
       lblArtDecision: "1. 수신한 이민성 통지서 / 처분 단계",
-      lblArtDelivery: "2. 통지서 송달 방식 (Migration Act s 494C 송달 간주일 산정)",
+      lblArtDelivery: "2. 통지서 송달 방식 (Migration Act s 494C / reg 2.55 송달 간주일 산정)",
       lblArtDate: "3. 통지서 발송·교부일",
       hintArtDate: "통지서 상단 기재일자 또는 발송일 입력 (s 494C)",
       lblArtState: "4. 거주 주/준주 (공휴일 기준)",
@@ -531,11 +531,11 @@
       dir123Desc: "2026년 10월 31일 이후 내려지는 s 501 / s 501CA 인성 처분에는 구 Direction 110이 폐지되고 Direction No. 123이 적용됩니다(호주 사회통합에 미치는 영향 제6차 주요 고려사항 신설 · 가정폭력 정의 확대).",
       dir123Link: "📄 Ministerial Direction No. 123 원문 PDF ↗",
       f2026Title: "💰 2026.11.01 시행 · 보호비자 ART 선납 수수료 (F2026L01448 · reg 4.31B)",
-      f2026Desc: "2026년 11월 1일 이후 접수하는 보호비자(866) 행정재심기구(ART) 재심은 법정 28일 청구 기한 내 $1,863.50 선납(Upfront)이 의무화되었습니다(이민 구금 또는 심각한 경제적 곤궁 시에만 면제).",
+      f2026Desc: "2026년 11월 1일 이후 행정재심기구(ART)에 접수하는 보호비자 재심 청구는 FY2026–27 기준 $1,863.50(매년 7월 1일 reg 4.13A 물가연동) 선납이 의무이며 면제는 ① 이민 구금 중(reg 4.31B(2)(a)) 또는 ② 수수료 납부 사건과의 병합 청구(reg 4.31B(2)(b)) 2가지뿐입니다(재정적 궁핍 감면 없음 · 인용/환송 시 100% 환급).",
       f2026Link: "📜 F2026L01448 (reg 4.31B) 법령 원문 ↗",
-      sec0_title: "비자 위기 대응 핵심 법정 기한(NOICC 5영업일 vs 취소 후 ART 7영업일) 및 Section 48 시각화 차트",
-      sec0_desc: "행정재심기구(ART)는 법정 기한이 단 하루만 지나도 관할권 없음(No Jurisdiction)으로 각하합니다.",
-      chart1Title: "그래프 1 · 처분 단계별 NOICC 소명(5영업일) · ART 재심(7영업일/9일/28일) · 연방법원 기한 비교",
+      sec0_title: "비자 위기 대응 핵심 법정 기한(NOICC 5영업일 · 일반 ART 28역일 / 구금 14역일 / 인성 9역일) 및 Section 48 차트",
+      sec0_desc: "행정재심기구(ART) 이민 재심(s 347(5)) 및 호주 내 인성 재심(s 500(6B))은 법정 기한이 단 하루만 지나도 연장 권한 없이 관할권 없음(No Jurisdiction)으로 각하됩니다.",
+      chart1Title: "그래프 1 · 처분 단계별 NOICC 소명(5영업일) · ART 재심(9일/14일/28일) · 연방법원(35일) 기한 비교",
       chart2Title: "그래프 2 · Section 48 Bar 적용 시 호주 내 신청 허용(Exempt) vs 금지(Barred) 비자",
       artIntelTitle: "행정재심기구(ART) 비자·처분별 실제 재심 결과(이중 분모 비교) 및 13개 카테고리 심리 소요기간",
       artIntelDesc: "행정재심기구(ART) 공식 통계 보고서(Migration-Detailed-Caseload-Statistics-2026-27.pdf) 원문을 검증하여 전체 종결 대비 인용률(S/F)과 실질 본안 결정 대비 인용률(S/[S+A-D])을 함께 제시합니다.",
@@ -558,15 +558,15 @@
       specBtnGuide: "비자 솔루션 가이드",
       specBtnEmg: "비자응급실 안내",
       specBtnArt: "ART 재심 검토 안내",
-      sec4_title: "1차 법령 데이터 출처 확인 (14개 연방 법령 · 행정재심기구(ART) · 연방법원 SHA-256 검증)",
+      sec4_title: "1차 법령·재판소 출처 스냅샷 모니터 (14개 연방 법령·ART·FCFCOA 문서 무결성 SHA-256 기록)",
       thSrcCat: "구분",
       thSrcName: "공식 법령 · 재판소 안내 및 링크",
       thSrcAuth: "관할 기관",
       thSrcTracks: "추적 지표",
       thSrcCadence: "검증 주기",
-      thSrcStatus: "상태",
+      thSrcStatus: "스냅샷 상태",
       discTitle: "법률 면책공고 (Legal Disclaimer) · 송달 간주 규정(s 494B / s 494C) 안내",
-      discP1: "본 호주 비자 거절·취소(s 116 / s 501)·Section 48·PIC 4020 및 행정재심기구(ART) 기한 진단기는 법무법인 박앤코(PNC Legal Pty Ltd t/a Park & Co Lawyers)가 일반 정보 제공 목적으로 제작한 참고 도구입니다. 개별 사안에 대한 법률 자문을 대체하지 않습니다.",
+      discP1: "본 호주 비자 거절·취소(s 116 / s 501)·Section 48·PIC 4020 및 행정재심기구(ART) 기한 진단기는 법무법인 박앤코(PNC Legal Pty Ltd t/a Park & Co Lawyers)가 일반 정보 제공 목적으로 제작한 참고 도구입니다. 출처 SHA-256 기록은 원문 응답·파일의 무결성 스냅샷을 뜻하며 개별 법률 해석이나 사안별 자문을 보증하지 않습니다.",
       discP2Lead: "법정 기한은 통지서 송달 방식(Migration Act s 494B/494C)과 관할 주 공휴일에 따라 달라질 수 있으므로 원본 통지서(Decision Record / NOICC)를 법무법인 박앤코 공식 문의 허브(",
       discP2Mid: ") 또는 공식 이메일(",
       discP2Tail: ")로 접수해 정확한 법정 마감일을 확인하시기 바랍니다.",
@@ -574,7 +574,7 @@
       footerPractitioner: "박창민 대표변호사 (QLS Accredited Specialist in Immigration Law)",
       footerHubLbl: "공식 문의 허브:",
       footerEmailLbl: "이메일:",
-      modalTitle: "공식 1차 법령·행정재심기구(ART) 출처 모니터 (14/14 Verified)"
+      modalTitle: "공식 1차 법령·행정재심기구(ART) 출처 스냅샷 모니터 (문서 무결성 SHA-256 · 법률 해석 자동 보증 아님)"
     },
     en: {
       docTitle: "Australia Visa Refusal · Cancellation (s 116 / s 501) · Section 48 · PIC 4020 · ART Deadline Navigator | Park & Co Lawyers",
@@ -585,18 +585,18 @@
       nav_btn_waiver: "PIC 4020·8503",
       nav_btn_art_intel: "ART Stats",
       navFaq: "Immi FAQ",
-      pollBtnLabel: "14/14 Verified",
+      pollBtnLabel: "14/14 Source Snapshots",
       topCta: "Official Inquiry Hub",
-      urgentBadge: "Strict Statutory Time Limits:",
-      urgentText: "s 116 NOICC response: 5 working days (reg 2.44) · Post-cancellation s 116 ART review: 7 working days non-extendable (reg 4.10(1)(b)) · Standard refusal: 28 calendar days · s 500 Character ART: 9 calendar days",
+      urgentBadge: "Key Statutory Deadlines:",
+      urgentText: "Onshore NOICC response: 5 working days (reg 2.44(2)(a) · discretionary +5 working days before expiry s 121(4)/reg 2.44(3)) · General refusal/cancellation ART review: 28 calendar days (14 calendar days if in detention on day notified · s 347(3)/(5) non-extendable) · Onshore s 500(6B) Character ART: 9 calendar days (non-extendable)",
       heroOverline: "Park & Co Lawyers · QLS Accredited Specialist in Immigration Law",
       hero_title: "Australia Visa Refusal · Cancellation (s 116 / s 501) · Section 48 · ART Deadline Navigator",
       hero_lead: "Select your delivery method, dispatch date, and State/Territory to calculate Deemed Receipt (s 494C), Conservative Safe Lodgement Date, and Statutory Final Deadline across 2026–2030 public holidays.",
       sec1_title: "1. ART Merits Review · s 116 NOICC Response · s 501 Revocation Deadline Calculator",
-      sec1_desc: "Computes your statutory Deemed Receipt Date first (same day for email/hand delivery; +7 working days for Australian registered post under Migration Act s 494C) before calculating the final deadline.",
+      sec1_desc: "Computes your statutory Deemed Receipt Date first (same day for email/hand delivery; +7 working days for Australian post; +21 calendar days for international post under Migration Act s 494C / reg 2.55) before calculating the deadline (FCFCOA s 477 runs 35 days from decision date).",
       artInputCardTitle: "Notice Stage, Delivery Method, Date & State/Territory",
       lblArtDecision: "1. Home Affairs Notice / Procedural Stage",
-      lblArtDelivery: "2. Notification Delivery Method (Migration Act s 494C Deemed Receipt)",
+      lblArtDelivery: "2. Notification Delivery Method (Migration Act s 494C / reg 2.55 Deemed Receipt)",
       lblArtDate: "3. Notice Dispatch / Hand-Delivery Date",
       hintArtDate: "Date printed on or dispatched with the notice (s 494C)",
       lblArtState: "4. State/Territory (Public Holidays)",
@@ -631,11 +631,11 @@
       dir123Desc: "Decisions under s 501 / s 501CA on or after 31 October 2026 apply Ministerial Direction No. 123 (revoking Direction 110), adding a 6th primary consideration on social cohesion and broadening family violence.",
       dir123Link: "📄 Ministerial Direction No. 123 Official PDF ↗",
       f2026Title: "💰 Commenced 1 Nov 2026 · Protection Visa ART Upfront Fee (F2026L01448 · reg 4.31B)",
-      f2026Desc: "Protection Visa (Subclass 866) ART review applications lodged on or after 1 November 2026 require a mandatory $1,863.50 upfront fee within the strict 28-day window unless exempt due to detention or severe financial hardship.",
+      f2026Desc: "Protection Visa ART review applications lodged with the ART on or after 1 November 2026 require a mandatory $1,863.50 upfront fee for FY2026–27 (indexed annually on 1 July under reg 4.13A). Upfront fee waiver applies ONLY where (a) the applicant is in immigration detention (reg 4.31B(2)(a)) or (b) the application is combined under reg 4.31A with a paid application (reg 4.31B(2)(b)) — NO financial hardship waiver applies (100% refund on favourable outcome under reg 4.31B(3)).",
       f2026Link: "📜 F2026L01448 (reg 4.31B) Legislation Text ↗",
-      sec0_title: "Statutory Deadlines (NOICC 5 Working Days vs ART 7 Working Days) & Section 48 Matrix",
-      sec0_desc: "The Administrative Review Tribunal (ART) has zero jurisdiction if an application is lodged even one day late.",
-      chart1Title: "Chart 1 · Pre-Cancellation NOICC (5 Working Days) vs Post-Cancellation ART (7 Working Days / 9d / 28d) & FCFCOA",
+      sec0_title: "Key Statutory Deadlines (NOICC 5 Working Days · General ART 28d / Detention 14d / Character 9d) & Section 48 Matrix",
+      sec0_desc: "Under Migration Act s 347(5) and s 500(6B), the Administrative Review Tribunal (ART) has zero jurisdiction if an application is lodged even one day late.",
+      chart1Title: "Chart 1 · Pre-Cancellation NOICC (5 Working Days) vs ART Review (9d / 14d / 28d) & FCFCOA (35d)",
       chart2Title: "Chart 2 · Section 48 Onshore Exempt (reg 2.12) vs Barred Visa Subclasses",
       artIntelTitle: "Official ART Subclass Outcomes (Dual-Denominator) & 13-Category Actual Processing Times",
       artIntelDesc: "Verified against the official ART Migration Detailed Caseload Statistics PDF (2026–27), comparing All-Finalisations Set Aside (S/F) and Restricted Substantive Set Aside (S/[S+A-D]).",
@@ -658,15 +658,15 @@
       specBtnGuide: "Visa Solution Guide",
       specBtnEmg: "Visa Emergency™",
       specBtnArt: "ART Case Review™",
-      sec4_title: "Verify Primary Legal Sources (14 Federal Statutes · ART · FCFCOA SHA-256 Monitor)",
+      sec4_title: "Primary Legal Source Snapshot Monitor (14 Federal Statutes · ART · FCFCOA File Hash Records)",
       thSrcCat: "Category",
       thSrcName: "Official Legislation / Tribunal Guidance",
       thSrcAuth: "Authority",
       thSrcTracks: "Tracked Rules & Metrics",
       thSrcCadence: "Cadence",
-      thSrcStatus: "Status",
+      thSrcStatus: "Snapshot Status",
       discTitle: "Legal Disclaimer & Statutory Deemed Service Rules (s 494B / s 494C)",
-      discP1: "This Visa Refusal, Cancellation (s 116 / s 501), Section 48, PIC 4020, and ART Deadline Navigator is provided by PNC Legal Pty Ltd t/a Park & Co Lawyers for general informational purposes only and does not constitute legal advice.",
+      discP1: "This Visa Refusal, Cancellation (s 116 / s 501), Section 48, PIC 4020, and ART Deadline Navigator is provided by PNC Legal Pty Ltd t/a Park & Co Lawyers for general informational purposes only and does not constitute legal advice. SHA-256 records verify source snapshot integrity and HTTP availability, not automated validation of individual legal advice.",
       discP2Lead: "Statutory deadlines depend on the exact method of service (Migration Act s 494B/494C) and State public holidays. Please submit your original Decision Record or NOICC via the Park & Co Official Inquiry Hub (",
       discP2Mid: ") or official email (",
       discP2Tail: ") to confirm your binding statutory deadline.",
@@ -674,116 +674,213 @@
       footerPractitioner: "Chang Min Park (QLS Accredited Specialist in Immigration Law)",
       footerHubLbl: "Official Inquiry Hub:",
       footerEmailLbl: "Email:",
-      modalTitle: "Primary Statutory & ART Source Verification Monitor (14/14 Verified)"
+      modalTitle: "Primary Statutory & ART Source Snapshot Monitor (HTTP & SHA-256 Integrity · Not Automated Legal Advice)"
     }
   };
+
+  function computeArtFee(opts) {
+    const o = opts || {};
+    const cat = String(o.category || "migration_part5").toLowerCase();
+    const lodgementDateIso = String(o.lodgementDateIso || "2026-11-14");
+    const inDetention = Boolean(o.inDetention);
+    const combinedPaid = Boolean(o.combinedPaidApplication);
+    const severeHardship = Boolean(o.severeFinancialHardship);
+
+    if (cat === "protection") {
+      if (lodgementDateIso < "2026-11-01") {
+        return {
+          category: "protection",
+          feeYear: "Pre-1 Nov 2026 Transitional",
+          upfrontFeeAud: 0,
+          exempt: true,
+          hardshipReductionAvailable: false,
+          refundOnFavourablePct: 0,
+          basis: "Migration Regulations 1994 Sch 13 Pt 165 cl 16501 (ART application lodged before 1 Nov 2026 governed by former post-decision fee regime)"
+        };
+      }
+      if (inDetention) {
+        return {
+          category: "protection",
+          feeYear: "FY2026–27 (indexed annually on 1 July under reg 4.13A)",
+          upfrontFeeAud: 0,
+          exempt: true,
+          hardshipReductionAvailable: false,
+          refundOnFavourablePct: 100,
+          basis: "Migration Regulations 1994 reg 4.31B(2)(a) (F2026L01448 · applicant in immigration detention)"
+        };
+      }
+      if (combinedPaid) {
+        return {
+          category: "protection",
+          feeYear: "FY2026–27 (indexed annually on 1 July under reg 4.13A)",
+          upfrontFeeAud: 0,
+          exempt: true,
+          hardshipReductionAvailable: false,
+          refundOnFavourablePct: 100,
+          basis: "Migration Regulations 1994 reg 4.31B(2)(b) & reg 4.31A (F2026L01448 · combined with paid application)"
+        };
+      }
+      return {
+        category: "protection",
+        feeYear: "FY2026–27 (indexed annually on 1 July under reg 4.13A)",
+        upfrontFeeAud: 1863.50,
+        exempt: false,
+        hardshipReductionAvailable: false,
+        refundOnFavourablePct: 100,
+        basis: "Migration Regulations 1994 reg 4.31B(1)-(3) & Sch 13 Pt 165 cl 16501 (F2026L01448 · 50% of reg 4.13(1) fee; NO financial hardship waiver or reduction applies)"
+      };
+    }
+
+    if (cat === "character_s501") {
+      return {
+        category: "character_s501",
+        feeYear: "FY2026–27",
+        upfrontFeeAud: 1195.00,
+        exempt: false,
+        hardshipReductionAvailable: true,
+        reducedFeeIfApprovedAud: 100.00,
+        refundOnFavourablePct: 100,
+        basis: "ART Standard Application Fee (FY2026–27 · $1,195 standard / $100 concession or hardship if approved)"
+      };
+    }
+
+    return {
+      category: "migration_part5",
+      feeYear: "FY2026–27 (indexed annually on 1 July under reg 4.13A)",
+      standardFeeAud: 3727.00,
+      upfrontFeeAud: 3727.00,
+      exempt: false,
+      hardshipReductionAvailable: true,
+      discretionaryHardshipApplied: severeHardship,
+      reducedFeeIfApprovedAud: 1863.50,
+      refundOnFavourablePct: 50,
+      basis: "Migration Regulations 1994 reg 4.13(1), reg 4.13(4) (discretionary 50% severe financial hardship reduction to $1,863.50 — not automatic) & reg 4.14 (50% refund on favourable decision)"
+    };
+  }
 
   function computeArtDeadline(type, dateStr, stateCode, lang, deliveryMethod) {
     const en = lang === "en";
     const st = (stateCode || "QLD").toUpperCase();
-    const dm = deliveryMethod || "email";
+    const dm = deliveryMethod === undefined ? "email" : String(deliveryMethod).trim();
     const D = (typeof window !== "undefined" && window.ParkCoDates) || globalThis.ParkCoDates;
     if (!D || !D.parseIsoLocal(dateStr)) return null;
+    if (["email", "post_au", "post_intl", "hand"].indexOf(dm) === -1) return null;
 
     let deemedReceiptDate = dateStr;
     let deemedSkippedHolidays = [];
     let deliveryRuleLabel = "";
-    if (dm === "post_au") {
+    if (type === "fcfcoa_jr") {
+      deemedReceiptDate = dateStr;
+      deliveryRuleLabel = en
+        ? "Date of Migration Decision (s 477(3) · Not Postal Deemed Receipt)"
+        : "처분·재심 결정일자 기준 기산 (s 477(3) · 우편 송달 간주일 미적용)";
+    } else if (dm === "post_au") {
       const postRes = D.calcWorkingDaysDeadline(dateStr, 7, st);
       if (!postRes) return null;
       deemedReceiptDate = postRes.statutoryDate;
       deemedSkippedHolidays = postRes.skippedHolidays || [];
       deliveryRuleLabel = en
-        ? "Australian Registered Post (+7 Working Days Deemed Receipt · s 494C(4)(a))"
-        : "호주 국내 등기우편 (+7 영업일 송달 간주 · s 494C(4)(a))";
+        ? "Australian Prepaid Post (+7 Working Days Deemed Receipt · s 494C(4)(a) / reg 2.55(7)(a))"
+        : "호주 국내 등기우편 (+7 영업일 송달 간주 · s 494C(4)(a) / reg 2.55(7)(a))";
+    } else if (dm === "post_intl") {
+      const pStart = D.parseIsoLocal(dateStr);
+      if (!pStart) return null;
+      deemedReceiptDate = D.formatIsoLocal(D.addCalendarDays(pStart, 21));
+      deliveryRuleLabel = en
+        ? "International / Overseas Post (+21 Calendar Days Deemed Receipt · s 494C(4)(b) / reg 2.55(7)(b))"
+        : "해외 등기·국제우편 (+21 역일 송달 간주 · s 494C(4)(b) / reg 2.55(7)(b))";
     } else if (dm === "hand") {
       deliveryRuleLabel = en
-        ? "Hand Delivery in Person (Same-Day Receipt · s 494C(1))"
-        : "직접 교부 (교부 당일 수령 간주 · s 494C(1))";
+        ? "Hand Delivery in Person (Same-Day Receipt · s 494C(2) / reg 2.55(5))"
+        : "직접 교부 (교부 당일 수령 간주 · s 494C(2) / reg 2.55(5))";
     } else {
       deliveryRuleLabel = en
-        ? "Email / ImmiAccount Electronic Notice (Same-Day Deemed Receipt · s 494C(5))"
-        : "이메일·ImmiAccount 전자통지 (발송 당일 수령 간주 · s 494C(5))";
+        ? "Email / ImmiAccount Electronic Notice (Same-Day Deemed Receipt · s 494C(5)–(6) / reg 2.55(8))"
+        : "이메일·ImmiAccount 전자통지 (발송 당일 수령 간주 · s 494C(5)–(6) / reg 2.55(8))";
     }
 
     let res = null;
     let ruleLabel = "";
     let note = "";
     let extendable = false;
+    let statusHeading = "";
 
     if (type === "s116_noicc") {
       res = D.calcWorkingDaysDeadline(deemedReceiptDate, 5, st);
       extendable = true;
+      statusHeading = en ? "NOICC Response Timeframe & Discretionary Extension" : "NOICC 소명 기한 및 재량 연장 신청 안내";
       ruleLabel = en
-        ? "5 Working Days (Pre-Cancellation NOICC · reg 2.44)"
-        : "통상 5 영업일 (취소 결정 전 NOICC 소명 · reg 2.44)";
+        ? "5 Working Days Onshore (Pre-Cancellation NOICC · reg 2.44(2)(a))"
+        : "호주 내 5 영업일 (취소 결정 전 NOICC 소명 · reg 2.44(2)(a))";
       note = en
-        ? "Pre-cancellation Notice of Intention to Consider Cancellation (NOICC) under s 116 / s 119 typically prescribes 5 working days (reg 2.44(2)(b)). Unlike post-cancellation ART review, a discretionary extension of up to 5 additional working days may be requested from the delegate BEFORE the initial period expires (s 121(4) / reg 2.44(3)). Always verify the exact timeframe printed on your notice."
-        : "취소 결정이 내려지기 전 단계인 취소예고통지(NOICC · s 116 / s 119) 소명 기한은 통상 5 영업일입니다(reg 2.44(2)(b)). 취소 확정 후 ART 재심과 달리 원 기한이 만료되기 전에 이민성 담당관에게 사유를 소명하여 최대 5 영업일 연장을 신청할 재량 규정이 존재합니다(s 121(4) / reg 2.44(3)). 반드시 통지서 본문에 기재된 정확한 기한을 함께 확인하십시오.";
+        ? "Pre-cancellation Notice of Intention to Consider Cancellation (NOICC) under s 116 / s 119 prescribes 5 working days in Australia under reg 2.44(2)(a) (offshore notices follow reg 2.44(2)(b): 28 days, or 5 working days at a local diplomatic/consular office). Unlike ART review, a discretionary extension of up to 5 additional working days may be requested from the delegate BEFORE the initial period expires under s 121(4) and reg 2.44(3) (not automatic). Always verify the exact timeframe printed on your notice."
+        : "취소 결정 전 단계인 취소예고통지(NOICC · s 116 / s 119)의 호주 내 소명 기한은 reg 2.44(2)(a)에 따라 5 영업일입니다(해외 체류 통지는 reg 2.44(2)(b)에 따라 28일 또는 현지 재외공관 심사 시 5 영업일 별도 적용). ART 재심과 달리 원 기한이 만료되기 전에 이민성 담당관에게 사유를 소명해 최대 5 영업일 재량 연장을 요청할 수 있으나(s 121(4) / reg 2.44(3)) 자동 권리가 아니므로 원 기한 내 접수·연장 승인 여부를 반드시 확인하십시오.";
     } else if (type === "s116_cancel") {
-      res = D.calcWorkingDaysDeadline(deemedReceiptDate, 7, st);
+      res = D.calcCalendarDaysDeadline(deemedReceiptDate, 28, st, false);
       ruleLabel = en
-        ? "7 Working Days Non-Extendable (Post-Cancellation ART · reg 4.10(1)(b))"
-        : "7 영업일 불변 (취소 확정 후 ART 재심 · reg 4.10(1)(b))";
+        ? "28 Calendar Days Non-Extendable · Non-Detained on Day Notified (s 347(3)(b) & s 347(5))"
+        : "28 역일 불변 · 통지 당일 비구금 기준 (Migration Act s 347(3)(b) & s 347(5))";
       note = en
-        ? "Post-cancellation ART review of an onshore s 116 general cancellation decision is strictly 7 working days excluding weekends and public holidays in the relevant State/Territory (reg 4.10(1)(b)). The ART has ZERO statutory discretion to extend this deadline."
-        : "이미 s 116 비자 취소 결정이 내려진 뒤 행정재심기구(ART)에 재심을 청구하는 법정 기한은 주말 및 해당 주 공휴일을 제외한 7 영업일입니다(reg 4.10(1)(b)). 이 기한은 단 하루도 연장이 불가능합니다.";
+        ? "Under Migration Act 1958 s 347(3)(b), a Part 5 reviewable cancellation decision (such as onshore s 116 cancellation) must be lodged with the ART within 28 calendar days after deemed notification if the applicant was NOT in immigration detention on the day notified (if in immigration detention on the day notified, the shorter 14-calendar-day limit under s 347(3)(a) applies). Under s 347(5), the ART has ZERO power to extend this deadline."
+        : "현행 Migration Act 1958 s 347(3)(b)에 따라 호주 내 일반 비자 취소(s 116 등 Part 5 재심 대상 처분)에 대한 행정재심기구(ART) 재심 청구 기한은 통지 당일 이민 구금 상태가 아닌 경우 송달 간주일 다음 날부터 28 역일입니다(만약 통지 당일 이민 구금 상태였다면 s 347(3)(a)에 따라 14 역일 적용). s 347(5)에 따라 ART의 기한 연장 권한은 일절 배제됩니다.";
     } else if (type === "detention_ref_canc") {
-      res = D.calcWorkingDaysDeadline(deemedReceiptDate, 7, st);
+      res = D.calcCalendarDaysDeadline(deemedReceiptDate, 14, st, false);
       ruleLabel = en
-        ? "7 Working Days Non-Extendable (Detention ART · reg 4.10(2))"
-        : "7 영업일 불변 (이민 구금 상태 ART 재심 · reg 4.10(2))";
+        ? "14 Calendar Days Non-Extendable · Detained on Day Notified (s 347(3)(a) & s 347(5))"
+        : "14 역일 불변 · 통지 당일 이민 구금 기준 (Migration Act s 347(3)(a) & s 347(5))";
       note = en
-        ? "Applicants in immigration detention have strictly 7 working days to lodge an ART review application (reg 4.10(2)) with zero extension discretion."
-        : "이민 구금(Immigration Detention) 상태에서 받은 비자 거절 또는 s 116 취소 처분에 대한 행정재심기구(ART) 재심 청구 기한은 7 영업일 불변입니다(reg 4.10(2)).";
+        ? "Under Migration Act 1958 s 347(3)(a), if the applicant was in immigration detention ON THE DAY NOTIFIED of a Part 5 reviewable refusal or cancellation decision, the ART review application must be lodged within 14 calendar days after notification (s 347(5) excludes any extension of time; detention service rules under reg 5.02 may also apply — check the decision notice immediately)."
+        : "Migration Act 1958 s 347(3)(a)에 따라 처분 통지 당일(on the day notified) 이민 구금(Immigration Detention) 상태에 있었던 신청인의 Part 5 비자 거절 또는 일반 취소(s 116 등) ART 재심 청구 기한은 통지일 다음 날부터 14 역일입니다(s 347(5)에 따라 연장 불가 · 구금 송달 규정 reg 5.02 및 통지서 원문을 즉시 대조하십시오).";
     } else if (type === "onshore_refusal") {
       res = D.calcCalendarDaysDeadline(deemedReceiptDate, 28, st, false);
       ruleLabel = en
-        ? "28 Calendar Days (Onshore Refusal ART · reg 4.10(1)(a))"
-        : "28 역일 (호주 내 일반 거절 ART 재심 · reg 4.10(1)(a))";
+        ? "28 Calendar Days Non-Extendable · Non-Detained on Day Notified (s 347(3)(b) & s 347(5))"
+        : "28 역일 불변 · 통지 당일 비구금 기준 (Migration Act s 347(3)(b) & s 347(5))";
       note = en
-        ? "Standard ART review period for onshore visa or sponsorship/nomination refusals is 28 calendar days after deemed receipt. Lodge on or before the Conservative Safe Date to prevent midnight or timezone disputes."
-        : "호주 내 일반 비자 거절 또는 고용주 스폰서십·노미네이션 거절에 대한 행정재심기구(ART) 재심 청구 기한은 송달 간주일 다음 날부터 기산하여 28 역일입니다(reg 4.10(1)(a)). 자정 시간대 착오를 예방하기 위해 보수적 안전 접수 권고일까지 접수를 완료하십시오.";
+        ? "Under Migration Act 1958 s 347(3)(b), standard Part 5 ART review for onshore visa or sponsorship/nomination refusals must be lodged within 28 calendar days after deemed notification (14 calendar days under s 347(3)(a) if in immigration detention on the day notified). Section 347(5) excludes ART Act s 19 time extensions; lodge on or before the Conservative Safe Date."
+        : "Migration Act 1958 s 347(3)(b)에 따라 호주 내 일반 비자 거절 또는 고용주 스폰서십·노미네이션 거절의 행정재심기구(ART) 재심 기한은 통지 당일 비구금 기준 송달 간주일 다음 날부터 28 역일입니다(통지 당일 이민 구금 시 s 347(3)(a) 14 역일 적용). s 347(5)에 따라 기한 연장이 불가하므로 보수적 안전 접수 권고일까지 접수를 완료하십시오.";
     } else if (type === "protection_refusal") {
       res = D.calcCalendarDaysDeadline(deemedReceiptDate, 28, st, false);
       ruleLabel = en
-        ? "28 Calendar Days + $1,863.50 Upfront Fee (reg 4.31B · F2026L01448)"
-        : "28 역일 + $1,863.50 선납 필수 (reg 4.31B · F2026L01448)";
+        ? "28 Calendar Days (s 347(3)(b)) + $1,863.50 Upfront Fee (reg 4.31B · F2026L01448)"
+        : "28 역일 (s 347(3)(b)) + FY2026–27 $1,863.50 선납 필수 (reg 4.31B · F2026L01448)";
       note = en
-        ? "From 1 November 2026 (F2026L01448, reg 4.31B), Protection Visa ART review applications require a mandatory $1,863.50 upfront fee paid within the strict 28-day lodgement period unless exempt due to detention or severe financial hardship."
-        : "2026년 11월 1일 시행령(F2026L01448 · reg 4.31B)에 따라 보호비자 행정재심기구(ART) 재심 청구는 28 역일 법정 기한 내에 신청 수수료 $1,863.50를 선납해야 적법하게 성립합니다(이민 구금 또는 심각한 경제적 곤궁 면제 제외).";
+        ? "For Protection Visa ART review applications lodged with the ART on or after 1 November 2026 (F2026L01448, reg 4.31B & Sch 13 cl 16501), the FY2026–27 upfront fee of $1,863.50 (50% of reg 4.13(1), indexed annually on 1 July under reg 4.13A) must be paid within the 28-day window (14 days if in detention on day notified under s 347(3)(a)). Upfront fee waiver applies ONLY if (a) the applicant is in immigration detention (reg 4.31B(2)(a)) or (b) the application is combined under reg 4.31A with a paid application (reg 4.31B(2)(b)) — NO financial hardship waiver or reduction applies (100% refund on favourable outcome under reg 4.31B(3))."
+        : "2026년 11월 1일 이후 ART에 접수하는 보호비자 재심 청구(F2026L01448 · reg 4.31B · Sch 13 cl 16501)는 법정 28 역일(통지 당일 이민 구금 시 s 347(3)(a) 14 역일) 기한 내에 FY2026–27 기준 $1,863.50(매년 7월 1일 reg 4.13A 물가연동)를 선납해야 유효합니다. 선납 면제는 ① 신청인이 이민 구금 중인 경우(reg 4.31B(2)(a)) 또는 ② 수수료가 납부된 다른 신청과 reg 4.31A로 병합하는 경우(reg 4.31B(2)(b)) 2가지뿐이며 경제적 궁핍(재정 곤란) 감면·면제는 적용되지 않습니다(인용·환송 시 reg 4.31B(3)에 따라 100% 환급).";
     } else if (type === "s501_mandatory_rev") {
       res = D.calcCalendarDaysDeadline(deemedReceiptDate, 28, st, false);
       ruleLabel = en
-        ? "28 Calendar Days (s 501CA Revocation · Direction No. 123)"
-        : "28 역일 불변 (s 501CA 강제취소 철회 요청 · Direction No. 123)";
+        ? "28 Calendar Days (s 501CA(3)(b) & reg 2.52(2)(b) · Direction No. 123)"
+        : "28 역일 법정 소명 기한 (s 501CA(3)(b) & reg 2.52(2)(b) · Direction No. 123)";
       note = en
-        ? "Written representations seeking revocation of a mandatory s 501(3A) cancellation must be lodged within 28 calendar days addressing Ministerial Direction No. 123 (commenced 31 Oct 2026)."
-        : "s 501(3A) 인성 사유 강제 비자 취소에 대한 철회 요청(Revocation Request)은 송달 간주일 후 28 역일 이내에 Ministerial Direction No. 123(2026.10.31 시행) 기준 소명서와 함께 제출해야 합니다.";
+        ? "Written representations seeking revocation of a mandatory s 501(3A) cancellation must be made within 28 calendar days after notification under s 501CA(3)(b) and reg 2.52(2)(b), addressing Ministerial Direction No. 123 (commenced 31 Oct 2026)."
+        : "s 501(3A) 인성 사유 강제 비자 취소에 대한 철회 요청(Revocation Representations)은 s 501CA(3)(b) 및 reg 2.52(2)(b)에 따라 통지 수령 간주일 후 28 역일 이내에 Ministerial Direction No. 123(2026.10.31 시행) 기준 서면 소명과 함께 제출해야 합니다.";
     } else if (type === "s500_char_art") {
       res = D.calcCalendarDaysDeadline(deemedReceiptDate, 9, st, false);
       ruleLabel = en
-        ? "9 Calendar Days Non-Extendable (s 500(6B) Character ART)"
+        ? "9 Calendar Days Non-Extendable (s 500(6B) Onshore Character ART)"
         : "9 역일 불변 (s 500(6B) 호주 내 인성 처분 ART 재심)";
       note = en
-        ? "Onshore character refusal or s 501CA(4) non-revocation review to the ART must be lodged within 9 calendar days (s 500(6B)), and the ART must decide within 84 days."
-        : "호주 내 s 501 인성 거절 또는 강제취소 철회거부(s 501CA(4))에 대한 행정재심기구(ART) 재심 기한은 9 역일 불변이며 재판소는 84일 이내에 심결해야 합니다.";
+        ? "For a person in the migration zone, ART review of a s 501 character refusal or s 501CA(4) non-revocation decision must be lodged within 9 calendar days after notification under s 500(6B) (zero extension; ART deemed affirmation after 84 days under s 500(6L)). Note: offshore character reviews outside s 500(6B) follow general ART Act ss 18–19 rules — check the decision notice carefully."
+        : "호주 이주구역(Migration Zone) 내 신청인의 s 501 인성 거절 또는 강제취소 철회거부(s 501CA(4))에 대한 ART 재심 청구는 s 500(6B)에 따라 통지일 후 9 역일 불변(연장 불가 · s 500(6L) 84일 내 미결정 시 기각 간주)입니다. 호주 밖 체류 인성 사건은 s 500(6B) 9일 특칙 대상이 아니므로 통지서상 ART Act ss 18–19 기한을 즉시 확인하십시오.";
     } else if (type === "offshore_sponsor") {
-      res = D.calcCalendarDaysDeadline(deemedReceiptDate, 70, st, false);
+      res = D.calcCalendarDaysDeadline(deemedReceiptDate, 28, st, false);
       ruleLabel = en
-        ? "70 Calendar Days (Offshore Sponsor ART · reg 4.10(1)(c))"
-        : "70 역일 (해외 비자 거절 호주 스폰서 ART 재심 · reg 4.10(1)(c))";
+        ? "28 Calendar Days Non-Extendable (Offshore Refusal · Sponsor ART Review · s 347(3)(b))"
+        : "28 역일 불변 (해외 비자 거절 적격 호주 스폰서 ART 재심 · Migration Act s 347(3)(b))";
       note = en
-        ? "Where an offshore visa application with an eligible Australian sponsor is refused, the sponsor has 70 calendar days to lodge an ART review."
-        : "적격 호주 스폰서가 있는 해외 신청 비자가 거절된 경우 호주 내 스폰서는 70 역일 이내에 행정재심기구(ART) 재심을 청구할 수 있습니다.";
+        ? "Where an offshore visa application carries a Part 5 review right for an eligible Australian sponsor or relative, Migration Act 1958 s 347(3)(b) prescribes a strict 28-calendar-day ART filing limit after notification (unless in immigration detention on the day notified under s 347(3)(a), in which case 14 calendar days applies; s 347(5) bars any extension of time)."
+        : "적격 호주 스폰서·친족에게 Part 5 재심 청구권이 부여된 해외 신청 비자 거절 사건 역시 현행 Migration Act 1958 s 347(3)(b)에 따라 통지 수령 간주일 다음 날부터 28 역일 불변 기한이 적용됩니다(통지 당일 이민 구금 상태였다면 s 347(3)(a)에 따라 14 역일 적용 · s 347(5)에 따라 기한 연장이 불가합니다).";
     } else {
       res = D.calcCalendarDaysDeadline(deemedReceiptDate, 35, st, false);
+      extendable = true;
+      statusHeading = en ? "FCFCOA Judicial Review Timeframe & s 477(2) Extension Rule" : "연방법원(FCFCOA) 사법심사 기한 및 s 477(2) 연장 심리 안내";
       ruleLabel = en
-        ? "35 Calendar Days (FCFCOA Judicial Review · s 477)"
-        : "35 역일 (연방순회·가족법원(FCFCOA) 사법심사 · s 477)";
+        ? "35 Calendar Days from Date of Migration Decision (FCFCOA · s 477(1)–(3))"
+        : "처분·재심 결정일로부터 35 역일 (연방순회·가족법원(FCFCOA) 사법심사 · s 477(1)–(3))";
       note = en
-        ? "Judicial review applications to the Federal Circuit and Family Court of Australia (FCFCOA) for jurisdictional error must be filed within 35 calendar days of the ART decision."
-        : "행정재심기구(ART) 기각 결정일로부터 35 역일 이내에 관할권 오류(Jurisdictional Error)를 근거로 연방순회·가족법원(FCFCOA)에 사법심사를 청구할 수 있습니다.";
+        ? "Judicial review applications to the Federal Circuit and Family Court of Australia (FCFCOA) for jurisdictional error must be filed within 35 calendar days of the DATE OF THE MIGRATION DECISION under s 477(1) and s 477(3) (not postal deemed receipt). Under s 477(2), the Court may extend time only upon written application if satisfied it is necessary in the interests of the administration of justice."
+        : "연방순회·가족법원(FCFCOA) 관할권 오류(Jurisdictional Error) 사법심사 청구는 s 477(1) 및 s 477(3)에 따라 우편 송달 간주일이 아닌 '결정일자(date of the migration decision)'로부터 35 역일 이내에 접수해야 합니다(s 477(2)에 따라 사법 정의상 필요한 경우 서면 연장 신청에 한해 법원이 재량 심사 가능).";
     }
 
     return {
@@ -802,7 +899,8 @@
       rolledReason: res.rolledReason || null,
       ruleLabel: ruleLabel,
       note: note,
-      extendable: extendable
+      extendable: extendable,
+      statusHeading: statusHeading
     };
   }
 
@@ -852,33 +950,33 @@
       artChart.innerHTML = `
         <svg viewBox="0 0 680 290" width="100%" style="display:block;height:auto;font-family:'Pretendard Variable','Manrope',sans-serif;">
           <rect x="0" y="0" width="680" height="290" rx="10" fill="#FBF9F5"/>
-          <text x="18" y="32" font-size="11" font-weight="800" fill="#946200">${en ? "1A. Pre-Cancellation s 116 NOICC Response" : "1A. 취소 전 s 116 예고통지(NOICC) 소명"}</text>
+          <text x="18" y="32" font-size="11" font-weight="800" fill="#946200">${en ? "1A. Pre-Cancellation Onshore NOICC Response" : "1A. 취소 전 호주 내 예고통지(NOICC) 소명"}</text>
           <rect x="278" y="17" width="76" height="20" rx="4" fill="#B68B40"/>
-          <text x="362" y="31" font-size="10.5" font-weight="800" fill="#946200">${en ? "5 Working Days · reg 2.44 (+5d req before expiry)" : "통상 5 영업일 · reg 2.44 (만료 전 +5영업일 연장요청 가능)"}</text>
+          <text x="362" y="31" font-size="10.5" font-weight="800" fill="#946200">${en ? "5 Working Days · reg 2.44(2)(a) (+5wd disc. s 121(4))" : "5 영업일 · reg 2.44(2)(a) (만료 전 +5영업일 재량연장 신청 가능)"}</text>
 
-          <text x="18" y="68" font-size="11" font-weight="800" fill="#9E2A2B">${en ? "1B. Post-Cancellation s 116 / Detention ART" : "1B. 취소 확정 후 s 116 / 구금 ART 재심"}</text>
-          <rect x="278" y="53" width="95" height="20" rx="4" fill="#9E2A2B"/>
-          <text x="381" y="67" font-size="10.5" font-weight="800" fill="#9E2A2B">${en ? "7 Working Days · reg 4.10(1)(b) (Zero Extension)" : "7 영업일 불변 · reg 4.10(1)(b) (연장 불가)"}</text>
+          <text x="18" y="68" font-size="11" font-weight="800" fill="#7A1F2B">${en ? "1B. Onshore Character (s 501) ART Review" : "1B. 호주 내 인성(s 501) 거절·철회거부 ART"}</text>
+          <rect x="278" y="53" width="104" height="20" rx="4" fill="#7A1F2B"/>
+          <text x="390" y="67" font-size="10.5" font-weight="800" fill="#7A1F2B">${en ? "9 Calendar Days · s 500(6B) [Zero Extension]" : "9 역일 불변 · s 500(6B) [84일 심결 · 연장 불가]"}</text>
 
-          <text x="18" y="104" font-size="11" font-weight="800" fill="#9E2A2B">${en ? "2. Onshore Character (s 501) ART Review" : "2. 호주 내 인성(s 501) 거절·철회거부 ART"}</text>
-          <rect x="278" y="89" width="112" height="20" rx="4" fill="#7A1F2B"/>
-          <text x="398" y="103" font-size="10.5" font-weight="800" fill="#7A1F2B">${en ? "9 Calendar Days · s 500(6B) [84-day decision]" : "9 역일 불변 · s 500(6B) [84일 심결]"}</text>
+          <text x="18" y="104" font-size="11" font-weight="800" fill="#9E2A2B">${en ? "2. Part 5 ART · In Detention on Day Notified" : "2. 통지 당일 이민 구금(Detention) ART 재심"}</text>
+          <rect x="278" y="89" width="140" height="20" rx="4" fill="#9E2A2B"/>
+          <text x="426" y="103" font-size="10.5" font-weight="800" fill="#9E2A2B">${en ? "14 Calendar Days · s 347(3)(a) [Zero Extension]" : "14 역일 불변 · s 347(3)(a) [통지일 구금 기준]"}</text>
 
-          <text x="18" y="140" font-size="11" font-weight="700" fill="#0E3A3E">${en ? "3. Onshore Visa / Nomination Refusal ART" : "3. 호주 내 일반 비자·노미네이션 거절 ART"}</text>
+          <text x="18" y="140" font-size="11" font-weight="700" fill="#0E3A3E">${en ? "3. Part 5 Refusal / s 116 Cancel / Sponsor ART" : "3. 일반 거절 · s 116 취소 · 스폰서 ART 재심"}</text>
           <rect x="278" y="125" width="205" height="20" rx="4" fill="#0E3A3E"/>
-          <text x="491" y="139" font-size="10.5" font-weight="700" fill="#0E3A3E">${en ? "28 Calendar Days · reg 4.10(1)(a)" : "28 역일 · reg 4.10(1)(a)"}</text>
+          <text x="491" y="139" font-size="10.5" font-weight="700" fill="#0E3A3E">${en ? "28 Calendar Days · s 347(3)(b) [Non-Detained]" : "28 역일 불변 · s 347(3)(b) [비구금 · 연장 불가]"}</text>
 
           <text x="18" y="176" font-size="11" font-weight="700" fill="#1F5A5E">${en ? "4. s 501(3A) Mandatory Cancellation Revocation" : "4. s 501(3A) 강제취소 철회 요청 (s 501CA)"}</text>
           <rect x="278" y="161" width="205" height="20" rx="4" fill="#1F5A5E"/>
-          <text x="491" y="175" font-size="10.5" font-weight="700" fill="#1F5A5E">${en ? "28 Calendar Days · Direction No. 123" : "28 역일 · Direction No. 123"}</text>
+          <text x="491" y="175" font-size="10.5" font-weight="700" fill="#1F5A5E">${en ? "28 Calendar Days · s 501CA / Direction No. 123" : "28 역일 · s 501CA / Direction No. 123"}</text>
 
-          <text x="18" y="212" font-size="11" font-weight="700" fill="#3A4D4F">${en ? "5. FCFCOA Judicial Review (Jurisdictional Error)" : "5. 연방순회·가족법원(FCFCOA) 사법심사"}</text>
-          <rect x="278" y="197" width="245" height="20" rx="4" fill="#3A4D4F"/>
-          <text x="531" y="211" font-size="10.5" font-weight="700" fill="#3A4D4F">${en ? "35 Calendar Days · s 477" : "35 역일 · s 477"}</text>
+          <text x="18" y="212" font-size="11" font-weight="700" fill="#1D6B47">${en ? "5. Protection (866) ART Review + Upfront Fee" : "5. 보호비자(866) ART 재심 + 선납 수수료"}</text>
+          <rect x="278" y="197" width="205" height="20" rx="4" fill="#1D6B47"/>
+          <text x="491" y="211" font-size="10.5" font-weight="700" fill="#1D6B47">${en ? "28d (14d Detained) · $1,863.50 reg 4.31B" : "28 역일(구금 14일) · $1,863.50 reg 4.31B"}</text>
 
-          <text x="18" y="248" font-size="11" font-weight="700" fill="#1D6B47">${en ? "6. Offshore Refusal Sponsor ART Review" : "6. 해외 비자 거절 호주 스폰서 ART 재심"}</text>
-          <rect x="278" y="233" width="320" height="20" rx="4" fill="#1D6B47"/>
-          <text x="605" y="247" font-size="10.5" font-weight="700" fill="#1D6B47">${en ? "70 Days" : "70 역일"}</text>
+          <text x="18" y="248" font-size="11" font-weight="700" fill="#3A4D4F">${en ? "6. FCFCOA Judicial Review (From Decision Date)" : "6. 연방순회·가족법원(FCFCOA) 사법심사"}</text>
+          <rect x="278" y="233" width="245" height="20" rx="4" fill="#3A4D4F"/>
+          <text x="531" y="247" font-size="10.5" font-weight="700" fill="#3A4D4F">${en ? "35 Calendar Days · s 477(1)–(3)" : "결정일 후 35 역일 · s 477(1)–(3)"}</text>
         </svg>
       `;
     }
@@ -937,20 +1035,32 @@
     }
 
     const type = document.getElementById("art-decision-type")?.value || "onshore_refusal";
-    const deliveryMethod = document.getElementById("art-delivery-method")?.value || "email";
-    const dateStr = document.getElementById("art-notice-date")?.value || window.ParkCoDates.todayBrisbaneIso();
+    const deliveryMethod = (document.getElementById("art-delivery-method")?.value || "").trim();
+    const dateStr = (document.getElementById("art-notice-date")?.value || "").trim();
     const stateCode = document.getElementById("art-state")?.value || "QLD";
     const subStatus = document.getElementById("art-substantive-status")?.value || "bridging";
 
-    const calc = computeArtDeadline(type, dateStr, stateCode, STATE.lang, deliveryMethod);
-    if (!calc) {
-      out.innerHTML = `<div class="pk-empty-prompt"><span>${en ? "Please enter a valid notification date (YYYY-MM-DD)." : "유효한 통지서 발송·수신일(YYYY-MM-DD)을 입력해 주십시오."}</span></div>`;
+    if (!dateStr || !deliveryMethod) {
+      out.innerHTML = `<div class="pk-empty-prompt"><span>${en ? "Incomplete input: please provide both the Notification / Decision Date (YYYY-MM-DD) and Delivery Method so no statutory deadline is guessed." : "필수 입력 누락: 추정 마감일 산출을 방지하기 위해 통지서 발송·결정일(YYYY-MM-DD)과 송달 방식을 모두 입력해 주십시오."}</span></div>`;
+      updateCrisisPreview();
       return;
     }
 
+    const calc = computeArtDeadline(type, dateStr, stateCode, STATE.lang, deliveryMethod);
+    if (!calc) {
+      out.innerHTML = `<div class="pk-empty-prompt"><span>${en ? "Invalid date or delivery method: please enter a valid calendar date (YYYY-MM-DD) and delivery method." : "유효한 통지서 발송·결정일(YYYY-MM-DD)과 송달 방식을 입력해 주십시오."}</span></div>`;
+      updateCrisisPreview();
+      return;
+    }
+
+    const deemedTitle = calc.type === "fcfcoa_jr"
+      ? (en ? "Decision Date Anchor (s 477(3))" : "기산 기준 결정일자 (s 477(3))")
+      : (en ? "Notice Date & Deemed Receipt (s 494C / reg 2.55)" : "통지서 일자 및 법정 송달 간주일 (s 494C / reg 2.55)");
+
     const deemedHtml = `
       <div style="margin-bottom:10px;padding:9px 12px;background:var(--pk-bg);border:1px solid var(--pk-line);border-radius:8px;font-size:12.8px;color:var(--pk-ink);">
-        <strong>${en ? "Deemed Receipt Date (s 494C)" : "법정 송달 간주일 (s 494C)"}</strong>:
+        <strong>${deemedTitle}</strong>:
+        <span style="color:var(--pk-muted);">${en ? "Notice/Decision:" : "통지·결정일:"} <code>${calc.noticeDate}</code> &rarr; ${en ? "Effective Start:" : "기산 기준일:"}</span>
         <code style="font-weight:800;color:var(--pk-brand);">${calc.deemedReceiptDate}</code>
         <span style="color:var(--pk-muted);"> · ${calc.deliveryRuleLabel}</span>
       </div>
@@ -960,8 +1070,8 @@
       ? `
         <div class="alert-box alert-box--danger" id="art-weekend-warning-banner" style="margin-bottom:10px;">
           ${en
-            ? `<strong>⚠️ Weekend / Public Holiday Statutory Expiry Warning (<code>${calc.statutoryDate}</code> · ${calc.weekendWarning})</strong>: The raw calendar deadline falls on <strong>${calc.weekendWarning}</strong>. While <em>Acts Interpretation Act 1901</em> s 36(2) may extend certain deadlines where a registry is closed, online 24/7 portals (ART / ImmiAccount) and strict provisions under <em>Migration Regulations 1994</em> reg 4.10 / s 500(6B) / s 501CA create acute jurisdictional risk if you wait until the next business day. <strong>Lodge on or before the Conservative Safe Business Day (<code>${calc.safeDate}</code>).</strong>`
-            : `<strong>⚠️ 주말·공휴일 만료 주의 경보 (<code>${calc.statutoryDate}</code> · ${calc.weekendWarning})</strong>: 역일 기준 법정 만료일이 주말 또는 공휴일(<strong>${calc.weekendWarning}</strong>)에 해당합니다. <em>Acts Interpretation Act 1901</em> s 36(2) 익영업일 연장 법리는 24시간 온라인 접수 시스템(ART·ImmiAccount) 및 <em>Migration Regulations 1994</em> reg 4.10 · s 500(6B) · s 501CA 엄격 불변 기한에서 적용이 배제될 위험이 매우 높으므로 반드시 <strong>직전 평일인 보수적 안전 접수 권고일(<code>${calc.safeDate}</code>)까지 접수를 완료</strong>하십시오.`}
+            ? `<strong>⚠️ Weekend / Public Holiday Statutory Expiry Warning (<code>${calc.statutoryDate}</code> · ${calc.weekendWarning})</strong>: The raw calendar deadline falls on <strong>${calc.weekendWarning}</strong>. Under <em>Acts Interpretation Act 1901</em> s 36(2)–(3), statutory tribunal/court filing periods ending on a Saturday, Sunday, or relevant public holiday generally roll to the next business day (note: substantive visa expiry NEVER extends on weekends per <em>MIBP v Kumar</em> [2017] HCA 11). However, because 24/7 online portal timestamps, timezones, and State vs Registry public holiday schedules can create acute jurisdictional disputes, <strong>we strongly recommend lodging on or before the Conservative Safe Business Day (<code>${calc.safeDate}</code>).</strong>`
+            : `<strong>⚠️ 주말·공휴일 만료 주의 경보 (<code>${calc.statutoryDate}</code> · ${calc.weekendWarning})</strong>: 역일 기준 만료일이 주말 또는 공휴일(<strong>${calc.weekendWarning}</strong>)에 해당합니다. <em>Acts Interpretation Act 1901</em> s 36(2)–(3)에 따라 재심·법원 제소 기한 말일이 토·일·관할 공휴일이면 원칙적으로 익영업일 도래 법리가 적용되나(주의: 실체 비자 만료일은 <em>MIBP v Kumar</em> [2017] HCA 11 판례상 주말 연장 절대 불가) 온라인 24시간 접수 시각 기준·시간대 차이·주별/재판소 공휴일 불일치 분쟁을 원천 차단하기 위해 <strong>직전 영업일인 보수적 안전 접수 권고일(<code>${calc.safeDate}</code>)까지 접수를 완료하실 것을 강력히 권고</strong>합니다.`}
         </div>
       `
       : "";
@@ -969,6 +1079,10 @@
     const holidayHtml = calc.skippedHolidays.length > 0
       ? `<p style="margin:6px 0 0;font-size:12.5px;color:var(--pk-brand);"><strong>${en ? "Excluded Public Holidays" : "제외된 주별 법정 공휴일"} (${calc.state})</strong>: ${calc.skippedHolidays.map((h) => `${h.date} (${h.name})`).join(", ")}</p>`
       : `<p style="margin:6px 0 0;font-size:12.5px;color:var(--pk-muted);">${en ? `State holiday calendar applied: ${calc.state} (2026–2030)` : `적용된 공휴일 기준: ${calc.state} 주/준주 (2026–2030 법정 공휴일 반영)`}</p>`;
+
+    const boxHeading = calc.statusHeading || (calc.extendable
+      ? (en ? "Timeframe & Discretionary Extension Rules" : "법정 기한 및 연장 요건 안내")
+      : (en ? "Strict Non-Extendable Statutory Deadline" : "법정 불변 기한 엄수 안내 (연장 불가)"));
 
     out.innerHTML = `
       ${deemedHtml}
@@ -988,10 +1102,10 @@
         ${holidayHtml}
       </div>
       <div class="alert-box ${calc.extendable ? "alert-box--warn" : "alert-box--danger"}" style="margin-top:8px;">
-        <p style="margin:0 0 6px;"><strong>${calc.extendable ? (en ? "NOICC Response Timeframe" : "NOICC 소명 기한 안내") : (en ? "Strict Statutory Deadline" : "법정 불변 기한 엄수 안내")}</strong>: ${calc.note}</p>
-        <p style="margin:0 0 6px;"><strong>[${en ? "FY2026–27 ART Fees" : "FY2026–27 행정재심기구(ART) 수수료"}]</strong>: ${en
-          ? "Standard Migration Review: $3,727 AUD (50% hardship reduction / 50% refund on favourable outcome: $1,863.50) · Protection Review (reg 4.31B): mandatory $1,863.50 upfront within 28 days · Character s 501: $1,195."
-          : "일반 이민 재심(reg 4.13A): $3,727 AUD (경제적 곤궁 50% 감면 및 인용·환송 시 50% 환급: $1,863.50) · 보호비자 재심(reg 4.31B): 28일 기한 내 $1,863.50 선납 필수 · s 501 인성 재심: $1,195."}</p>
+        <p style="margin:0 0 6px;"><strong>${boxHeading}</strong>: ${calc.note}</p>
+        <p style="margin:0 0 6px;"><strong>[${en ? "FY2026–27 ART Fees (Indexed 1 Jul · reg 4.13A)" : "FY2026–27 행정재심기구(ART) 수수료 (매년 7.1 reg 4.13A 물가연동)"}]</strong>: ${en
+          ? "General Migration Review (reg 4.13): $3,727 AUD (discretionary 50% severe financial hardship reduction under reg 4.13(4) & 50% favourable refund under reg 4.14: $1,863.50) · Protection Review lodged >= 1 Nov 2026 (F2026L01448 · reg 4.31B): mandatory $1,863.50 upfront, exempt ONLY if in detention (reg 4.31B(2)(a)) or combined paid application (reg 4.31B(2)(b)) — NO financial hardship waiver (100% favourable refund reg 4.31B(3)) · Character s 501: $1,195."
+          : "일반 이민 재심(reg 4.13): $3,727 AUD (심각한 경제적 곤궁 시 reg 4.13(4) 재량 50% 감면 신청 가능 및 인용 시 50% 환급: $1,863.50) · 2026.11.01 이후 ART 접수 보호비자 재심(F2026L01448 · reg 4.31B): $1,863.50 선납 필수 · 면제는 ① 이민 구금(reg 4.31B(2)(a)) 또는 ② 납부 사건 병합(reg 4.31B(2)(b))만 해당하며 재정 곤궁 면제 없음(인용 시 100% 환급) · s 501 인성 재심: $1,195."}</p>
         <p style="margin:0;"><strong>[Section 48]</strong>: ${subStatus === "bridging"
           ? (en
             ? "No substantive visa held: Section 48 applies immediately; only reg 2.12 exempt visas (190/491/494/820/602/866) can be lodged onshore."
@@ -1236,8 +1350,8 @@
       modalBody.innerHTML = `
         <p style="font-size:13.5px;color:var(--pk-ink-2);margin-bottom:14px;">
           ${en
-            ? "Live verification status of 14 Migration Act 1958, Migration Regulations 1994, Administrative Review Tribunal (ART), and FCFCOA primary sources."
-            : "14개 호주 연방 이민법(Migration Act 1958 / Regulations 1994)과 행정재심기구(ART) 및 연방순회·가족법원(FCFCOA) 1차 출처 검증 현황입니다."}
+            ? "HTTP availability and SHA-256 snapshot integrity status across 14 Migration Act 1958, Migration Regulations 1994, ART, and FCFCOA primary documents. Note: SHA-256 hashes verify source file/response integrity at capture time, NOT automated legal advice or blanket certification of individual case calculations."
+            : "14개 호주 연방 이민법(Migration Act 1958 / Regulations 1994)과 행정재심기구(ART) 및 연방순회·가족법원(FCFCOA) 원문 스냅샷의 HTTP 응답 및 SHA-256 파일 무결성 현황입니다(문서 바이트 무결성 확인용이며 개별 사건의 법률 해석이나 계산 결과를 자동 보증하지 않습니다)."}
         </p>
         <div class="pk-table-scroll">
           <table class="data-table">
@@ -1336,8 +1450,8 @@
           stratKo = "대기 기간 동안 동거·공동재정·사회적 인정 증거와 Schedule 3 참작 자료를 누적 보강합니다.";
           stratEn = "Accumulate cohabitation, joint financials, and Schedule 3 evidence prior to hearing.";
         } else if (catLow.includes("student cancellation")) {
-          stratKo = "취소 결정 전 NOICC(5영업일) 소명 단계와 취소 확정 후 ART 재심(7영업일) 기한을 엄격히 구분해 대응합니다.";
-          stratEn = "Distinguish strictly between NOICC (5 working days) and post-cancellation ART review (7 working days).";
+          stratKo = "취소 결정 전 NOICC(5영업일 · reg 2.44(2)(a)) 소명 단계와 취소 확정 후 ART 재심(28역일 · 통지일 구금 시 14역일 · s 347(3)) 기한을 엄격히 구분해 대응합니다.";
+          stratEn = "Distinguish strictly between pre-cancellation NOICC (5 working days · reg 2.44(2)(a)) and post-cancellation ART review (28 calendar days, or 14 days if detained on day notified · s 347(3)).";
         } else if (catLow.includes("bridging")) {
           stratKo = "구금·브리징 사건은 신속 심리(중위 11일)되므로 접수와 동시에 완비된 의견서를 제출해야 합니다.";
           stratEn = "Expedited bridging/detention review (11-day median) requires complete submissions at lodgement.";
@@ -1358,20 +1472,20 @@
   const OPTION_I18N = {
     "art-decision-type": {
       onshore_refusal: {
-        ko: "호주 내 일반 비자 거절 또는 스폰서십/노미네이션 거절 후 ART 재심 청구 (28 역일 · reg 4.10(1)(a))",
-        en: "Onshore Visa or Sponsorship/Nomination Refusal ART Review (28 Calendar Days · reg 4.10(1)(a))"
+        ko: "호주 내 일반 비자 거절 또는 스폰서십/노미네이션 거절 후 ART 재심 청구 · 통지일 비구금 (28 역일 불변 · s 347(3)(b))",
+        en: "Onshore Visa or Sponsorship/Nomination Refusal ART Review · Non-Detained on Day Notified (28 Calendar Days · s 347(3)(b))"
       },
       s116_noicc: {
-        ko: "호주 내 비자 취소 예고통지(NOICC) 소명서 제출 (취소 결정 전 · 통상 5 영업일 · reg 2.44)",
-        en: "Onshore s 116 NOICC Response Before Cancellation (Typically 5 Working Days · reg 2.44)"
+        ko: "호주 내 비자 취소 예고통지(NOICC) 소명서 제출 (취소 결정 전 · 5 영업일 · reg 2.44(2)(a))",
+        en: "Onshore s 116 NOICC Response Before Cancellation (5 Working Days · reg 2.44(2)(a))"
       },
       s116_cancel: {
-        ko: "호주 내 일반 비자 취소 결정 후 ART 재심 청구 (취소 확정 후 · 7 영업일 불변 · reg 4.10(1)(b))",
-        en: "Post-Cancellation Onshore s 116 ART Merits Review (7 Working Days Non-Extendable · reg 4.10(1)(b))"
+        ko: "호주 내 일반 비자 취소(s 116 등) 결정 후 ART 재심 청구 · 통지일 비구금 (28 역일 불변 · s 347(3)(b))",
+        en: "Post-Cancellation Onshore s 116 ART Merits Review · Non-Detained on Day Notified (28 Calendar Days · s 347(3)(b))"
       },
       protection_refusal: {
-        ko: "호주 내 보호비자(866) 거절 후 ART 재심 청구 (28 역일 + $1,863.50 선납 필수 · reg 4.31B)",
-        en: "Onshore Protection Visa (866) ART Review (28 Calendar Days + $1,863.50 Upfront Fee · reg 4.31B)"
+        ko: "호주 내 보호비자(866) 거절 후 ART 재심 청구 · 통지일 비구금 (28 역일 · s 347(3)(b) + $1,863.50 선납 · reg 4.31B)",
+        en: "Onshore Protection Visa (866) ART Review · Non-Detained on Day Notified (28 Calendar Days · s 347(3)(b) + $1,863.50 Upfront Fee · reg 4.31B)"
       },
       s501_mandatory_rev: {
         ko: "s 501(3A) 인성 사유 강제 비자 취소 철회 요청 (28 역일 · s 501CA · Direction No. 123)",
@@ -1382,16 +1496,16 @@
         en: "Onshore s 501 Character Refusal / Non-Revocation ART Review (9 Calendar Days Non-Extendable · s 500(6B))"
       },
       detention_ref_canc: {
-        ko: "이민 구금(Detention) 상태에서 비자 거절 또는 s 116 취소 후 ART 재심 청구 (7 영업일 불변 · reg 4.10(2))",
-        en: "Immigration Detention Visa Refusal or s 116 Cancellation ART Review (7 Working Days · reg 4.10(2))"
+        ko: "통지 당일 이민 구금(Detention) 상태에서 비자 거절 또는 s 116 취소 후 ART 재심 청구 (14 역일 불변 · s 347(3)(a))",
+        en: "In Immigration Detention on Day Notified · Visa Refusal or s 116 Cancellation ART Review (14 Calendar Days · s 347(3)(a))"
       },
       offshore_sponsor: {
-        ko: "해외(Offshore) 비자 거절 건에 대한 호주 스폰서의 ART 재심 청구 (70 역일 · reg 4.10(1)(c))",
-        en: "Offshore Visa Refusal · Australian Sponsor ART Review (70 Calendar Days · reg 4.10(1)(c))"
+        ko: "해외(Offshore) 비자 거절 건에 대한 적격 호주 스폰서의 ART 재심 청구 (28 역일 불변 · s 347(3)(b))",
+        en: "Offshore Visa Refusal · Eligible Australian Sponsor ART Review (28 Calendar Days · s 347(3)(b))"
       },
       fcfcoa_jr: {
-        ko: "행정재심기구(ART) 기각 후 연방순회·가족법원(FCFCOA) 사법심사 청구 (35 역일 · s 477)",
-        en: "FCFCOA Judicial Review After ART Dismissal (35 Calendar Days · s 477)"
+        ko: "행정재심기구(ART) 결정일 기준 연방순회·가족법원(FCFCOA) 사법심사 청구 (결정일로부터 35 역일 · s 477)",
+        en: "FCFCOA Judicial Review from Date of Migration Decision (35 Calendar Days · s 477)"
       }
     },
     "art-delivery-method": {
@@ -1403,9 +1517,13 @@
         ko: "호주 국내 등기우편 (s 494C(4)(a): 발송일 + 7영업일 수령 간주)",
         en: "Registered Post within Australia (s 494C(4)(a): Deemed received +7 working days)"
       },
+      post_intl: {
+        ko: "해외 등기·국제우편 (s 494C(4)(b): 발송일 + 21역일 수령 간주)",
+        en: "International / Overseas Post (s 494C(4)(b): Deemed received +21 calendar days)"
+      },
       hand: {
-        ko: "직접 교부 (s 494C(1): 교부 당일)",
-        en: "Hand Delivery in Person (s 494C(1): Deemed received on day given)"
+        ko: "직접 교부 (s 494C(2): 교부 당일)",
+        en: "Hand Delivery in Person (s 494C(2): Deemed received on day given)"
       }
     },
     "art-state": {
@@ -1793,6 +1911,8 @@
   if (typeof globalThis !== "undefined") {
     globalThis.VISA_CRISIS_NAVIGATOR = {
       computeArtDeadline: computeArtDeadline,
+      computeArtFee: computeArtFee,
+      updateArtDeadline: updateArtDeadline,
       applyToolDeepLink: applyToolDeepLink,
       setLanguage: setLanguage,
       STATE: STATE
