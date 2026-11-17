@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T07:55:54+10:00",
+  "generated_at": "2026-11-18T08:29:43+10:00",
   "sources": [
     {
       "id": "migration_act_s48",
@@ -14,7 +14,7 @@
       "status": "verified_ok",
       "http_status": 200,
       "bytes": 1747244,
-      "last_checked": "2026-11-16T07:55:54+10:00",
+      "last_checked": "2026-11-18T08:29:43+10:00",
       "sha256_prefix": "22cc03a0b0a72db0"
     },
     {
@@ -29,9 +29,9 @@
       "tracks": "Partner (820/801), Skilled Nominated/Regional (190, 491, 494), Medical (602), Protection (866), Child (802), Bridging (A-R)",
       "status": "verified_ok",
       "http_status": 200,
-      "bytes": 3579753,
-      "last_checked": "2026-11-16T07:55:54+10:00",
-      "sha256_prefix": "ae1a559eefb18f88"
+      "bytes": 3581175,
+      "last_checked": "2026-11-18T08:29:43+10:00",
+      "sha256_prefix": "2fbcc5ba6182a19b"
     },
     {
       "id": "migration_regs_4_10_art",
@@ -45,9 +45,9 @@
       "tracks": "s 347(3)(b) 28 calendar days (non-detained onshore refusal, s 116 cancellation, offshore sponsor review, protection refusal); s 347(3)(a) 14 calendar days (in immigration detention on day notified); s 347(5) excludes ART Act s 19 extension",
       "status": "verified_ok",
       "http_status": 200,
-      "bytes": 310930,
-      "last_checked": "2026-11-16T07:55:54+10:00",
-      "sha256_prefix": "75fbccc65672c2a2"
+      "bytes": 310905,
+      "last_checked": "2026-11-18T08:29:43+10:00",
+      "sha256_prefix": "9719cc7ff9d112be"
     },
     {
       "id": "migration_act_s501_500",
@@ -62,7 +62,7 @@
       "status": "verified_ok",
       "http_status": 200,
       "bytes": 1747244,
-      "last_checked": "2026-11-16T07:55:54+10:00",
+      "last_checked": "2026-11-18T08:29:43+10:00",
       "sha256_prefix": "22cc03a0b0a72db0"
     },
     {
@@ -74,11 +74,11 @@
       "url": "https://immi.homeaffairs.gov.au/support-subsite/files/ministerial-direction-123.pdf",
       "method": "PDF Policy Verification",
       "cadence": "Weekly",
-      "tracks": "Commenced 31 Oct 2026 (replacing Direction 110): 6 primary considerations · Protection of Australian community (highest priority), Family violence (broadened definition), Impact on Australia's social cohesion (new 6th primary consideration), Ties to Australia, Best interests of minor children, Expectations of community",
+      "tracks": "Commenced 31 Oct 2026 (replacing Direction 110): 4 Primary Considerations — 8.1 Protection of the Australian community (highest priority), 8.2 Family violence, 8.3 Expectations of the Australian community (incl. hate speech/extremism/social discord 8.3(2)(g)), 8.4 Best interests of minor children in Australia; Ties to Australia (9.1) demoted to Other considerations; Impact on Australian business interests removed",
       "status": "verified_ok",
       "http_status": 200,
       "bytes": 480670,
-      "last_checked": "2026-11-16T07:55:54+10:00",
+      "last_checked": "2026-11-18T08:29:43+10:00",
       "sha256_prefix": "10e6cb6f6f0ad4eb"
     },
     {
@@ -94,7 +94,7 @@
       "status": "verified_ok",
       "http_status": 200,
       "bytes": 1747244,
-      "last_checked": "2026-11-16T07:55:54+10:00",
+      "last_checked": "2026-11-18T08:29:43+10:00",
       "sha256_prefix": "22cc03a0b0a72db0"
     },
     {
@@ -109,9 +109,9 @@
       "tracks": "PIC 4020(1)/(2) 3-yr bar (Waiver available under 4020(4) for compassionate/compelling interests of AU citizen/PR) vs PIC 4020(2A)/(2B) 10-yr identity bar (NO waiver)",
       "status": "verified_ok",
       "http_status": 200,
-      "bytes": 3579753,
-      "last_checked": "2026-11-16T07:55:54+10:00",
-      "sha256_prefix": "ae1a559eefb18f88"
+      "bytes": 3581175,
+      "last_checked": "2026-11-18T08:29:43+10:00",
+      "sha256_prefix": "2fbcc5ba6182a19b"
     },
     {
       "id": "sch4_pic_4013_4014",
@@ -125,9 +125,9 @@
       "tracks": "3-year exclusion from temporary visas if departing unlawful (>28 days after expiry) or on BVC/BVD/BVE; affects temporary visas (not permanent PR visas unless specified)",
       "status": "verified_ok",
       "http_status": 200,
-      "bytes": 3579753,
-      "last_checked": "2026-11-16T07:55:54+10:00",
-      "sha256_prefix": "ae1a559eefb18f88"
+      "bytes": 3581175,
+      "last_checked": "2026-11-18T08:29:43+10:00",
+      "sha256_prefix": "2fbcc5ba6182a19b"
     },
     {
       "id": "condition_8503_waiver",
@@ -141,8 +141,8 @@
       "tracks": "Compelling and compassionate circumstances developed since visa grant, beyond applicant's control, resulting in major change (note: marriage/pregnancy alone usually insufficient unless complicated)",
       "status": "verified_ok",
       "http_status": 200,
-      "bytes": 1313267,
-      "last_checked": "2026-11-16T07:55:54+10:00",
+      "bytes": 1314130,
+      "last_checked": "2026-11-18T08:29:43+10:00",
       "sha256_prefix": "8dc8529bd7f67689"
     },
     {
@@ -157,9 +157,9 @@
       "tracks": "FY2026–27 Migration Review Fee $3,727 indexed 1 Jul under reg 4.13A (discretionary 50% hardship reduction reg 4.13(4) & 50% refund $1,863.50) · Protection Visa review lodged on/after 1 Nov 2026: mandatory $1,863.50 upfront fee (F2026L01448, reg 4.31B(1), Sch 13 cl 16501; exempt ONLY if in immigration detention reg 4.31B(2)(a) or combined paid application reg 4.31A / 4.31B(2)(b); NO financial hardship waiver; 100% refund on favourable outcome reg 4.31B(3)) · Character s 501 $1,195",
       "status": "verified_ok",
       "http_status": 200,
-      "bytes": 127549,
-      "last_checked": "2026-11-16T07:55:54+10:00",
-      "sha256_prefix": "21e4f9ad709ae56e"
+      "bytes": 127524,
+      "last_checked": "2026-11-18T08:29:43+10:00",
+      "sha256_prefix": "51d6e3a443a28164"
     },
     {
       "id": "dha_bve_unlawful_status",
@@ -173,8 +173,8 @@
       "tracks": "Lawful status restoration, Schedule 3 waiver requirements for onshore Partner 820 applicants without a substantive visa",
       "status": "verified_ok",
       "http_status": 200,
-      "bytes": 1301576,
-      "last_checked": "2026-11-16T07:55:54+10:00",
+      "bytes": 1302439,
+      "last_checked": "2026-11-18T08:29:43+10:00",
       "sha256_prefix": "bd2c9a82452f84d0"
     },
     {
@@ -189,8 +189,8 @@
       "tracks": "35-day statutory deadline from date of ART decision to file judicial review application for jurisdictional error",
       "status": "verified_ok",
       "http_status": 200,
-      "bytes": 83893,
-      "last_checked": "2026-11-16T07:55:54+10:00",
+      "bytes": 84913,
+      "last_checked": "2026-11-18T08:29:43+10:00",
       "sha256_prefix": "7e9d65fb8bb23d5c"
     },
     {
@@ -205,9 +205,9 @@
       "tracks": "Partner 3y2m/3y11m · Nomination 1y6m/2y4m · Temp Work 1y6m/2y10m · Student Refusal 1y5m/2y2m · Bridging 11d/1y1m · Protection 2y1m/4y11m",
       "status": "verified_ok",
       "http_status": 200,
-      "bytes": 107453,
-      "last_checked": "2026-11-16T07:55:54+10:00",
-      "sha256_prefix": "6e39cfcc311ee643"
+      "bytes": 107428,
+      "last_checked": "2026-11-18T08:29:43+10:00",
+      "sha256_prefix": "15a78df6c48f225e"
     },
     {
       "id": "art_caseload_subclass_outcomes",
@@ -222,7 +222,7 @@
       "status": "verified_ok",
       "http_status": 200,
       "bytes": 974695,
-      "last_checked": "2026-11-16T07:55:54+10:00",
+      "last_checked": "2026-11-18T08:29:43+10:00",
       "sha256_prefix": "fe57c01188167f6b"
     }
   ]
